@@ -9,14 +9,14 @@ publication: requires-approval
 # The Ancients
 
 ## Established lore
-The **Ancients** are powerful old guardians of Albion. Their work is associated with maintaining the ancient structures that protect the island from Chaos. Some sleep, some persist in strange forms, and some are diminished or erratic; age does not guarantee wisdom.
+The **Ancients** are essentially the **last surviving humanoid beings left behind by the Old Ones to maintain Albion's pylons**. These ancient guardians are individuals, not the ordinary warrior-monks who accompany them. Pylons are part of the ancient works that hold back Chaos.
 
-The road-junction **Trickster** is understood as an Ancient whose increasingly unpredictable magic becomes tangled with impossible knots, five-way junctions, gift days and—through Alfran's reforming programme—roundabouts.
+Known Ancients include **Old Shannock, Snakespeaker, Genny Willows, Old Nag and Father Winter**. The road-junction **Trickster** is also understood as an Ancient; his increasingly unpredictable magic becomes tangled with impossible knots, five-way junctions, gift days and, later, roundabouts. **Rhiannon** is believed to be an Ancient, with fire-associated powers.
 
-**Rhiannon** is believed to be an Ancient and is associated with fire magic.
+Some Ancients sleep, some remain active in strange forms, and some have become erratic or diminished. Their great age does not guarantee clear judgement.
 
 ## Unresolved
-Their number, individual origins and relationship to the Old Ones are not established.
+Whether the full list is exhaustive; exact origins, numbers and individual duties; what distinguishes confirmed Ancients from figures only believed to be Ancients.
 
 ## See also
-[Pylons](../magic/pylons.md), [Albion](../places/albion.md).
+[Pylons](../magic/pylons.md), [Old Shannock](../characters/old-shannock.md), [Albion](../places/albion.md).

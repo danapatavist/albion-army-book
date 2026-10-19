@@ -1,0 +1,81 @@
+{
+  "pack_version": "0.1",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "mode": "two-page responsive 16:9"
+  },
+  "assets": [
+    {
+      "path": "assets/cover/albion-cover-1920x1080.jpg",
+      "status": "included",
+      "purpose": "Full-bleed opening cover; 1920\u00d71080",
+      "notes": "Existing generated artwork upscaled to delivery dimensions; preserve corners"
+    },
+    {
+      "path": "assets/textures/paper-spread-base.png",
+      "status": "planned",
+      "purpose": "Text-free aged parchment base for both pages"
+    },
+    {
+      "path": "assets/textures/gutter-shadow.png",
+      "status": "planned",
+      "purpose": "Transparent centre crease/shadow overlay"
+    },
+    {
+      "path": "assets/borders/left-page-frame.png",
+      "status": "planned",
+      "purpose": "Transparent ink page framing"
+    },
+    {
+      "path": "assets/borders/right-page-frame.png",
+      "status": "planned",
+      "purpose": "Transparent ink page framing"
+    },
+    {
+      "path": "assets/ornaments/chapter-divider-bronze.png",
+      "status": "planned",
+      "purpose": "Transparent motif for chapter divider"
+    },
+    {
+      "path": "assets/ornaments/margin-spiral-01.png",
+      "status": "planned",
+      "purpose": "Small decorative knot/spiral"
+    },
+    {
+      "path": "assets/heraldry/host-blue.png",
+      "status": "planned",
+      "purpose": "Blue Host symbol"
+    },
+    {
+      "path": "assets/heraldry/host-red.png",
+      "status": "planned",
+      "purpose": "Red Host symbol"
+    },
+    {
+      "path": "assets/heraldry/host-green.png",
+      "status": "planned",
+      "purpose": "Green Host symbol"
+    },
+    {
+      "path": "assets/heraldry/host-grey.png",
+      "status": "planned",
+      "purpose": "Grey Host symbol"
+    },
+    {
+      "path": "assets/illustrations/ink-shieldwall.png",
+      "status": "planned",
+      "purpose": "Black and white line art"
+    },
+    {
+      "path": "assets/illustrations/ink-barrow.png",
+      "status": "planned",
+      "purpose": "Black and white line art"
+    },
+    {
+      "path": "assets/maps/albion-isle-map.png",
+      "status": "planned",
+      "purpose": "Original map without baked-in label text"
+    }
+  ]
+}

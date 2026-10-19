@@ -63,11 +63,11 @@ body{margin:0;background:var(--table);color:var(--parch);font-family:var(--body)
 .page.right{left:960px}
 .sheet .side>.page{left:0}
 .page>.inner{position:relative;z-index:2;height:100%;padding:72px 78px;display:flex;flex-direction:column;gap:26px}
-.page.left>.inner{padding-right:58px}
-.page.right>.inner{padding-left:58px}
+.page.left>.inner{padding-right:88px}
+.page.right>.inner{padding-left:88px}
 .page.left::after,.page.right::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none}
-.page.left::after{background:linear-gradient(90deg,rgba(60,40,18,.22) 0 2%,transparent 9%,transparent 88%,rgba(42,28,12,.42) 100%)}
-.page.right::after{background:linear-gradient(270deg,rgba(60,40,18,.22) 0 2%,transparent 9%,transparent 88%,rgba(42,28,12,.42) 100%)}
+.page.left::after{background:linear-gradient(90deg,rgba(60,40,18,.20) 0 1.5%,transparent 8%,transparent 74%,rgba(48,31,13,.16) 88%,rgba(34,21,8,.46) 97%,rgba(22,13,4,.72) 100%)}
+.page.right::after{background:linear-gradient(270deg,rgba(60,40,18,.20) 0 1.5%,transparent 8%,transparent 74%,rgba(48,31,13,.16) 88%,rgba(34,21,8,.46) 97%,rgba(22,13,4,.72) 100%)}
 
 /* ornate frame */
 .frame{position:absolute;inset:40px;z-index:1;border:2px solid var(--gold);opacity:.75}
@@ -112,7 +112,7 @@ em{font-style:italic}
 /* ---------- plates (details cropped from the one cover painting) ---------- */
 .plate{
   position:relative;width:100%;flex:1 1 auto;min-height:0;border:2px solid var(--gold);
-  background-image:url("box-art.png");background-repeat:no-repeat;
+  background-image:url("assets/cover/albion-cover-1920x1080.jpg");background-repeat:no-repeat;
   box-shadow:inset 0 0 90px rgba(30,18,6,.75);
 }
 .plate.chief{background-size:300%;background-position:7% 46%}
@@ -123,6 +123,39 @@ em{font-style:italic}
 .plate.host{background-size:215%;background-position:18% 74%}
 .plate.lid{background-size:cover;background-position:center}
 .plate::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,4,.18),transparent 30%,rgba(20,12,4,.3));pointer-events:none}
+
+/* ---------- 6th-edition editorial template (The Isle is the reference spread) ---------- */
+.runhead{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:1.5px solid var(--gold);padding-bottom:7px;flex:none}
+.runhead .ch{font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ox)}
+.runhead .bk{font-family:var(--body);font-style:italic;font-size:15px;color:var(--ink-soft)}
+
+.editorial{display:grid;grid-template-columns:1fr 182px;gap:34px;flex:1;min-height:0}
+.editorial.flip{grid-template-columns:182px 1fr}
+.editorial>*{min-width:0}
+.column{display:flex;flex-direction:column;gap:18px;min-height:0}
+
+.body2{columns:2;column-gap:36px;column-rule:1px solid rgba(90,68,30,.28);font-size:19px;line-height:1.48;text-align:justify;hyphens:auto}
+.body2 p{margin:0 0 12px;break-inside:avoid-column}
+.spot{font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);margin:2px 0 5px;break-after:avoid}
+
+.margin{display:flex;flex-direction:column;gap:20px;font-size:16px;line-height:1.4;color:var(--ink-soft);font-style:italic}
+.margin section{border-top:1.5px solid var(--gold);padding-top:9px}
+.margin b{display:block;font-style:normal;font-family:var(--display);font-weight:600;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:5px}
+.margin .glyph{color:var(--gold);opacity:.8}
+.margin .glyph svg{width:100%;height:auto;display:block}
+
+/* ruled annals, printed not panelled */
+.annals{display:flex;flex-direction:column;border-top:1.5px solid var(--gold);flex:none}
+.annals div{display:grid;grid-template-columns:172px 1fr;gap:16px;padding:6px 0;border-bottom:1px solid rgba(90,68,30,.32);font-size:18px}
+.annals span:first-child{font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);padding-top:4px}
+
+/* a plate as a printed illustration, not a card */
+.illus{position:relative;flex:1;min-height:0;border:1px solid rgba(60,42,18,.75);outline:1px solid rgba(60,42,18,.35);outline-offset:4px;background:rgba(173,146,92,.18)}
+.illus>svg{position:absolute;inset:0;width:100%;height:100%}
+.illus.plate{outline-color:rgba(60,42,18,.5)}
+.inkcap{font-family:var(--body);font-style:italic;font-size:16px;color:var(--ink-soft);text-align:center;flex:none}
+.inkcap b{font-style:normal;font-family:var(--display);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);display:block;margin-bottom:2px}
 
 /* ---------- blocks ---------- */
 .statline{width:100%;border-collapse:collapse;font-size:18px;font-variant-numeric:tabular-nums}
@@ -170,7 +203,8 @@ em{font-style:italic}
 
 /* ---------- cover ---------- */
 .lid{all:unset;cursor:pointer;display:block;position:absolute;inset:0;overflow:hidden}
-.lid img{display:block;width:100%;height:100%;object-fit:cover}
+.lid{background:#0a0704}
+.lid img{display:block;width:100%;height:100%;object-fit:contain}
 .lidhint{
   position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
   font-family:var(--display);font-size:13px;letter-spacing:.32em;text-transform:uppercase;
@@ -240,7 +274,7 @@ em{font-style:italic}
       <!-- ============ COVER ============ -->
       <section class="leaf cover is-current" data-tab="Cover">
         <button class="lid" id="openBook" aria-label="Open the book">
-          <img src="box-art.png" width="1672" height="941" alt="A battered boxed-game lid. Warhammer Albion, Myth, Barrows and Bronze. A woad-painted chieftain in an antlered helm leads a tribal host past standing stones; across the bog a hag with a skull-staff advances with blue-eyed wolves.">
+          <img src="assets/cover/albion-cover-1920x1080.jpg" width="1920" height="1080" alt="A battered boxed-game lid. Warhammer Albion, Myth, Barrows and Bronze. A woad-painted chieftain in an antlered helm leads a tribal host past standing stones; across the bog a hag with a skull-staff advances with blue-eyed wolves.">
           <span class="lidhint">Click the lid to open</span>
         </button>
       </section>
@@ -284,57 +318,100 @@ em{font-style:italic}
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">The Isle</p>
-            <h2>Albion</h2>
-            <div class="rule"></div>
-            <svg viewBox="0 0 520 620" style="flex:1;min-height:0;width:100%" fill="none">
-              <rect width="520" height="620" fill="rgba(173,146,92,.22)"/>
-              <path d="M262 24c38 10 54 36 86 44 30 8 54-6 70 18 15 23 2 48-6 72-9 26 6 44 2 70-5 29-36 36-44 64-9 29 10 56-6 80-17 25-54 18-80 32-27 15-40 48-70 50-31 2-48-28-74-42-27-15-62-10-78-36-16-25 4-54 2-82-2-27-24-46-16-72 8-27 42-30 60-52 18-21 14-56 42-72 27-15 62 6 92-2 8-2 14-8 20-14z"
-                fill="rgba(146,120,70,.35)" stroke="#6b5126" stroke-width="2.5"/>
-              <path d="M150 300c40-22 80-18 120 2M170 400c50-14 92-6 130 14" stroke="#6b5126" stroke-width="1.2" stroke-dasharray="5 7" opacity=".8"/>
-              <g fill="#5d4620">
-                <circle cx="206" cy="196" r="7"/><circle cx="330" cy="268" r="7"/>
-                <circle cx="196" cy="402" r="7"/><circle cx="342" cy="452" r="7"/>
-                <circle cx="268" cy="330" r="10" fill="#7e2318"/>
-              </g>
-              <g font-family="Cinzel, serif" font-size="16" fill="#4a3a1e" letter-spacing="1.5">
-                <text x="222" y="192">Carn Dhu</text>
-                <text x="346" y="264">Antler Throne</text>
-                <text x="60" y="398">Drowned Oak</text>
-                <text x="356" y="448">Bronze Barrow</text>
-                <text x="206" y="356" fill="#7e2318">King's Dale</text>
-              </g>
-              <g font-family="EB Garamond, serif" font-size="15" fill="#6b5a36" font-style="italic">
-                <text x="92" y="150">the Mistlands</text>
-                <text x="330" y="560">the Weeping Fen</text>
-                <text x="60" y="520">Hill of Manglers</text>
-              </g>
-            </svg>
-            <p class="caption">The isle as the Truthsayers draw it &mdash; the coast moves with the mist</p>
+            <div class="runhead"><span class="ch">Chapter I &middot; The Isle</span><span class="bk">Warhammer Armies: Albion</span></div>
+            <h2>The Isle of Albion</h2>
+            <div class="editorial flip">
+              <aside class="margin">
+                <section>
+                  <b>The Four Seats</b>
+                  1. Carn Dhu, the Black Cairn<br>
+                  2. The Antler Throne<br>
+                  3. The Drowned Oak<br>
+                  4. The Bronze Barrow
+                </section>
+                <section>
+                  <b>The Mustering Ground</b>
+                  King's Dale, marked in red, where the hosts meet and where they quarrel.
+                </section>
+                <div class="glyph" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M60 60m-4 0a4 4 0 108 0 4 4 0 10-8 0M60 48a12 12 0 11-12 12c0-12 12-18 24-18s22 11 22 23-12 23-26 23-29-11-29-27"/>
+                    <path d="M10 108h100M14 112h92" stroke-width="1.2"/>
+                  </svg>
+                </div>
+              </aside>
+              <div class="column">
+                <div class="illus">
+                  <svg viewBox="0 0 520 640" fill="none" preserveAspectRatio="xMidYMid meet">
+                    <path d="M262 32c38 10 54 36 86 44 30 8 54-6 70 18 15 23 2 48-6 72-9 26 6 44 2 70-5 29-36 36-44 64-9 29 10 56-6 80-17 25-54 18-80 32-27 15-40 48-70 50-31 2-48-28-74-42-27-15-62-10-78-36-16-25 4-54 2-82-2-27-24-46-16-72 8-27 42-30 60-52 18-21 14-56 42-72 27-15 62 6 92-2 8-2 14-8 20-14z"
+                      fill="rgba(146,120,70,.3)" stroke="#5d4620" stroke-width="2.4"/>
+                    <path d="M150 308c40-22 80-18 120 2M170 408c50-14 92-6 130 14M250 180c-26 22-30 48-24 74" stroke="#6b5126" stroke-width="1.1" stroke-dasharray="5 7" opacity=".85"/>
+                    <g stroke="#6b5126" stroke-width="1" opacity=".5">
+                      <path d="M96 470c14-6 24-2 34 6M120 492c14-6 24-2 34 6M150 470c14-6 24-2 34 6"/>
+                      <path d="M300 540c14-6 24-2 34 6M330 562c14-6 24-2 34 6"/>
+                    </g>
+                    <g fill="#5d4620">
+                      <circle cx="206" cy="200" r="7"/><circle cx="336" cy="272" r="7"/>
+                      <circle cx="196" cy="406" r="7"/><circle cx="346" cy="456" r="7"/>
+                      <circle cx="268" cy="336" r="10" fill="#7e2318"/>
+                    </g>
+                    <g font-family="Cinzel, serif" font-size="15" font-weight="600" fill="#3f3016" letter-spacing="1.2">
+                      <text x="190" y="186">1</text><text x="320" y="258">2</text>
+                      <text x="180" y="392">3</text><text x="330" y="442">4</text>
+                    </g>
+                    <g font-family="Cinzel, serif" font-size="15" fill="#4a3a1e" letter-spacing="1.4">
+                      <text x="222" y="196">Carn Dhu</text>
+                      <text x="352" y="268">Antler Throne</text>
+                      <text x="62" y="402">Drowned Oak</text>
+                      <text x="360" y="452">Bronze Barrow</text>
+                      <text x="206" y="362" fill="#7e2318">King's Dale</text>
+                    </g>
+                    <g font-family="EB Garamond, serif" font-size="15" fill="#6b5a36" font-style="italic">
+                      <text x="92" y="152">the Mistlands</text>
+                      <text x="324" y="582">the Weeping Fen</text>
+                      <text x="58" y="534">Hill of Manglers</text>
+                    </g>
+                  </svg>
+                </div>
+                <p class="inkcap"><b>Plate I</b>The isle as the Truthsayers draw it. The coast is given as it was last agreed; it moves with the mist.</p>
+              </div>
+            </div>
           </div>
           <span class="folio">1</span>
         </div>
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">History &amp; Mythology</p>
+            <div class="runhead"><span class="ch">History &amp; Mythology</span><span class="bk">Myth, Barrows and Bronze</span></div>
             <h2>What the Stones Remember</h2>
-            <div class="rule"></div>
-            <div class="cols2">
-              <p class="dropcap">Before the mists closed, the Old Ones set their stones across Albion in rings and rows, and the first men of the isle learned to read the cuts upon them. Those readers became Truthsayers, and the ritual they keep is older than any kingdom of the mainland.</p>
-              <p>For a thousand years no ship found the isle. Sailors spoke of a grey wall on the water that gave back their own voices. Behind it the tribes fought their small wars, buried their dead in barrows, and tended the stones.</p>
-              <p>Then the Dark Master sent his Emissaries into the fens, and the ritual faltered. The mists thinned. Where they lifted, the isle was found &mdash; by mercenaries, by treasure-hunters, by worse.</p>
-              <p>The four hosts in this book answered that lifting. They came down from the hills in bronze and woad, with a Truthsayer walking ahead of them, and they have not gone home since.</p>
-            </div>
-            <div class="sidebar">
-              <h3>The Reckoning of Years</h3>
-              <div class="kv">
-                <div><span>The Raising</span><span>The stones are set</span></div>
-                <div><span>The Long Grey</span><span>The isle is lost to the mist</span></div>
-                <div><span>The Thinning</span><span>Emissaries enter the fen</span></div>
-                <div><span>The Lifting</span><span>Albion is found again</span></div>
-                <div><span>Now</span><span>The hosts march</span></div>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p class="dropcap">Before the mists closed, the Old Ones set their stones across Albion in rings and rows, and the first men of the isle learned to read the cuts upon them. Those readers became Truthsayers, and the ritual they keep is older than any kingdom of the mainland.</p>
+                  <p>For a thousand years no ship found the isle. Sailors spoke of a grey wall on the water that gave back their own voices. Behind it the tribes fought their small wars, buried their dead in barrows, and tended the stones.</p>
+                  <p class="spot">The Thinning</p>
+                  <p>Then the Dark Master sent his Emissaries into the fens, and the ritual faltered. The mists thinned. Where they lifted, the isle was found &mdash; by mercenaries, by treasure-hunters, by worse.</p>
+                  <p class="spot">The Hosts Answer</p>
+                  <p>The four hosts in this book answered that lifting. They came down from the hills in bronze and woad, with a Truthsayer walking ahead of them, and they have not gone home since.</p>
+                </div>
+                <div class="annals">
+                  <div><span>The Raising</span><span>The stones are set across the isle</span></div>
+                  <div><span>The Long Grey</span><span>Albion is lost behind the mist</span></div>
+                  <div><span>The Thinning</span><span>Emissaries enter the Weeping Fen</span></div>
+                  <div><span>The Lifting</span><span>The isle is found again</span></div>
+                  <div><span>Now</span><span>The hosts march</span></div>
+                </div>
               </div>
+              <aside class="margin">
+                <section>
+                  <b>On reading a stone</b>
+                  A Truthsayer reads the cuts along the edge, never the face. A stone read from the face will answer, but it will lie.
+                </section>
+                <section>
+                  <b>Awaiting copy</b>
+                  Argant, the pylons and the Ancients are named in the project outline but have no text yet. This margin is held for them.
+                </section>
+              </aside>
             </div>
           </div>
           <span class="folio">2</span>

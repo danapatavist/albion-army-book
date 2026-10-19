@@ -22,12 +22,15 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CANON = ROOT / "canon"
+LIBRARIES = [ROOT / "lore", ROOT / "canon"]
 SKIP = {"README.md", "TEMPLATE.md"}
 
 STATUSES = {"draft", "review", "approved", "superseded"}
+# the supplied library keys an entry by id/title/kind; accept the template's
+# name/type as synonyms so both shapes validate.
+SYNONYMS = {"title": "name", "kind": "type"}
 CONFIDENCES = {"established", "developing", "unknown", ""}
-REQUIRED = ("name", "type", "status")
+REQUIRED = ("id", "name", "type", "status")
 
 # Shapes of personal data. Deliberately broad: a false positive costs a glance,
 # a miss puts someone's details in a public repository.
@@ -51,7 +54,9 @@ def front_matter(text):
         if not line.strip() or line.lstrip().startswith("#") or ":" not in line:
             continue
         key, _, value = line.partition(":")
-        fm[key.strip()] = value.split("#")[0].strip()
+        key = key.strip()
+        fm[SYNONYMS.get(key, key)] = value.split("#")[0].strip()
+    fm.setdefault("id", "")
     return fm
 
 
@@ -79,6 +84,10 @@ def check(path):
     if fm.get("confidence", "") not in CONFIDENCES:
         problems.append(f"confidence '{fm['confidence']}' is not one of established, developing, unknown")
 
+    publication = fm.get("publication", "")
+    if status != "approved" and publication in {"approved", "public", "published"}:
+        problems.append(f"is {status} but publication says '{publication}'")
+
     if status == "approved":
         for key in ("approved_by", "approved_on"):
             if not fm.get(key):
@@ -97,11 +106,12 @@ def check(path):
 
 
 def main(argv):
-    if not CANON.is_dir():
-        print(f"no canon library at {CANON}", file=sys.stderr)
+    libraries = [d for d in LIBRARIES if d.is_dir()]
+    if not libraries:
+        print("no canon library found; expected lore/ or canon/", file=sys.stderr)
         return 1
 
-    entries = sorted(p for p in CANON.rglob("*.md") if p.name not in SKIP)
+    entries = sorted(p for d in libraries for p in d.rglob("*.md") if p.name not in SKIP)
     if not entries:
         print("No entries yet. Copy canon/TEMPLATE.md into a folder to start one.")
         return 0

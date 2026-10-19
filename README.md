@@ -28,6 +28,26 @@ cross-references in the prose, the page edges, or the arrow keys.
 Where the bible records something unsettled, the page carries a dashed margin note
 marked *awaiting the creator* rather than a guess.
 
+## Canon library and the codex build
+
+`lore/` is the source of record for Albion lore; `CLAUDE.md` and `lore/CONTRIBUTING.md`
+govern how entries are written and approved. Entries are draft until the creator
+approves them by hand.
+
+    python3 tools/canon-check.py                   # validate the library
+    python3 tools/build-codex.py                   # approved only  -> codex.json
+    python3 tools/build-codex.py --include-drafts  # preview        -> codex.draft.json
+
+The approval gate is physical rather than conditional: a draft is never written into
+`codex.json`, so no fault in the site can publish one. `codex.draft.json` is
+gitignored and nothing reads it but you.
+
+Every block carries an id like `blue-host:7` so editorial overrides can name a
+specific passage to break a page at, pin art beside, give a full page, or open across
+a spread. A `layout:` key in an entry's front matter is carried through untouched for
+the same purpose. The build reads neither yet; the handles exist so the vocabulary can
+be settled without recutting the data.
+
 ## Build
 
 There is no build step for the site. `index.html` is the single source of truth: one

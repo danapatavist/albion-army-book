@@ -1,0 +1,63 @@
+{
+  "generated": "2026-10-19T19:16:48Z",
+  "mode": "approved-only",
+  "publishable": true,
+  "counts": {
+    "included": 0,
+    "withheld": 12,
+    "in_library": 12
+  },
+  "withheld": [
+    {
+      "id": "albion",
+      "status": "draft"
+    },
+    {
+      "id": "alfran-longbritches",
+      "status": "draft"
+    },
+    {
+      "id": "ancients",
+      "status": "draft"
+    },
+    {
+      "id": "argant",
+      "status": "draft"
+    },
+    {
+      "id": "blue-host",
+      "status": "draft"
+    },
+    {
+      "id": "faith",
+      "status": "draft"
+    },
+    {
+      "id": "fimir",
+      "status": "draft"
+    },
+    {
+      "id": "four-hosts",
+      "status": "draft"
+    },
+    {
+      "id": "green-host",
+      "status": "draft"
+    },
+    {
+      "id": "grey-host",
+      "status": "draft"
+    },
+    {
+      "id": "pylons",
+      "status": "draft"
+    },
+    {
+      "id": "red-host",
+      "status": "draft"
+    }
+  ],
+  "unresolved_links": [],
+  "aliases": {},
+  "articles": {}
+}

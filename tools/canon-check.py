@@ -23,7 +23,8 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LIBRARIES = [ROOT / "lore", ROOT / "canon"]
-SKIP = {"README.md", "TEMPLATE.md"}
+# prose about the library, not entries in it
+SKIP = {"README.md", "TEMPLATE.md", "CONTRIBUTING.md"}
 
 STATUSES = {"draft", "review", "approved", "superseded"}
 # the supplied library keys an entry by id/title/kind; accept the template's

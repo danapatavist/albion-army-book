@@ -9,7 +9,7 @@ spreads you turn like a real book.
 ## What's in it
 
 - The Isle — a map of Albion, and the history the stones remember
-- The Four Hosts — Carn Dhu, the Drowned Oak, the Antler Throne, the Bronze Barrow
+- The Four Hosts — Blue, Red, Green and Grey, seated at the Antler Throne, the Bronze Barrow, the Drowned Oak and Carn Dhu
 - Characters — Gwyth Antlerborn, Maddoc Greystone, the Hag of Nine Teeth
 - Monsters of Albion, with profiles
 - The army list, points and army special rules

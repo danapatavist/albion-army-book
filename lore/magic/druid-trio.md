@@ -24,4 +24,4 @@ Witches are a different tradition and are generally cheaper tabletop choices; th
 Specific spells, power levels, casting mechanics, allocation of wounds and what happens when members of the trio are separated.
 
 ## Related
-[Field and Fenn](../hosts/field-and-fenn-units.md).
+[Field and Fenn](../hosts/field-and-fenn-units.md) · [Druidic Culture](../cultures/druidic-culture.md).

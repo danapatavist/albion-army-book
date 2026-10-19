@@ -11,7 +11,7 @@ publication: requires-approval
 ## Established lore
 Albion druids almost always travel in trios: a **Druid**, a **Novice**, and a **Sword**, the druid's armed guardian. A solitary druid is very rare.
 
-The **Novice** has limited magical skill. He is principally an assistant who supports the Druid's casting, rather than a second independent wizard. He is traditionally gelded. A Novice can eventually advance to become a Druid in his own right. The **Sword** is responsible for protecting the Druid and may place himself in harm's way for him. Swords tend to remain with their particular Druid rather than routinely being reassigned; this is customary rather than an absolute rule.
+The **Novice** has limited magical skill. He is principally an assistant who supports the Druid's casting, rather than a second independent wizard. He is traditionally gelded. A Novice can eventually advance to become a Druid in his own right. The **Sword** is responsible for protecting the Druid and may place himself in harm's way for him. A Sword is **sworn to his Druid for life**; this is a lifelong personal oath, not a routine assignment.
 
 Witches are a different tradition and are generally cheaper tabletop choices; they should not be treated as druids with different names.
 

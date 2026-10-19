@@ -1,0 +1,10 @@
+{
+  "chapters": [
+    {
+      "id": "four-hosts",
+      "title": "The Four Hosts",
+      "tab": "The Hosts",
+      "articles": ["four-hosts", "blue-host", "red-host", "green-host", "grey-host"]
+    }
+  ]
+}

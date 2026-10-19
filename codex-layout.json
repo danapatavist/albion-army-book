@@ -1,0 +1,36 @@
+{
+  "_comment": "Art direction for the codex. Anchored to block ids from codex.json. Lore entries stay free of layout; see CODEX-LAYOUT.md.",
+  "overrides": [
+    {
+      "at": "four-hosts:1",
+      "place": "spread",
+      "art": "spread-wild-hunt-barrows.webp",
+      "caption": "The four hosts gather"
+    },
+    {
+      "at": "blue-host:1",
+      "break": "page",
+      "place": "full",
+      "art": "page-alfran-on-shaggy.webp",
+      "caption": "Alfran Longbritches on Shaggy"
+    },
+    {
+      "at": "red-host:2",
+      "place": "half",
+      "art": "half-h-red-chariot.webp",
+      "caption": "The bronze chariot and its she-lions"
+    },
+    {
+      "at": "green-host:2",
+      "place": "column",
+      "art": "column-fox-mask.png",
+      "caption": "A paper fox mask"
+    },
+    {
+      "at": "grey-host:2",
+      "place": "ink",
+      "art": "ink-wild-hunt.png",
+      "caption": "The Wild Hunt's boat-chariot"
+    }
+  ]
+}

@@ -39,6 +39,10 @@ SKIP = {"README.md", "CONTRIBUTING.md", "TEMPLATE.md"}
 
 PUBLISHABLE_STATUS = "approved"
 
+PLACES = {"spread", "full", "half", "column", "ink"}
+BREAKS = {"page", "spread"}
+# one directive is a line of key=value pairs; quoted values may contain spaces
+
 HEADING = re.compile(r"^(#{1,6})\s+(.*)$")
 BULLET = re.compile(r"^\s*[-*]\s+(.*)$")
 # inline: [text](target) | **strong** | *emphasis*
@@ -68,6 +72,52 @@ def front_matter(text):
             value = value.strip().strip('"')
             fm[key] = value if value else []
     return fm, text[end + 4:]
+
+
+def directives(all_block_ids, problems):
+    """Read codex-layout.json and check every override against the real blocks.
+
+    Art direction lives here rather than in the lore entries: lore/CONTRIBUTING.md
+    keeps artwork and layout independent of the canon text, so an editor can
+    re-art-direct the book without touching a word of canon.
+
+    An override naming a block that does not exist is an error, not a warning. Art
+    must not go quietly missing because a paragraph was rewritten.
+    """
+    path = ROOT / "codex-layout.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        problems.append(f"codex-layout.json is not valid JSON: {exc}")
+        return {}
+
+    by_article = {}
+    for d in data.get("overrides", []):
+        at = d.get("at", "")
+        if at not in all_block_ids:
+            problems.append(f"override anchors at {at!r}, which is not a block in the lore library")
+            continue
+        if "place" in d and d["place"] not in PLACES:
+            problems.append(f"{at}: place={d['place']} is not one of {', '.join(sorted(PLACES))}")
+            continue
+        if "break" in d and d["break"] not in BREAKS:
+            problems.append(f"{at}: break={d['break']} is not one of {', '.join(sorted(BREAKS))}")
+            continue
+        if "place" not in d and "break" not in d:
+            problems.append(f"{at}: override does nothing; it needs place= or break=")
+            continue
+        # art is referenced, never embedded; a file that is not there yet becomes a
+        # holding box rather than a broken image, so pages can be art-directed early
+        if d.get("art"):
+            d = dict(d)
+            d["missing"] = not (ROOT / "lore" / "approved-artwork" / d["art"]).is_file()
+        by_article.setdefault(at.split(":")[0], []).append(d)
+
+    for article_id, items in by_article.items():
+        items.sort(key=lambda d: all_block_ids.index(d["at"]))
+    return by_article
 
 
 def spans(text, resolve):
@@ -165,7 +215,7 @@ def main(argv):
             return found
         return resolve
 
-    articles, aliases, skipped = {}, {}, []
+    articles, aliases, skipped, problems = {}, {}, [], []
     for article_id, entry in parsed.items():
         fm = entry["fm"]
         status = fm.get("status", "")
@@ -178,6 +228,8 @@ def main(argv):
         if isinstance(article_aliases, str):
             article_aliases = [article_aliases]
 
+        parsed_blocks = blocks(entry["body"], make_resolver(entry["path"]), article_id)
+        block_ids = [b["id"] for b in parsed_blocks]
         articles[article_id] = {
             "id": article_id,
             "title": fm.get("title", article_id),
@@ -187,12 +239,29 @@ def main(argv):
             "publication": fm.get("publication", ""),
             "aliases": article_aliases,
             "source": str(entry["path"].relative_to(ROOT)),
-            "layout": fm.get("layout", {}),   # editorial overrides, passed through untouched
-            "blocks": blocks(entry["body"], make_resolver(entry["path"]), article_id),
+            "layout": [],   # filled in below, from codex-layout.json
+            "blocks": parsed_blocks,
         }
         for name in [fm.get("title", "")] + article_aliases:
             if name:
                 aliases[name] = article_id
+
+    library_block_ids = []
+    for article_id, entry in parsed.items():
+        if article_id in articles:
+            library_block_ids += [b["id"] for b in articles[article_id]["blocks"]]
+        else:
+            library_block_ids += [b["id"] for b in blocks(entry["body"], lambda _t: None, article_id)]
+
+    for article_id, items in directives(library_block_ids, problems).items():
+        if article_id in articles:
+            articles[article_id]["layout"] = items
+
+    if problems:
+        print("layout overrides have problems; not writing:", file=sys.stderr)
+        for p in problems:
+            print(f"  - {p}", file=sys.stderr)
+        return 1
 
     codex = {
         "generated": _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -209,8 +278,15 @@ def main(argv):
     out.write_text(json.dumps(codex, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"{out.name}  {codex['mode']}")
+    all_overrides = [d for a in articles.values() for d in a["layout"]]
+    missing_art = [d["art"] for d in all_overrides if d.get("missing")]
     print(f"  {codex['counts']['included']} article(s) in, {codex['counts']['withheld']} withheld, "
-          f"{len(aliases)} alias(es)")
+          f"{len(aliases)} alias(es), {len(all_overrides)} override(s)")
+    if missing_art:
+        print(f"  {len(missing_art)} artwork file(s) not yet in lore/approved-artwork/, "
+              f"each rendering as a holding box:")
+        for name in missing_art:
+            print(f"    {name}")
     if unresolved:
         print(f"  {len(unresolved)} unresolved cross-reference(s):")
         for u in unresolved:

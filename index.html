@@ -203,6 +203,27 @@ em{font-style:italic}
 .plate-ink .art::after{display:none}
 .plate-ink .art.pending{border:1px dashed rgba(60,42,18,.55);filter:none;mix-blend-mode:normal}
 
+/* ---------- codex pages, generated from the lore library (?codex=1) ----------
+   Explicit column boxes rather than CSS multi-column: the flow pass measures each
+   one and decides what fits, which CSS columns give no hook for. */
+.codex-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;min-height:0;align-items:start}
+.codex-col{min-width:0;overflow:hidden;height:100%}
+.codex-col>*{break-inside:avoid}
+.codex-col p{font-size:19px;line-height:1.48;text-align:justify;hyphens:auto;margin:0 0 12px}
+.codex-col h3{margin:4px 0 7px}
+.codex-col ul{margin:0 0 12px;padding-left:1.1em}
+.codex-col li{font-size:18.5px;line-height:1.42;margin-bottom:5px}
+.codex-col .colart{margin:0 0 14px}
+.codex-col .colart .art{aspect-ratio:3/4}
+.codex-col .colart.ink .art{border:none;outline:none;background-color:transparent}
+.leaf.measuring{display:flex !important;visibility:hidden}
+.codex-badge{
+  position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:6;
+  font-family:var(--display);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ox);opacity:.75;
+}
+.plate-spread.whole{flex:1}
+
 /* ---------- blocks ---------- */
 
 
@@ -1035,36 +1056,256 @@ em{font-style:italic}
   if (window.ResizeObserver) new ResizeObserver(fit).observe(viewport);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 
-  /* --- chapter tabs + contents ---
-     A tab marks a chapter, not a leaf: only leaves carrying data-tab get one, and the
-     spreads after it belong to that chapter until the next tab. The thumb index stays
-     short however many spreads the book grows to. */
-  var chapters = [];
-  leaves.forEach(function(leaf, i){
-    if (i === 0 || !leaf.hasAttribute('data-tab')) return;
-    chapters.push({ index: i, name: leaf.getAttribute('data-tab') });
-  });
+  /* ================= codex chapter, generated from the lore library =================
+     Enabled with ?codex=1. The hand-written book is untouched and remains the default.
+     ?codex=1&drafts=1 reads codex.draft.json, which exists only on a local checkout.
 
-  var tabButtons = chapters.map(function(ch){
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = ch.name;
-    b.addEventListener('click', function(){ go(ch.index); });
-    tabsEl.appendChild(b);
+     Text is flowed by measurement: a block is appended to the current column, and if
+     the column then overflows it is taken back out and the flow moves on. Editorial
+     overrides from codex-layout.json interrupt that flow - a forced break, a column
+     inset, a half page, a full page, a double spread - because the book is
+     art-directed and the hand has to be able to win. */
+  function codexChapter(codex, chapter){
+    var ART = 'lore/approved-artwork/';
+    var made = [];          /* the leaves built so far */
+    var cur = null;         /* { leaf, pageIndex, inner, cols, colIndex } */
+    var pendingTitle = null;   /* set when an article starts, printed when a page opens */
+    var forceNewPage = false;  /* an article or a break= directive wants a fresh page */
 
-    if (tocEl && ch.index > 1){
-      var folio = leaves[ch.index].querySelector('.folio');
-      var t = document.createElement('button');
-      t.type = 'button';
-      t.innerHTML = '<span>' + ch.name + '</span><span class="dots"></span>' +
-                    '<span class="pn">' + (folio ? folio.textContent : '') + '</span>';
-      t.addEventListener('click', function(){ go(ch.index); });
-      tocEl.appendChild(t);
+    function el(tag, cls, text){
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
     }
-    return b;
-  });
 
-  /* the open chapter is the last one that starts at or before the current leaf */
+    function newLeaf(){
+      var leaf = el('section', 'leaf codex');
+      ['left','right'].forEach(function(side){
+        var pg = el('div', 'page ' + side);
+        pg.appendChild(el('div','frame'));
+        pg.appendChild(el('div','grain'));
+        pg.appendChild(el('div','foxing'));
+        leaf.appendChild(pg);
+      });
+      leaf.appendChild(el('p','codex-badge','Codex draft'));
+      book.insertBefore(leaf, sheet);
+      leaf.classList.add('measuring');
+      made.push(leaf);
+      return leaf;
+    }
+
+    /* Start a fresh page. Pages fill left then right, then a new leaf. */
+    function newPage(kind){
+      if (!cur || cur.pageIndex === 1){
+        cur = { leaf: newLeaf(), pageIndex: -1 };
+      }
+      cur.pageIndex += 1;
+      var page = cur.leaf.children[cur.pageIndex];
+      var inner = el('div','inner');
+      page.appendChild(inner);
+
+      var head = el('div','runhead');
+      head.appendChild(el('span','ch', chapter.title));
+      head.appendChild(el('span','bk', 'Myth, Barrows and Bronze'));
+      inner.appendChild(head);
+
+      cur.inner = inner;
+      cur.cols = null;
+      cur.colIndex = 0;
+      if (kind !== 'plate'){
+        openColumns();
+        if (pendingTitle){
+          var h = el('h2','', pendingTitle.text);
+          h.setAttribute('data-article', pendingTitle.id);
+          inner.insertBefore(h, cur.cols);
+          pendingTitle = null;
+        }
+      }
+      return inner;
+    }
+
+    function openColumns(){
+      cur.cols = el('div','codex-cols');
+      cur.cols.appendChild(el('div','codex-col'));
+      cur.cols.appendChild(el('div','codex-col'));
+      cur.inner.appendChild(cur.cols);
+      cur.colIndex = 0;
+    }
+
+    function column(){
+      if (!cur || !cur.cols) newPage();
+      return cur.cols.children[cur.colIndex];
+    }
+
+    function nextColumn(){
+      if (cur.colIndex === 0){ cur.colIndex = 1; return true; }
+      newPage();
+      return false;
+    }
+
+    /* Append, measure, and move on if it did not fit. */
+    function place(node){
+      if (forceNewPage){ forceNewPage = false; newPage(); }
+      var col = column();
+      col.appendChild(node);
+      if (col.scrollHeight <= col.clientHeight) return;
+      col.removeChild(node);
+      nextColumn();
+      col = column();
+      col.appendChild(node);
+      /* a block taller than a whole column stays where it is rather than looping */
+    }
+
+    function artNode(d, extraClass){
+      var wrap = el('div', extraClass);
+      var art  = el('div','art');
+      if (d.art && !d.missing){
+        art.style.backgroundImage = "url('" + ART + d.art + "')";
+      } else {
+        art.classList.add('pending');
+        art.appendChild(el('b','', 'Awaiting art'));
+        art.appendChild(el('span','', d.caption || ''));
+        art.appendChild(el('code','', ART + (d.art || 'unnamed')));
+      }
+      wrap.appendChild(art);
+      if (d.caption && d.art && !d.missing){
+        var cap = el('p','inkcap');
+        cap.appendChild(el('b','', 'Plate'));
+        cap.appendChild(document.createTextNode(d.caption));
+        wrap.appendChild(cap);
+      }
+      return wrap;
+    }
+
+    function spans(parent, list){
+      (list || []).forEach(function(s){
+        if (s.ref){
+          var b = el('button','xref', s.text);
+          b.type = 'button';
+          b.setAttribute('data-codex-ref', s.ref);
+          parent.appendChild(b);
+        } else if (s.strong){ parent.appendChild(el('strong','', s.strong)); }
+        else if (s.em){ parent.appendChild(el('em','', s.em)); }
+        else { parent.appendChild(document.createTextNode(s.text || '')); }
+      });
+    }
+
+    function blockNode(b){
+      if (b.type === 'heading') return el('h3','', b.text);
+      if (b.type === 'list'){
+        var ul = el('ul');
+        (b.items || []).forEach(function(item){ var li = el('li'); spans(li, item); ul.appendChild(li); });
+        return ul;
+      }
+      var para = el('p');
+      spans(para, b.spans);
+      return para;
+    }
+
+    /* --- run the chapter ---
+       Pages open lazily. An article whose first block is a full page or a double
+       spread must not leave an empty text page in front of it, so nothing is built
+       until something needs somewhere to go. */
+    chapter.articles.forEach(function(articleId, n){
+      var article = codex.articles[articleId];
+      if (!article) return;
+
+      var overrides = {};
+      (article.layout || []).forEach(function(d){ overrides[d.at] = d; });
+
+      pendingTitle = { text: article.title, id: article.id };
+      if (n > 0) forceNewPage = true;             /* each article opens its own page */
+
+      article.blocks.forEach(function(b){
+        var d = overrides[b.id];
+        if (d){
+          if (d.break === 'spread' || d.place === 'spread'){
+            cur = { leaf: newLeaf(), pageIndex: -1 };
+            if (d.place === 'spread'){
+              ['left','right'].forEach(function(side, i){
+                var inner = el('div','inner');
+                var wrap = el('div','plate-spread whole');
+                var art = el('div','art');
+                if (d.art && !d.missing){ art.style.backgroundImage = "url('" + ART + d.art + "')"; }
+                else {
+                  art.classList.add('pending');
+                  art.appendChild(el('b','', 'Double spread — awaiting art'));
+                  art.appendChild(el('span','', d.caption || ''));
+                  art.appendChild(el('code','', ART + (d.art || 'unnamed')));
+                }
+                wrap.appendChild(art);
+                inner.appendChild(wrap);
+                cur.leaf.children[i].appendChild(inner);
+              });
+              cur.pageIndex = 1;
+            }
+          } else if (d.break === 'page'){
+            forceNewPage = true;
+          }
+
+          if (d.place === 'full'){
+            forceNewPage = false;
+            newPage('plate');
+            var full = el('div','plate-full');
+            full.appendChild(artNode(d, 'plate-full-inner').firstChild);
+            if (d.caption){
+              var cap = el('p','inkcap');
+              cap.appendChild(el('b','', 'Plate'));
+              cap.appendChild(document.createTextNode(d.caption));
+              full.appendChild(cap);
+            }
+            cur.inner.appendChild(full);
+            forceNewPage = true;
+          } else if (d.place === 'half'){
+            forceNewPage = false;
+            newPage();
+            var half = artNode(d, 'plate-half');
+            cur.inner.insertBefore(half, cur.cols);
+          } else if (d.place === 'column' || d.place === 'ink'){
+            place(artNode(d, 'colart' + (d.place === 'ink' ? ' ink' : '')));
+          }
+        }
+        place(blockNode(b));
+      });
+    });
+
+    made.forEach(function(leaf){
+      leaf.classList.remove('measuring');
+      /* a page that ended up with nothing in it is not a page */
+      Array.prototype.forEach.call(leaf.querySelectorAll('.page'), function(pg){
+        if (!pg.querySelector('.inner')) pg.appendChild(el('div','inner'));
+      });
+    });
+    if (made.length && made[0].hasAttribute) made[0].setAttribute('data-tab', 'Codex');
+    return made;
+  }
+
+  function loadCodex(){
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('codex') !== '1') return Promise.resolve(false);
+    var file = params.get('drafts') === '1' ? 'codex.draft.json' : 'codex.json';
+    return Promise.all([
+      fetch(file).then(function(r){ return r.ok ? r.json() : null; }),
+      fetch('codex-chapters.json').then(function(r){ return r.ok ? r.json() : null; })
+    ]).then(function(res){
+      var codex = res[0], chapters = res[1];
+      if (!codex || !chapters || !chapters.chapters.length) return false;
+      if (!Object.keys(codex.articles || {}).length){
+        console.warn('codex: nothing to render. ' + file + ' holds no article; ' +
+                     (file === 'codex.json' ? 'no entry is approved yet.' : 'build it first.'));
+        return false;
+      }
+      codexChapter(codex, chapters.chapters[0]);
+      leaves = Array.prototype.slice.call(book.querySelectorAll('.leaf'));
+      return true;
+    }).catch(function(err){ console.warn('codex: ' + err); return false; });
+  }
+
+  /* chapters and their tab buttons are filled in by boot(), which runs after
+     any generated codex leaves have been spliced in. */
+  var chapters = [], tabButtons = [];
+
   function markTabs(){
     var active = -1;
     chapters.forEach(function(ch, n){ if (ch.index <= current) active = n; });
@@ -1138,67 +1379,122 @@ em{font-style:italic}
     if (e.key === 'Home'){ e.preventDefault(); go(0); }
   });
 
-  /* --- wikipedia-style cross-references woven through the prose --- */
-  /* Every term here is a name from the canon bible, pointing at the spread that
-     carries it. A term may name a chapter tab or a spread's data-ref. */
-  var XREF = [
-    ['Alfran Longbritches','blue'], ['Longshanks','blue'], ['Elfred Sidesaddle','blue'],
-    ['The Beast','blue'], ['Tam Loggins','blue'], ['Shaggy','blue'], ['Waiting Guard','blue'],
-    ['Maddoc the Flame','red'], ['Shrikers','red'], ['she-lions','red'], ['ember druids','red'],
-    ['Robin Fair','green'], ['Big John','green'], ['Forest and Fenn','green'],
-    ['Dykejumpers','green'], ['Jenny Willows','green'], ['Knot Wife','green'],
-    ['Old Shannok','grey'], ['Wild Hunt','grey'], ['kelpies','grey'], ['black hounds','grey'],
-    ['Ancients','ancients'], ['Sarfareth','ancients'], ['Snakespeaker','ancients'],
-    ['Trickster','ancients'],
-    ['pylons','pylons'], ['Beastmen','pylons'],
-    ['Argant','The Island'], ['Old Ones','The Island'], ['Fimir','The Fimir'],
-    ['Skallies','The Fimir'], ['brood mothers','The Fimir'],
-    ['High Church','church'], ['round shields','church'],
-    ['Araby','Albion'], ['ring-money','Albion'], ['Blackweed','Albion'],
-    ['Saltwater Cup','Albion'], ['Stubby','Albion']
-  ];
-  var tabIndex = {};
-  leaves.forEach(function(l, i){
-    var tab = l.getAttribute('data-tab'), ref = l.getAttribute('data-ref');
-    if (tab) tabIndex[tab] = i;
-    if (ref) tabIndex[ref] = i;
-  });
 
-  leaves.forEach(function(leaf, li){
-    var used = {};
-    var paras = leaf.querySelectorAll('.body2 p, .host-row p, .margin section');
-    Array.prototype.forEach.call(paras, function(el){
-      if (el.classList.contains('caption') || el.classList.contains('spot')) return;
-      XREF.forEach(function(pair){
-        var term = pair[0], target = tabIndex[pair[1]];
-        if (target === undefined || target === li || used[term]) return;
-        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-        var node;
-        while ((node = walker.nextNode())){
-          var idx = node.nodeValue.indexOf(term);
-          if (idx < 0) continue;
-          var tail = node.splitText(idx);
-          tail.nodeValue = tail.nodeValue.slice(term.length);
-          var b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'xref';
-          b.textContent = term;
-          b.title = 'Turn to this';
-          b.setAttribute('data-go', String(target));
-          tail.parentNode.insertBefore(b, tail);
-          used[term] = true;
-          break;
-        }
+  function boot(){
+    /* --- chapter tabs + contents ---
+       A tab marks a chapter, not a leaf: only leaves carrying data-tab get one, and the
+       spreads after it belong to that chapter until the next tab. The thumb index stays
+       short however many spreads the book grows to. */
+    leaves.forEach(function(leaf, i){
+      if (i === 0 || !leaf.hasAttribute('data-tab')) return;
+      chapters.push({ index: i, name: leaf.getAttribute('data-tab') });
+    });
+
+    tabButtons = chapters.map(function(ch){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = ch.name;
+      b.addEventListener('click', function(){ go(ch.index); });
+      tabsEl.appendChild(b);
+
+      if (tocEl && ch.index > 1){
+        var folio = leaves[ch.index].querySelector('.folio');
+        var t = document.createElement('button');
+        t.type = 'button';
+        t.innerHTML = '<span>' + ch.name + '</span><span class="dots"></span>' +
+                      '<span class="pn">' + (folio ? folio.textContent : '') + '</span>';
+        t.addEventListener('click', function(){ go(ch.index); });
+        tocEl.appendChild(t);
+      }
+      return b;
+    });
+
+    /* the open chapter is the last one that starts at or before the current leaf */
+    /* --- wikipedia-style cross-references woven through the prose --- */
+    /* Every term here is a name from the canon bible, pointing at the spread that
+       carries it. A term may name a chapter tab or a spread's data-ref. */
+    var XREF = [
+      ['Alfran Longbritches','blue'], ['Longshanks','blue'], ['Elfred Sidesaddle','blue'],
+      ['The Beast','blue'], ['Tam Loggins','blue'], ['Shaggy','blue'], ['Waiting Guard','blue'],
+      ['Maddoc the Flame','red'], ['Shrikers','red'], ['she-lions','red'], ['ember druids','red'],
+      ['Robin Fair','green'], ['Big John','green'], ['Forest and Fenn','green'],
+      ['Dykejumpers','green'], ['Jenny Willows','green'], ['Knot Wife','green'],
+      ['Old Shannok','grey'], ['Wild Hunt','grey'], ['kelpies','grey'], ['black hounds','grey'],
+      ['Ancients','ancients'], ['Sarfareth','ancients'], ['Snakespeaker','ancients'],
+      ['Trickster','ancients'],
+      ['pylons','pylons'], ['Beastmen','pylons'],
+      ['Argant','The Island'], ['Old Ones','The Island'], ['Fimir','The Fimir'],
+      ['Skallies','The Fimir'], ['brood mothers','The Fimir'],
+      ['High Church','church'], ['round shields','church'],
+      ['Araby','Albion'], ['ring-money','Albion'], ['Blackweed','Albion'],
+      ['Saltwater Cup','Albion'], ['Stubby','Albion']
+    ];
+    var tabIndex = {};
+    leaves.forEach(function(l, i){
+      var tab = l.getAttribute('data-tab'), ref = l.getAttribute('data-ref');
+      if (tab) tabIndex[tab] = i;
+      if (ref) tabIndex[ref] = i;
+    });
+
+    leaves.forEach(function(leaf, li){
+      var used = {};
+      var paras = leaf.querySelectorAll('.body2 p, .host-row p, .margin section');
+      Array.prototype.forEach.call(paras, function(el){
+        if (el.classList.contains('caption') || el.classList.contains('spot')) return;
+        XREF.forEach(function(pair){
+          var term = pair[0], target = tabIndex[pair[1]];
+          if (target === undefined || target === li || used[term]) return;
+          var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+          var node;
+          while ((node = walker.nextNode())){
+            var idx = node.nodeValue.indexOf(term);
+            if (idx < 0) continue;
+            var tail = node.splitText(idx);
+            tail.nodeValue = tail.nodeValue.slice(term.length);
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'xref';
+            b.textContent = term;
+            b.title = 'Turn to this';
+            b.setAttribute('data-go', String(target));
+            tail.parentNode.insertBefore(b, tail);
+            used[term] = true;
+            break;
+          }
+        });
       });
     });
-  });
 
-  book.addEventListener('click', function(e){
-    var t = e.target && e.target.closest ? e.target.closest('.xref') : null;
-    if (t) go(parseInt(t.getAttribute('data-go'), 10));
-  });
+    book.addEventListener('click', function(e){
+      var t = e.target && e.target.closest ? e.target.closest('.xref') : null;
+      if (!t) return;
+      if (t.hasAttribute('data-go')) return go(parseInt(t.getAttribute('data-go'), 10));
+      /* a codex cross-reference names an article id; find the leaf carrying it */
+      var ref = t.getAttribute('data-codex-ref');
+      if (!ref) return;
+      for (var n = 0; n < leaves.length; n++){
+        if (leaves[n].querySelector('[data-article="' + ref + '"]')) return go(n);
+      }
+    });
 
-  show(0);
+    /* a bare #token in the link opens that chapter: #codex, #grey, #the-fimir */
+    var token = (window.location.hash || '').replace('#','').toLowerCase();
+    var opening = 0;
+    if (token){
+      leaves.forEach(function(l, n){
+        var keys = [l.getAttribute('data-tab'), l.getAttribute('data-ref')];
+        Array.prototype.forEach.call(l.querySelectorAll('[data-article]'), function(a){
+          keys.push(a.getAttribute('data-article'));
+        });
+        keys.forEach(function(k){
+          if (k && k.toLowerCase().replace(/[^a-z0-9]+/g,'-') === token) opening = n;
+        });
+      });
+    }
+    show(opening);
+  }
+
+  loadCodex().then(boot);
 })();
 </script>
 </body>

@@ -20,8 +20,17 @@ prose, the page edges, or the arrow keys.
 
 ## Build
 
-There is no build. `index.html` is a single self-contained page; `box-art.png` is the
-cover painting. Open the file, or serve the folder.
+There is no build step for the site. `index.html` is the single source of truth: one
+self-contained page, which is exactly what GitHub Pages serves. Open the file, or
+serve the folder.
+
+The same page is also published as a Claude Artifact, whose viewer supplies its own
+doctype, `<head>` and `<body>`. `tools/artifact-body.py` writes a copy with that
+wrapper stripped and everything else byte-identical, so the two can never drift:
+
+    python3 tools/artifact-body.py /path/to/fragment.html
+
+Edit `index.html` and nothing else; the fragment is always generated, never kept.
 
 ## Disclaimer
 

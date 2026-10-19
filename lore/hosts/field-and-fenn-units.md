@@ -12,7 +12,7 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 
 ## Known formations and creatures
 
-- **Swamp Dragons** — simply **very large crocodiles** of the Field and Fenn swamps. Despite the name, they are not established as supernatural or fire-breathing dragons. They are **wild, not domesticated**; Dykemen steer them toward the enemy by prodding them with their poles. They do not truly control the animals. Their exact size and tabletop rules remain open.
+- **Swamp Dragons** — simply **very large crocodiles** of the Field and Fenn swamps. Despite the name, they are not established as supernatural or fire-breathing dragons. They are **wild, not domesticated**; Dykemen steer them toward the enemy by prodding them with their poles. They do not truly control the animals. **The Dykemen stay alongside the crocodiles during battle**, continuing to prod and steer them. Their exact size and tabletop rules remain open.
 - **Dykejumpers** (also labelled Fenn Dykers in concept art) — fast-moving polemen who flit, spin and vault with their poles. In proposed tabletop rules, bow attacks against them suffer a **−1 penalty** because they are hard to hit while moving. They have the fighting ability of ordinary men rather than elite combatants. A **second dagger** is a possible additional weapon, not yet settled. Precise rules wording and balance remain provisional.
 - **Low Arrows** — archers who **crouch behind little walls of willow or reeds** and fire from that low position, making the archers harder to hit. Exact tabletop rules remain unsettled.
 

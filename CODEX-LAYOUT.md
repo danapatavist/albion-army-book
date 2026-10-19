@@ -67,3 +67,23 @@ This is the file to edit to re-order the book.
 
 An article is content, not a page. A chapter is paginated into as many spreads as its
 text and its overrides need.
+
+## What the book does on its own
+
+Overrides are the hand. Everything the hand does not specify is composed
+automatically, once the text has been measured:
+
+- **Folios.** Every page is numbered by its position, front matter in roman and the
+  body in arabic. Inserting a chapter renumbers what follows; nothing is written into
+  the markup.
+- **Column balance.** A page the text did not fill has its two columns evened up, so
+  an article does not end with one full column beside an empty one.
+- **Orphan control.** A heading is never left stranded at the foot of a column.
+- **Tailpieces.** A page where an article *ends* short is closed with an ornament
+  rather than trailing off into blank paper. A page whose text continues overleaf
+  gets nothing — a tailpiece means "this ends here".
+- **Blank pages.** A facing page with nothing on it takes a centred ornament and its
+  folio, the way a printed book does.
+
+All of it only ever moves blocks between the two columns of the same page, so reading
+order is never disturbed.

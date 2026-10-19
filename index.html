@@ -216,6 +216,7 @@ em{font-style:italic}
 .codex-col .colart{margin:0 0 14px}
 .codex-col .colart .art{aspect-ratio:3/4}
 .codex-col .colart.ink .art{border:none;outline:none;background-color:transparent}
+.codex-col .colart.ink .art.pending{border:1px dashed rgba(60,42,18,.55);background-color:rgba(173,146,92,.12)}
 .leaf.measuring{display:flex !important;visibility:hidden}
 .codex-badge{
   position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:6;
@@ -223,6 +224,12 @@ em{font-style:italic}
   color:var(--ox);opacity:.75;
 }
 .plate-spread.whole{flex:1}
+
+/* composition: tailpieces close a short page, folios number every leaf */
+.tailpiece{display:flex;justify-content:center;padding:26px 0 6px;color:var(--gold);opacity:.55}
+.tailpiece svg{width:112px;height:auto;display:block}
+.tailpiece.page{flex:1;align-items:center;padding:0}
+.codex-col .tailpiece{padding-top:18px}
 
 /* ---------- blocks ---------- */
 
@@ -1081,13 +1088,16 @@ em{font-style:italic}
 
     function newLeaf(){
       var leaf = el('section', 'leaf codex');
+      var pages = [];
       ['left','right'].forEach(function(side){
         var pg = el('div', 'page ' + side);
         pg.appendChild(el('div','frame'));
         pg.appendChild(el('div','grain'));
         pg.appendChild(el('div','foxing'));
         leaf.appendChild(pg);
+        pages.push(pg);
       });
+      leaf.codexPages = pages;
       leaf.appendChild(el('p','codex-badge','Codex draft'));
       book.insertBefore(leaf, sheet);
       leaf.classList.add('measuring');
@@ -1101,7 +1111,7 @@ em{font-style:italic}
         cur = { leaf: newLeaf(), pageIndex: -1 };
       }
       cur.pageIndex += 1;
-      var page = cur.leaf.children[cur.pageIndex];
+      var page = cur.leaf.codexPages[cur.pageIndex];
       var inner = el('div','inner');
       page.appendChild(inner);
 
@@ -1231,12 +1241,16 @@ em{font-style:italic}
                 else {
                   art.classList.add('pending');
                   art.appendChild(el('b','', 'Double spread — awaiting art'));
-                  art.appendChild(el('span','', d.caption || ''));
-                  art.appendChild(el('code','', ART + (d.art || 'unnamed')));
+                  if (i === 0){          /* one picture: caption it once, on the left half */
+                    art.appendChild(el('span','', d.caption || ''));
+                    art.appendChild(el('code','', ART + (d.art || 'unnamed')));
+                  } else {
+                    art.appendChild(el('span','', 'continues across the gutter'));
+                  }
                 }
                 wrap.appendChild(art);
                 inner.appendChild(wrap);
-                cur.leaf.children[i].appendChild(inner);
+                cur.leaf.codexPages[i].appendChild(inner);
               });
               cur.pageIndex = 1;
             }
@@ -1268,17 +1282,132 @@ em{font-style:italic}
         }
         place(blockNode(b));
       });
+      if (cur && cur.inner && cur.inner.parentNode){
+        cur.inner.parentNode.setAttribute('data-article-end', article.id);
+      }
     });
 
     made.forEach(function(leaf){
-      leaf.classList.remove('measuring');
-      /* a page that ended up with nothing in it is not a page */
+      /* a page that ended up with nothing on it still has to be a page */
       Array.prototype.forEach.call(leaf.querySelectorAll('.page'), function(pg){
         if (!pg.querySelector('.inner')) pg.appendChild(el('div','inner'));
       });
     });
+    composeCodexPages(made);
+    made.forEach(function(leaf){ leaf.classList.remove('measuring'); });
     if (made.length && made[0].hasAttribute) made[0].setAttribute('data-tab', 'Codex');
     return made;
+  }
+
+  /* ================= composition pass =================
+     Flowing text fills a column and stops; a printed book does more than that. This
+     runs over the generated leaves once they exist and before they are shown:
+
+       - balances the columns of any page the text did not fill
+       - refuses to leave a heading stranded at the foot of a column
+       - closes a short page with a tailpiece ornament instead of dead paper
+       - numbers every page in the book, generated or hand-set
+
+     It only ever moves nodes between the two columns of the same page, so reading
+     order is preserved. */
+  function composeCodexPages(made){
+    /* How much of a column is actually used. scrollHeight is no good here: it never
+       reports less than the box, so an almost-empty column measures as full. The
+       bottom of the last child is the only honest answer. */
+    function used(col){
+      var last = col.lastElementChild;
+      if (!last) return 0;
+      return Math.max(0, last.getBoundingClientRect().bottom - col.getBoundingClientRect().top);
+    }
+
+    function cols(page){
+      var c = page.querySelector('.codex-cols');
+      return c ? [c.children[0], c.children[1]] : null;
+    }
+
+    function ornament(cls){
+      var wrap = document.createElement('div');
+      wrap.className = 'tailpiece' + (cls ? ' ' + cls : '');
+      wrap.setAttribute('aria-hidden', 'true');
+      wrap.innerHTML =
+        '<svg viewBox="0 0 120 26" fill="none" stroke="currentColor" stroke-width="1.4">' +
+        '<path d="M2 13h34M84 13h34"/>' +
+        '<path d="M60 13m-5 0a5 5 0 1010 0 5 5 0 10-10 0"/>' +
+        '<path d="M60 4c-7 4-11 6-11 9s4 5 11 9c7-4 11-6 11-9s-4-5-11-9z"/>' +
+        '<path d="M44 13c-3-3-6-3-8 0 2 3 5 3 8 0zM76 13c3-3 6-3 8 0-2 3-5 3-8 0z"/>' +
+        '</svg>';
+      return wrap;
+    }
+
+    made.forEach(function(leaf){
+      Array.prototype.forEach.call(leaf.querySelectorAll('.page'), function(page){
+        var c = cols(page);
+        if (!c) return;                       /* a plate page composes itself */
+        var left = c[0], right = c[1];
+        var full = left.clientHeight || 1;
+
+        /* 1. balance a page the text did not fill */
+        if (used(left) + used(right) < full * 1.7){
+          var guard = 0;
+          while (left.children.length > 1 && guard++ < 40){
+            var gap = Math.abs(used(left) - used(right));
+            var node = left.lastElementChild;
+            right.insertBefore(node, right.firstChild);
+            if (used(right) > full || Math.abs(used(left) - used(right)) >= gap){
+              left.appendChild(node);         /* already as even as it gets */
+              break;
+            }
+          }
+        }
+
+        /* 2. a heading must not be the last thing in a column */
+        [left].forEach(function(col){
+          var last = col.lastElementChild;
+          if (last && last.tagName === 'H3' && col !== right){
+            right.insertBefore(last, right.firstChild);
+          }
+        });
+
+        /* 3. close a page where an article ends short, rather than letting it
+              trail off into blank paper. A page whose text continues overleaf gets
+              nothing: a tailpiece says "this ends here". */
+        if (!page.hasAttribute('data-article-end')) return;
+        var shortest = used(left) <= used(right) ? left : right;
+        if (used(shortest) < full * 0.72 && !page.querySelector('.tailpiece')){
+          shortest.appendChild(ornament());
+        }
+      });
+
+      /* a facing page with nothing on it gets a centred ornament, not dead paper */
+      Array.prototype.forEach.call(leaf.querySelectorAll('.page'), function(page){
+        var inner = page.querySelector('.inner');
+        if (inner && !inner.children.length) inner.appendChild(ornament('page'));
+      });
+    });
+  }
+
+  /* Folios run through the whole book, hand-set leaves and generated ones alike:
+     front matter in roman, the body in arabic, numbered by position rather than
+     written into the markup, so inserting a chapter renumbers what follows. */
+  function renumberFolios(){
+    var roman = ['i','ii','iii','iv','v','vi','vii','viii'];
+    var romanLeft = 0, arabic = 0;
+    /* strip the whole book first, so numbering is a function of position and nothing
+       else, however many times this runs and whatever the markup arrived with */
+    Array.prototype.forEach.call(book.querySelectorAll('.folio'), function(f){
+      f.parentNode.removeChild(f);
+    });
+    leaves.forEach(function(leaf, n){
+      if (n === 0) return;                                  /* the cover has no folio */
+      var frontMatter = leaf.getAttribute('data-tab') === 'Title';
+      Array.prototype.forEach.call(leaf.querySelectorAll('.page'), function(page){
+        if (page.parentNode && page.parentNode.closest && page.parentNode.closest('.page')) return;
+        var folio = document.createElement('span');
+        folio.className = 'folio';
+        folio.textContent = frontMatter ? (roman[romanLeft++] || '') : String(++arabic);
+        page.appendChild(folio);
+      });
+    });
   }
 
   function loadCodex(){
@@ -1491,6 +1620,7 @@ em{font-style:italic}
         });
       });
     }
+    renumberFolios();
     show(opening);
   }
 

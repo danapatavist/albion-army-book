@@ -113,7 +113,6 @@ em{font-style:italic}
 .runhead .bk{font-family:var(--body);font-style:italic;font-size:15px;color:var(--ink-soft)}
 
 .editorial{display:grid;grid-template-columns:1fr 182px;gap:34px;flex:1;min-height:0}
-.editorial.flip{grid-template-columns:182px 1fr}
 .editorial>*{min-width:0}
 .column{display:flex;flex-direction:column;gap:18px;min-height:0}
 
@@ -125,6 +124,14 @@ em{font-style:italic}
 .margin section{border-top:1.5px solid var(--gold);padding-top:9px}
 .margin b{display:block;font-style:normal;font-family:var(--display);font-weight:600;font-size:11.5px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:5px}
+/* a margin note that marks lore the creator has not settled */
+.margin section.pending-note{border-top:1.5px dashed var(--ox)}
+.margin section.pending-note b{color:var(--ox)}
+.margin section.pending-note::after{
+  content:"awaiting the creator";display:block;margin-top:6px;font-style:normal;
+  font-family:var(--display);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ox);opacity:.7;
+}
 .margin .glyph{color:var(--gold);opacity:.8}
 .margin .glyph svg{width:100%;height:auto;display:block}
 
@@ -134,8 +141,6 @@ em{font-style:italic}
 .annals span:first-child{font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ox);padding-top:4px}
 
 /* a plate as a printed illustration, not a card */
-.illus{position:relative;flex:1;min-height:0;border:1px solid rgba(60,42,18,.75);outline:1px solid rgba(60,42,18,.35);outline-offset:4px;background:rgba(173,146,92,.18)}
-.illus>svg{position:absolute;inset:0;width:100%;height:100%}
 .inkcap{font-family:var(--body);font-style:italic;font-size:16px;color:var(--ink-soft);text-align:center;flex:none}
 .inkcap b{font-style:normal;font-family:var(--display);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);display:block;margin-bottom:2px}
 
@@ -199,25 +204,7 @@ em{font-style:italic}
 .plate-ink .art.pending{border:1px dashed rgba(60,42,18,.55);filter:none;mix-blend-mode:normal}
 
 /* ---------- blocks ---------- */
-.statline{width:100%;border-collapse:collapse;font-size:18px;font-variant-numeric:tabular-nums}
-.statline caption{
-  text-align:left;font-family:var(--display);font-size:13px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ink-soft);padding-bottom:7px;
-}
-.statline th,.statline td{border:1px solid rgba(90,68,30,.45);padding:5px 7px;text-align:center}
-.statline thead th{background:rgba(154,123,35,.2);font-family:var(--display);font-size:13px;letter-spacing:.09em}
-.statline th.n,.statline td.n{text-align:left;white-space:nowrap;font-weight:500}
 
-.sidebar{
-  border:1px solid rgba(90,68,30,.5);border-left:4px solid var(--ox);
-  background:rgba(173,146,92,.22);padding:18px 20px;display:flex;flex-direction:column;gap:9px;
-}
-.sidebar p{font-size:18.5px;line-height:1.46}
-.kv{display:flex;flex-direction:column;gap:0}
-.kv div{display:grid;grid-template-columns:225px 1fr;gap:18px;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(90,68,30,.33);font-size:18.5px}
-.kv div:last-child{border-bottom:none}
-.kv span:first-child{font-family:var(--display);font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
-.kv span:last-child{text-align:left}
 
 .hosts{display:flex;flex-direction:column;gap:16px}
 .hosts.two{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;align-content:start}
@@ -341,9 +328,9 @@ em{font-style:italic}
             <h2 style="font-size:92px;letter-spacing:.06em">ALBION</h2>
             <div class="rule" style="width:62%"></div>
             <p style="font-family:var(--black);font-size:34px;line-height:1.3">Myth, Barrows<br>and Bronze</p>
-            <p style="font-size:19px;color:var(--ink-soft);max-width:30ch">An army of the misted isle: four hosts, their chieftains, their dead, and the thing in the fen that wants them.</p>
+            <p style="font-size:19px;color:var(--ink-soft);max-width:32ch">An island of pylons and barrows, four overlapping hosts, and a machine the druids keep running without knowing what it is.</p>
             <div class="rule" style="width:34%"></div>
-            <p class="caption">A fan-made list &middot; First edition</p>
+            <p class="caption">An unofficial fan-made army &middot; First edition</p>
           </div>
           <span class="folio">i</span>
         </div>
@@ -352,79 +339,45 @@ em{font-style:italic}
           <svg class="corner tr" viewBox="0 0 74 74" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 30C2 14 14 2 30 2M10 30c0-11 9-20 20-20M2 2h12M2 2v12"/><circle cx="18" cy="18" r="4"/><path d="M30 2c-6 8-6 14 0 22M2 30c8-6 14-6 22 0"/></svg>
           <svg class="corner br" viewBox="0 0 74 74" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 30C2 14 14 2 30 2M10 30c0-11 9-20 20-20M2 2h12M2 2v12"/><circle cx="18" cy="18" r="4"/><path d="M30 2c-6 8-6 14 0 22M2 30c8-6 14-6 22 0"/></svg>
           <div class="inner">
-            <p class="chapter">Contents</p>
-            <h2>What is in the Box</h2>
-            <div class="rule"></div>
+            <div class="runhead"><span class="ch">Contents</span><span class="bk">Myth, Barrows and Bronze</span></div>
+            <h2>Contents</h2>
             <div class="contents" id="toc"></div>
-            <div class="sidebar" style="margin-top:auto">
-              <p><em>Turn a page</em> by clicking the outer edge, pressing the arrow keys, or taking a tab on the fore-edge.</p>
+            <div class="margin" style="margin-top:auto">
+              <section>
+                <b>How to read this book</b>
+                Take a tab on the fore-edge for a chapter, the page edges or the arrow keys to turn a leaf, or any name set in red to follow it.
+              </section>
+              <section>
+                <b>Canon markers</b>
+                Where the lore is not settled, this book says so in the margin rather than guessing.
+              </section>
             </div>
           </div>
           <span class="folio">ii</span>
         </div>
       </section>
 
-      <!-- ============ THE ISLE ============ -->
-      <section class="leaf" data-tab="The Isle">
+      <!-- ============ I. THE ISLAND ============ -->
+      <section class="leaf" data-tab="The Island">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Chapter I &middot; The Isle</span><span class="bk">Warhammer Armies: Albion</span></div>
-            <h2>The Isle of Albion</h2>
-            <div class="editorial flip">
-              <aside class="margin">
-                <section>
-                  <b>The Four Seats</b>
-                  1. Carn Dhu &mdash; the Grey Host<br>
-                  2. The Antler Throne &mdash; the Blue Host<br>
-                  3. The Drowned Oak &mdash; the Green Host<br>
-                  4. The Bronze Barrow &mdash; the Red Host
-                </section>
-                <section>
-                  <b>The Mustering Ground</b>
-                  King's Dale, marked in red, where the hosts meet and where they quarrel.
-                </section>
-                <div class="glyph" aria-hidden="true">
-                  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M60 60m-4 0a4 4 0 108 0 4 4 0 10-8 0M60 48a12 12 0 11-12 12c0-12 12-18 24-18s22 11 22 23-12 23-26 23-29-11-29-27"/>
-                    <path d="M10 108h100M14 112h92" stroke-width="1.2"/>
-                  </svg>
-                </div>
-              </aside>
-              <div class="column">
-                <div class="illus">
-                  <svg viewBox="0 0 520 640" fill="none" preserveAspectRatio="xMidYMid meet">
-                    <path d="M262 32c38 10 54 36 86 44 30 8 54-6 70 18 15 23 2 48-6 72-9 26 6 44 2 70-5 29-36 36-44 64-9 29 10 56-6 80-17 25-54 18-80 32-27 15-40 48-70 50-31 2-48-28-74-42-27-15-62-10-78-36-16-25 4-54 2-82-2-27-24-46-16-72 8-27 42-30 60-52 18-21 14-56 42-72 27-15 62 6 92-2 8-2 14-8 20-14z"
-                      fill="rgba(146,120,70,.3)" stroke="#5d4620" stroke-width="2.4"/>
-                    <path d="M150 308c40-22 80-18 120 2M170 408c50-14 92-6 130 14M250 180c-26 22-30 48-24 74" stroke="#6b5126" stroke-width="1.1" stroke-dasharray="5 7" opacity=".85"/>
-                    <g stroke="#6b5126" stroke-width="1" opacity=".5">
-                      <path d="M96 470c14-6 24-2 34 6M120 492c14-6 24-2 34 6M150 470c14-6 24-2 34 6"/>
-                      <path d="M300 540c14-6 24-2 34 6M330 562c14-6 24-2 34 6"/>
-                    </g>
-                    <g fill="#5d4620">
-                      <circle cx="206" cy="200" r="7"/><circle cx="336" cy="272" r="7"/>
-                      <circle cx="196" cy="406" r="7"/><circle cx="346" cy="456" r="7"/>
-                      <circle cx="268" cy="336" r="10" fill="#7e2318"/>
-                    </g>
-                    <g font-family="Cinzel, serif" font-size="15" font-weight="600" fill="#3f3016" letter-spacing="1.2">
-                      <text x="190" y="186">1</text><text x="320" y="258">2</text>
-                      <text x="180" y="392">3</text><text x="330" y="442">4</text>
-                    </g>
-                    <g font-family="Cinzel, serif" font-size="15" fill="#4a3a1e" letter-spacing="1.4">
-                      <text x="222" y="196">Carn Dhu</text>
-                      <text x="352" y="268">Antler Throne</text>
-                      <text x="62" y="402">Drowned Oak</text>
-                      <text x="360" y="452">Bronze Barrow</text>
-                      <text x="206" y="362" fill="#7e2318">King's Dale</text>
-                    </g>
-                    <g font-family="EB Garamond, serif" font-size="15" fill="#6b5a36" font-style="italic">
-                      <text x="92" y="152">the Mistlands</text>
-                      <text x="324" y="582">the Weeping Fen</text>
-                      <text x="58" y="534">Hill of Manglers</text>
-                    </g>
-                  </svg>
-                </div>
-                <p class="inkcap"><b>Plate I</b>The isle as the Truthsayers draw it. The coast is given as it was last agreed; it moves with the mist.</p>
+            <div class="runhead"><span class="ch">Chapter I &middot; The Island</span><span class="bk">Warhammer Armies: Albion</span></div>
+            <h2>What the Old Ones Left</h2>
+            <div class="body2">
+              <p class="dropcap">The Old Ones raised their pylons across the whole of Albion, a single island-wide work meant to hold Chaos off the land. Then they left. What they built did not stop.</p>
+              <p>The Ancients stayed on as custodians: long-lived, humanoid, charged with the keeping of the system. They are not the Old Ones and should not be mistaken for them.</p>
+              <p>The Fimir came after, and humans after that &mdash; the latest arrivals on an island already old and already running.</p>
+              <div class="inset">
+                <b>Argant round shields</b>
+                The round shield takes its name from the king. A commander's shield is as likely to be turned face-down and drawn on as carried; the back is a planning surface.
+              </div>
+            </div>
+            <div class="plate-ink" style="flex:0 0 30%">
+              <div class="art pending">
+                <b>Ink drawing &mdash; awaiting art</b>
+                <span>A pylon absorbed into a barrow</span>
+                <code>ink-pylon-barrow.png</code>
               </div>
             </div>
           </div>
@@ -433,34 +386,25 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">History &amp; Mythology</span><span class="bk">Myth, Barrows and Bronze</span></div>
-            <h2>What the Stones Remember</h2>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">Myth, Barrows and Bronze</span></div>
+            <h2>Argant, and What Came After</h2>
             <div class="editorial">
               <div class="column">
                 <div class="body2">
-                  <p class="dropcap">Before the mists closed, the Old Ones set their stones across Albion in rings and rows, and the first men of the isle learned to read the cuts upon them. Those readers became Truthsayers, and the ritual they keep is older than any kingdom of the mainland.</p>
-                  <p>For a thousand years no ship found the isle. Sailors spoke of a grey wall on the water that gave back their own voices. Behind it the tribes fought their small wars, buried their dead in barrows, and tended the stones.</p>
-                  <p class="spot">The Thinning</p>
-                  <p>Then the Dark Master sent his Emissaries into the fens, and the ritual faltered. The mists thinned. Where they lifted, the isle was found &mdash; by mercenaries, by treasure-hunters, by worse.</p>
-                  <p class="spot">The Hosts Answer</p>
-                  <p>The four hosts &mdash; Blue, Red, Green and Grey &mdash; answered that lifting. They came down from the hills in bronze and woad, with a Truthsayer walking ahead of them, and they have not gone home since.</p>
-                </div>
-                <div class="annals">
-                  <div><span>The Raising</span><span>The stones are set across the isle</span></div>
-                  <div><span>The Long Grey</span><span>Albion is lost behind the mist</span></div>
-                  <div><span>The Thinning</span><span>Emissaries enter the Weeping Fen</span></div>
-                  <div><span>The Lifting</span><span>The isle is found again</span></div>
-                  <div><span>Now</span><span>The hosts march</span></div>
+                  <p>Argant was the founding king, and a conquering one. He drove the Fimir toward the salt coasts. Everything after that is a tangle of record and embellishment, and the two should be kept apart where they can be.</p>
+                  <p class="spot">A machine remembered as a faith</p>
+                  <p>The pylons still work. Nobody fully understands them. The knowledge that keeps them running has come down as druidic craft &mdash; ritual, arcana, inherited routine &mdash; which is to say degraded engineering preserved as tradition, and none the less effective for it.</p>
+                  <p>The High Church reads Argant and the distant past as saintly and divine; the older folk faith reads them otherwise; the pylons go on working regardless of either.</p>
                 </div>
               </div>
               <aside class="margin">
                 <section>
-                  <b>On reading a stone</b>
-                  A Truthsayer reads the cuts along the edge, never the face. A stone read from the face will answer, but it will lie.
+                  <b>Not the Sleeping King</b>
+                  Albion's returning-king story belongs to someone else. Argant and the Sleeping King are not the same man and must not be run together.
                 </section>
-                <section>
-                  <b>Awaiting copy</b>
-                  Argant, the pylons and the Ancients are named in the project outline but have no text yet. This margin is held for them.
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  The timeline of Argant's reign. His wife, mother-in-law, druid and two sons are recorded but unsettled.
                 </section>
               </aside>
             </div>
@@ -469,26 +413,23 @@ em{font-style:italic}
         </div>
       </section>
 
-      <!-- ============ FOUR HOSTS ============ -->
-      <section class="leaf" data-tab="Four Hosts">
+      <!-- ============ THE PYLONS ============ -->
+      <section class="leaf" data-ref="pylons">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Chapter II &middot; The Four Hosts</span><span class="bk">Warhammer Armies: Albion</span></div>
-            <h2>The Four Hosts</h2>
-            <!-- layout 2: double-spread artwork, left half -->
-            <div class="plate-spread band">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">The pylons</span></div>
+            <h2>The Pylons</h2>
+            <div class="plate-half">
+              <div class="art pending">
+                <b>Half page &mdash; awaiting art</b>
+                <span>Standing stones on a wet hillside, runic wiring still legible</span>
+                <code>half-h-pylon-site.webp</code>
+              </div>
             </div>
-            <div class="hosts two">
-              <div class="host-row">
-                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 56V30M31 30c-4-8-12-10-14-20-6 2-10-2-11-8M31 30c4-8 12-10 14-20 6 2 10-2 11-8M17 10 10 4M45 10l7-6"/></svg>
-                <div><h3>The Blue Host</h3><p>Seated at the Antler Throne. Hunters of the high moor who ride great elk and run their quarry onto the cliffs. The chieftain on the box lid is theirs. <em>Run them to the edge.</em></p></div>
-              </div>
-              <div class="host-row">
-                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 46c0-16 11-26 25-26s25 10 25 26zM31 46V20M18 46V31M44 46V31M4 52h54"/></svg>
-                <div><h3>The Red Host</h3><p>Seated at the Bronze Barrow. Barrow-wardens in ancestral bronze, dug out of the mounds and worn by grandsons. The slowest host and the last to move. <em>We hold what is buried.</em></p></div>
-              </div>
+            <div class="body2">
+              <p>The greatest of the works still show their runic wiring, cut deep enough to read after everything else has gone. The smaller and older sites do not. They have been swallowed: into barrows, into witch huts, into caves and sheep folds, into standing stones, hill forts and ruined masonry nobody has questioned in generations.</p>
+              <p>A farmer may hold a pylon in his back field and call it a wall.</p>
             </div>
           </div>
           <span class="folio">3</span>
@@ -496,37 +437,52 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Who marches</span><span class="bk">Four banners, one isle</span></div>
-            <h2>Four Banners, One Isle</h2>
-            <!-- layout 2: double-spread artwork, right half -->
-            <div class="plate-spread band">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
-            </div>
-            <div class="hosts two">
-              <div class="host-row">
-                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 54V22M31 22c-8-2-14-8-14-16 8 0 14 5 14 12M31 22c8-2 14-8 14-16-8 0-14 5-14 12M10 44c8 4 14 4 21 2M52 44c-8 4-14 4-21 2"/></svg>
-                <div><h3>The Green Host</h3><p>Seated at the Drowned Oak. Fenmen of the sunken forest who fight waist-deep and let the water do half of it. Their dead are weighted, and sometimes come back up. <em>Give them to the water.</em></p></div>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">What the pylons attract</span></div>
+            <h2>What Gathers at the Stones</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Wolves den around old pylon sites. This is not an omen and nobody treats it as one; it is simply where the wolves are, reliably enough that a hunter can plan around it.</p>
+                  <p class="spot">Where the work fails</p>
+                  <p>A minor pylon, or one that has drifted out of true, can open. What comes through is Beastmen. A misaligned stone in an empty field is worth more attention than a grand one still doing its job.</p>
+                  <p class="spot">Who is responsible</p>
+                  <p>The Ancients hold the duty for the system. Most human readings of the stones &mdash; pious, folk, or otherwise &mdash; have the origin wrong, which does not stop the maintenance from being done correctly.</p>
+                </div>
               </div>
-              <div class="host-row">
-                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 31m-3 0a3 3 0 106 0 3 3 0 10-6 0M31 22a9 9 0 11-9 9c0-9 9-13 18-13s16 8 16 17-9 17-19 17-21-8-21-20"/></svg>
-                <div><h3>The Grey Host</h3><p>Seated at Carn Dhu, the Black Cairn. Stone-bearers who carry cut menhirs into the line and set them down where the host must not break. <em>The stones remember.</em></p></div>
-              </div>
+              <aside class="margin">
+                <section>
+                  <b>Spot drawings wanted</b>
+                  Wolf head, a fold wall, a stone with wiring.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  Any named pylon site. None are recorded, so none are named here.
+                </section>
+              </aside>
             </div>
           </div>
           <span class="folio">4</span>
         </div>
       </section>
 
-      <!-- ============ CHARACTERS ============ -->
-      <section class="leaf" data-tab="Characters">
+      <!-- ============ THE ANCIENTS ============ -->
+      <section class="leaf" data-ref="ancients">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Chapter III &middot; Named Characters</span><span class="bk">Gwyth Antlerborn</span></div>
-            <!-- layout 1: full-page painting -->
-            <div class="plate-full">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:300%;background-position:7% 46%"></div>
-              <p class="inkcap"><b>Plate II</b>Gwyth of the Blue Host, woad to the waist, with his grandfather's shield.</p>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">The Ancients</span></div>
+            <h2>The Ancients</h2>
+            <div class="body2">
+              <p class="dropcap">They are the old custodians: humanoid, long-lived, left behind to keep the work running. They are not the Old Ones, and they are not all benevolent, and they are not all intact. Some are asleep. Some are eccentric. Some have been damaged by the sheer length of their own lives.</p>
+              <p class="spot">The Trickster</p>
+              <p>One of them is associated with impossible knots, with road junctions, and with gifts &mdash; and, in time, with roundabouts. He is erratic and he is not safe to plan around.</p>
+            </div>
+            <div class="plate-ink" style="flex:0 0 28%">
+              <div class="art pending">
+                <b>Ink drawing &mdash; awaiting art</b>
+                <span>An impossible knot</span>
+                <code>ink-impossible-knot.png</code>
+              </div>
             </div>
           </div>
           <span class="folio">5</span>
@@ -534,52 +490,46 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Named Characters</span><span class="bk">Myth, Barrows and Bronze</span></div>
-            <h2>Named of the Host</h2>
-            <div class="body2">
-              <p class="spot">Gwyth Antlerborn</p>
-              <p>He took the antlered helm off a chieftain he killed at sixteen and has worn it since, which the old men of his host say is why the elk still answer him. He carries his grandfather's shield, green with patina, and will not have it cleaned.</p>
-              <p class="spot">Maddoc Greystone</p>
-              <p>Truthsayer of the Grey Host, he reads the cuts on the stones and will tell you exactly what they say, which is rarely what anyone wants. He has outlived four chieftains.</p>
-              <div class="inset">
-                <b>A Truthsayer's fee</b>
-                No host pays a Truthsayer in coin. They are given a roof, a share of the pot, and the last word.
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">Sarfareth</span></div>
+            <h2>Sarfareth, Who Speaks of Snakes</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Sarfareth is an Ancient, a Rememberer, and the Snakespeaker: one figure under three names, and the chief antagonist of the old system. He is bound up with Argant, and the binding runs both ways.</p>
+                  <p class="spot">The argument underneath</p>
+                  <p>The long conflict on Albion is not really about territory. It is about whether the machinery should be kept running as it is, or understood, or taken hold of. The Ancients have one answer. The living kings keep arriving at others.</p>
+                </div>
               </div>
-              <p class="spot">The Hag of Nine Teeth</p>
-              <p>A Dark Emissary who came into the Weeping Fen and never left. She knows the host's names. She uses them.</p>
+              <aside class="margin">
+                <section>
+                  <b>One figure</b>
+                  Sarfareth, the Snakespeaker and He Who Speaks of Snakes are the same person. Confirmed by the creator, 19 October 2026.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  The exact details of Argant's imprisonment.
+                </section>
+              </aside>
             </div>
-            <table class="statline">
-              <caption>Characters</caption>
-              <thead><tr><th class="n">Name</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th></tr></thead>
-              <tbody>
-                <tr><td class="n">Gwyth Antlerborn</td><td>4</td><td>6</td><td>3</td><td>4</td><td>4</td><td>3</td><td>6</td><td>4</td><td>9</td></tr>
-                <tr><td class="n">Maddoc Greystone</td><td>4</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>3</td><td>1</td><td>9</td></tr>
-                <tr><td class="n">The Hag of Nine Teeth</td><td>4</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3</td><td>4</td><td>2</td><td>9</td></tr>
-              </tbody>
-            </table>
           </div>
           <span class="folio">6</span>
         </div>
       </section>
 
-      <!-- ============ MONSTERS ============ -->
-      <section class="leaf" data-tab="Monsters">
+      <!-- ============ CHURCH AND CUSTOM ============ -->
+      <section class="leaf" data-ref="church">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Chapter IV &middot; Bestiary</span><span class="bk">Things in the fen</span></div>
-            <h2>Things in the Fen</h2>
-            <!-- layout 3: half-page illustration above the columns -->
-            <div class="plate-half">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:380%;background-position:99% 88%"></div>
-              <p class="inkcap"><b>Plate III</b>Mist-wolves, blue-eyed, running ahead of the Hag.</p>
-            </div>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">Church and custom</span></div>
+            <h2>Church, Folk and Fold</h2>
             <div class="body2">
-              <p>Nothing on Albion is only an animal. The bog keeps what it takes and gives some of it back changed, and a Truthsayer will tell you the difference between a wolf and a thing wearing one.</p>
-              <p class="spot">Fenbeast</p>
-              <p>Bog, root and stone pulled upright by a Truthsayer's word. It does not tire and it does not care. Cut it and you are cutting mud.</p>
-              <p class="spot">The Mangler of Caer Mire</p>
-              <p>A giant that went into the fen to drink and stayed. It is slower now and far worse tempered, and it remembers the taste of the Red Host's grandfathers.</p>
+              <p class="dropcap">Albion keeps a High Church and an older folk faith at the same time, in the same villages, often in the same people. The saintly Argant and the Argant of the hearth stories are both attended to, and nobody finds the arrangement strange.</p>
+              <p>Reformed stone churches sometimes seat their councils at round tables. Whose idea that was first is not agreed, and the argument is itself a tradition now.</p>
+              <div class="inset">
+                <b>The shield turned over</b>
+                A commander's Argant round shield, laid face-down, is a map table. The marks on the back of an old shield are often more interesting than the paint on the front.
+              </div>
             </div>
           </div>
           <span class="folio">7</span>
@@ -587,60 +537,45 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <div class="runhead"><span class="ch">Bestiary</span><span class="bk">Monsters of Albion</span></div>
-            <h2>Monsters of Albion</h2>
-            <!-- layout 5: black-and-white ink drawing, art not yet delivered -->
-            <div class="plate-ink" style="flex:0 0 27%">
-              <div class="art pending">
-                <b>Ink drawing &mdash; awaiting art</b>
-                <span>A barrow opened on the moor</span>
-                <code>assets/illustrations/ink-barrow.png</code>
+            <div class="runhead"><span class="ch">The Island</span><span class="bk">The texture of the place</span></div>
+            <h2>An Island of Routine</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Albion is ancient, wet and barrow-strewn, and its people are not living in a legend. They are living in institutions, politics, superstitions and inherited routine, all of which matter at least as much as the battles.</p>
+                  <p>Traditions here are load-bearing. A custom is often the last working part of something older, kept going by people who would be insulted to hear it called maintenance.</p>
+                  <p class="spot">Bronze, not plate</p>
+                  <p>The material culture is Bronze Age and Britonnic: barrows, hoards, round shields, worked metal. No high-medieval armour anywhere on the island.</p>
+                </div>
               </div>
+              <aside class="margin">
+                <section>
+                  <b>Regions</b>
+                  The Grey Coast, Forest and Fenn, and broad areas of Red and Blue influence. These are spheres, not borders.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  The map, all settlements, roads, capitals and boundaries. The creator will supply source data.
+                </section>
+              </aside>
             </div>
-            <div class="body2">
-              <p class="spot">Mist-wolves</p>
-              <p>Grey, silent, and far too interested. They hunt by the names the Hag gives them.</p>
-              <div class="inset">
-                <b>Counting the dead</b>
-                A fenbeast that falls is not killed, only put down. The bog keeps the pieces and a Truthsayer can call them up again.
-              </div>
-            </div>
-            <table class="statline">
-              <caption>Monsters</caption>
-              <thead><tr><th class="n">Creature</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th></tr></thead>
-              <tbody>
-                <tr><td class="n">Fenbeast</td><td>6</td><td>3</td><td>&mdash;</td><td>5</td><td>5</td><td>4</td><td>1</td><td>3</td><td>10</td></tr>
-                <tr><td class="n">The Mangler</td><td>6</td><td>3</td><td>3</td><td>6</td><td>5</td><td>6</td><td>3</td><td>3</td><td>8</td></tr>
-                <tr><td class="n">Mist-wolf</td><td>9</td><td>3</td><td>&mdash;</td><td>3</td><td>3</td><td>1</td><td>4</td><td>1</td><td>5</td></tr>
-              </tbody>
-            </table>
           </div>
           <span class="folio">8</span>
         </div>
       </section>
 
-      <!-- ============ ARMY LIST ============ -->
-      <section class="leaf" data-tab="Army List">
+      <!-- ============ II. THE FOUR HOSTS (chapter opener) ============ -->
+      <section class="leaf" data-tab="The Hosts">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Army List</p>
-            <h2>The Muster Roll</h2>
-            <div class="rule"></div>
-            <table class="statline">
-              <caption>Characters &amp; Core</caption>
-              <thead><tr><th class="n">Unit</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th><th>Pts</th></tr></thead>
-              <tbody>
-                <tr><td class="n">Truthsayer</td><td>4</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>3</td><td>1</td><td>9</td><td>185</td></tr>
-                <tr><td class="n">Tribal Chieftain</td><td>4</td><td>5</td><td>3</td><td>4</td><td>4</td><td>2</td><td>5</td><td>3</td><td>8</td><td>80</td></tr>
-                <tr><td class="n">Stone-bearer</td><td>4</td><td>3</td><td>3</td><td>4</td><td>4</td><td>2</td><td>2</td><td>2</td><td>8</td><td>75</td></tr>
-                <tr><td class="n">Albion Tribesmen</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>1</td><td>3</td><td>1</td><td>7</td><td>6</td></tr>
-                <tr><td class="n">Fen Hunters</td><td>4</td><td>3</td><td>4</td><td>3</td><td>3</td><td>1</td><td>3</td><td>1</td><td>7</td><td>8</td></tr>
-                <tr><td class="n">Barrow Guard</td><td>4</td><td>4</td><td>3</td><td>3</td><td>4</td><td>1</td><td>3</td><td>1</td><td>8</td><td>11</td></tr>
-              </tbody>
-            </table>
-            <div class="sidebar">
-              <p>Per-model costs are given for units; character costs include no equipment. A host may not field more Rare choices than it has Core.</p>
+            <div class="runhead"><span class="ch">Chapter II</span><span class="bk">The four hosts</span></div>
+            <h2>The Four Hosts</h2>
+            <div class="plate-spread band">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
+            </div>
+            <div class="body2">
+              <p class="dropcap">The hosts are overlapping cultural, political and magical factions. They are not four nations with four borders, and a man may stand inside more than one of them depending on who is asking and what day it is.</p>
             </div>
           </div>
           <span class="folio">9</span>
@@ -648,73 +583,411 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Army List</p>
-            <h2>Special &amp; Rare</h2>
-            <div class="rule"></div>
-            <table class="statline">
-              <caption>Special &amp; Rare choices</caption>
-              <thead><tr><th class="n">Unit</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th><th>Pts</th></tr></thead>
-              <tbody>
-                <tr><td class="n">Woad-painted Fury</td><td>4</td><td>4</td><td>3</td><td>4</td><td>3</td><td>1</td><td>4</td><td>1</td><td>8</td><td>11</td></tr>
-                <tr><td class="n">Elk Riders</td><td>8</td><td>4</td><td>3</td><td>4</td><td>3</td><td>1</td><td>4</td><td>1</td><td>8</td><td>21</td></tr>
-                <tr><td class="n">Drowned Men</td><td>4</td><td>3</td><td>&mdash;</td><td>4</td><td>4</td><td>1</td><td>1</td><td>1</td><td>10</td><td>13</td></tr>
-                <tr><td class="n">Fenbeast</td><td>6</td><td>3</td><td>&mdash;</td><td>5</td><td>5</td><td>4</td><td>1</td><td>3</td><td>10</td><td>90</td></tr>
-                <tr><td class="n">The Mangler</td><td>6</td><td>3</td><td>3</td><td>6</td><td>5</td><td>6</td><td>3</td><td>3</td><td>8</td><td>205</td></tr>
-              </tbody>
-            </table>
-            <h3 style="margin-top:8px">Army Special Rules</h3>
-            <div class="kv">
-              <div><span>Mist-walkers</span><span>The host may always deploy last</span></div>
-              <div><span>Ogham Stones</span><span>A set stone holds the ground it stands on</span></div>
-              <div><span>Bog-born</span><span>Marsh and water are open ground</span></div>
-              <div><span>Barrow-oath</span><span>Rally once on a broken unit, Ld untested</span></div>
+            <div class="runhead"><span class="ch">Chapter II</span><span class="bk">Blue, Red, Green, Grey</span></div>
+            <h2>Blue, Red, Green, Grey</h2>
+            <div class="plate-spread band">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
             </div>
-            <div class="sidebar">
-              <p>These are written as a fan list and have never seen a tournament table. Change the numbers to suit your group; nobody official is watching.</p>
+            <div class="hosts two">
+              <div class="host-row">
+                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 56V30M31 30c-4-8-12-10-14-20-6 2-10-2-11-8M31 30c4-8 12-10 14-20 6 2 10-2 11-8M17 10 10 4M45 10l7-6"/></svg>
+                <div><h3>Blue</h3><p>Alfran Longbritches. Reform, standardisation and foreign ideas, carried on a loch-beast with a throne saddle.</p></div>
+              </div>
+              <div class="host-row">
+                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 6c7 11 3 17 0 22 7-3 13-1 17 6 3 7 0 14-5 18 8 1 13 7 13 14H6c0-7 5-13 13-14-5-4-8-11-5-18 4-7 10-9 17-6-3-5-7-11 0-22z"/></svg>
+                <div><h3>Red</h3><p>Maddoc the Flame. Fire, spectacle and nerve, behind a bronze chariot drawn by she-lions.</p></div>
+              </div>
+              <div class="host-row">
+                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 54V22M31 22c-8-2-14-8-14-16 8 0 14 5 14 12M31 22c8-2 14-8 14-16-8 0-14 5-14 12M10 44c8 4 14 4 21 2M52 44c-8 4-14 4-21 2"/></svg>
+                <div><h3>Green</h3><p>Robin Fair. Forest and Fenn: fox masks, willow bows, reed boats and witches who know your name.</p></div>
+              </div>
+              <div class="host-row">
+                <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 46c0-16 11-26 25-26s25 10 25 26zM31 46V20M18 46V31M44 46V31M4 52h54"/></svg>
+                <div><h3>Grey</h3><p>No leader. The older supernatural island: coast, barrows, weather, and things that are sleeping rather than dead.</p></div>
+              </div>
             </div>
           </div>
           <span class="folio">10</span>
         </div>
       </section>
 
-      <!-- ============ MINIATURES + COLOPHON ============ -->
-      <section class="leaf" data-tab="Miniatures">
+      <!-- ============ BLUE HOST ============ -->
+      <section class="leaf" data-ref="blue">
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">The Muster</p>
-            <h2>Miniatures</h2>
-            <div class="rule"></div>
-            <div class="frames">
-              <div class="minibox"><span class="n">I</span>Gwyth Antlerborn, front and back</div>
-              <div class="minibox"><span class="n">II</span>Tribesmen, full unit</div>
-              <div class="minibox"><span class="n">III</span>Fenbeast, scale shot</div>
-              <div class="minibox"><span class="n">IV</span>The whole host on the board</div>
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">Blue</span></div>
+            <div class="plate-full">
+              <div class="art pending">
+                <b>Full-page painting &mdash; awaiting art</b>
+                <span>Alfran Longbritches on Shaggy, throne saddle, tartan trousers and high boots</span>
+                <code>page-alfran-on-shaggy.webp</code>
+              </div>
+              <p class="inkcap"><b>Plate I</b>Alfran Longbritches, who leads the Blue Host.</p>
             </div>
-            <p class="caption">Photographs to come &mdash; these four frames are waiting</p>
           </div>
           <span class="folio">11</span>
         </div>
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">The Blue Host</span></div>
+            <h2>Alfran Longbritches</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Longshanks to some, and Shortsword when somebody wants to needle him. Ambitious, modernising, and openly interested in ideas from abroad &mdash; which on this island is itself a position. Tartan trousers, high boots, a moustache, and no interest at all in looking antiquarian.</p>
+                  <p>He rides Shaggy, a long creature out of a loch, with a throne saddle built onto its back.</p>
+                  <p class="spot">The host</p>
+                  <p>Painted warriors and javelin troops, war dogs, the Waiting Guard, javelin ram-riders, and the giant Tam Loggins as an ally.</p>
+                  <p class="spot">The court</p>
+                  <p>His younger brother Elfred Sidesaddle keeps a Court of Antlers and rides a deer sideways. The Beast guards it: an imposing figure out of an Araby prince's court, with a stolen purple gemstone set in his belly button, who follows court politics closely and will put himself between Elfred and trouble without being asked.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section>
+                  <b>Roundabouts</b>
+                  Alfran favours standardisation and accountability, roundabouts included, and would like the old sources of power rationalised.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  How far he would actually push the reforms.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">12</span>
+        </div>
+      </section>
+
+      <!-- ============ RED HOST ============ -->
+      <section class="leaf" data-ref="red">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">Red</span></div>
+            <div class="plate-full">
+              <div class="art pending">
+                <b>Full-page painting &mdash; awaiting art</b>
+                <span>Maddoc the Flame with the bronze chariot and she-lions</span>
+                <code>page-maddoc-the-flame.webp</code>
+              </div>
+              <p class="inkcap"><b>Plate II</b>Maddoc the Flame, who leads the Red Host.</p>
+            </div>
+          </div>
+          <span class="folio">13</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">The Red Host</span></div>
+            <h2>Maddoc the Flame</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>She leads the Red Host.</p>
+                  <p class="spot">The host she leads</p>
+                  <p>Red fights as spectacle. Fire breathers and ember druids go ahead of the line; painted slingers and fire maidens work the flanks; boar chariots come through where the ground allows. Behind them the Shrikers &mdash; women with long polearms, who sound like the end of something.</p>
+                  <p>The host's centre is a bronze chariot drawn by she-lions.</p>
+                  <div class="inset">
+                    <b>The Bloodflame sorceress</b>
+                    She rides a cart to war. Whether she is the Bloodmaiden or the Bloodflame, and whether the cart is drawn by ox or boar, is not settled.
+                  </div>
+                  <p>This is heat and ritual and nerve, not a cult and not a darkness. Red is the loudest host on the field and means to be.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  Maddoc's history and deeds. No named battle is recorded, so none is given.
+                </section>
+                <section>
+                  <b>She leads</b>
+                  Maddoc the Flame is a woman and the head of the Red Host. Earlier drafts of this book had that wrong.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">14</span>
+        </div>
+      </section>
+
+      <!-- ============ GREEN HOST ============ -->
+      <section class="leaf" data-ref="green">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">Green</span></div>
+            <h2>Robin Fair</h2>
+            <div class="plate-half">
+              <div class="art pending">
+                <b>Half page &mdash; awaiting art</b>
+                <span>Woodsmen in paper fox masks, reed boats on a dyke</span>
+                <code>half-h-fennfolk-reed-boats.webp</code>
+              </div>
+            </div>
+            <div class="body2">
+              <p>Outlaw and folk-king of Forest and Fenn, famously handsome and well aware of it. He dresses prehistoric rather than medieval, carries a nine-inch bronze blade that everyone has heard of, and will not get on a horse. His height is unexceptional, which his own people blame on the vegetarianism.</p>
+              <p>Big John goes with him: very tall, very gentle, and the reason most arguments end early.</p>
+            </div>
+          </div>
+          <span class="folio">15</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">Forest and Fenn</span></div>
+            <h2>Forest and Fenn</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Green is Albion's default earthy world, and the host fights like the country it comes from: Dykejumpers over the channels, woodsmen in paper fox masks, short willow bows, reed boats where there is no path at all. Bog imps and will-o'-wisps come along whether invited or not.</p>
+                  <p class="spot">Root and Knots</p>
+                  <p>Green's casters go by that name.</p>
+                  <p class="spot">The witches</p>
+                  <p>Jenny Willows works from a boat with a lantern and a trail of smoky wisps, and has one arm long enough to row with. The Knot Wife carries a cane of impossible knots and keeps a frog.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  Jenny Willows or Jenynn &mdash; the spelling. Robin's role guarding a fenn witch or a sleeping king. Robinson, Robin's son, and when he becomes Earl.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">16</span>
+        </div>
+      </section>
+
+      <!-- ============ GREY HOST ============ -->
+      <section class="leaf" data-ref="grey">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">Grey</span></div>
+            <div class="plate-full">
+              <div class="art pending">
+                <b>Full-page painting &mdash; awaiting art</b>
+                <span>Old Shannok on his throne of suspended stones joined by vines</span>
+                <code>page-old-shannok.webp</code>
+              </div>
+              <p class="inkcap"><b>Plate III</b>Old Shannok. The stones hang; they do not turn.</p>
+            </div>
+          </div>
+          <span class="folio">17</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Four Hosts</span><span class="bk">The Grey Host</span></div>
+            <h2>The Grey Host</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Grey has no leader. It is the older supernatural Albion &mdash; coast, barrows, weather, and the drowned, sleeping and undying &mdash; and it arrives rather than musters.</p>
+                  <p class="spot">Old Shannok</p>
+                  <p>A blind wizard with white eyes and long nails, carried on a moving throne of stones joined by vines. The stones hang in place. They do not rotate.</p>
+                  <p class="spot">The Wild Hunt</p>
+                  <p>It rides a boat-chariot behind an undying king. The retinue is his wife, a wizard, a crone and two demi-giant sons; the beasts are lion, stag, unicorn and boar.</p>
+                  <p>With them come giants, coast hags, kelpies &mdash; seaweed horses fused with their riders &mdash; the drowned Waiting Guard, black hounds, and Ancients.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section>
+                  <b>Not all dead, not all hostile</b>
+                  Grey is old, not evil. Treating every figure in it as undead gets the host wrong.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  When Longshanks steals the Hunt's horn, and how.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">18</span>
+        </div>
+      </section>
+
+      <!-- ============ III. THE FIMIR ============ -->
+      <section class="leaf" data-tab="The Fimir">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Chapter III &middot; The Fimir</span><span class="bk">Broods and brood mothers</span></div>
+            <h2>The Fimir</h2>
+            <div class="body2">
+              <p class="dropcap">The Fimir live in broods under brood mothers, and a brood mother grows more magical the older she gets. The magic does not arrive from outside. It grows out of keeping the small hearth &mdash; a lifetime of ordinary skill practised so long and so well that it stops being ordinary.</p>
+              <p class="spot">Who goes first</p>
+              <p>Age decides precedence. Who is older matters, and is known. Birthdays matter, and so does giving presents on the days that count. Rival broods feud, and only rarely take it to a queen.</p>
+            </div>
+            <div class="plate-ink" style="flex:0 0 26%">
+              <div class="art pending">
+                <b>Ink drawing &mdash; awaiting art</b>
+                <span>Brood mother at the small hearth</span>
+                <code>ink-fimir-brood-mother.png</code>
+              </div>
+            </div>
+          </div>
+          <span class="folio">19</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Fimir</span><span class="bk">Skallies and flint</span></div>
+            <h2>Failed Broods</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>A brood that fails can produce Skallies: itinerant, ghoul-like and bleak, carrying flint knives and stones, and hungry. They eat eggs. They are not collectors of curiosities and they are not cooks, and writing them that way misses what they are.</p>
+                  <p>Music will sometimes hold a band of Skallies together, at a level below thought. Beyond that they are desperate, and very hard to help.</p>
+                  <p class="spot">Flint</p>
+                  <p>Flint weaponry is the distinctive material culture, and it is a choice rather than a poverty.</p>
+                  <div class="inset">
+                    <b>The lidless eye</b>
+                    A jewel-encrusted eye, kept wet with brackish water by an attending witch. Its origin is not settled.
+                  </div>
+                </div>
+              </div>
+              <aside class="margin">
+                <section>
+                  <b>In the field</b>
+                  One-eyed fishlike warriors with musicians, standards and leaders, and the Picked-Over King carried by his retainers.
+                </section>
+                <section class="pending-note">
+                  <b>Canon to confirm</b>
+                  The unit roster, and the cosmic origin of the eye.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">20</span>
+        </div>
+      </section>
+
+      <!-- ============ IV. ARABY AND EVERYDAY ALBION ============ -->
+      <section class="leaf" data-tab="Albion">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Chapter IV &middot; Albion Day to Day</span><span class="bk">Araby and ring-money</span></div>
+            <h2>Araby, and the Count of Rings</h2>
+            <div class="body2">
+              <p class="dropcap">Albion thinks of Araby as wealth made visible: courts, harems, pillows, tigers and lions, giant snails, jewellery, and objects that do things. The picture is part true and wholly envied. Alfran's foreign ideas come from that direction, and they are ideas, not curiosities.</p>
+            </div>
+            <div class="annals">
+              <div><span>1 ring</span><span>One gold ring, the base unit</span></div>
+              <div><span>1 amulet</span><span>Five rings</span></div>
+              <div><span>1 crown</span><span>Thirteen amulets, or sixty-five rings</span></div>
+            </div>
+            <div class="body2">
+              <p>Under the spectacle this is a working monetary system with standard values, and it is accounted for as one.</p>
+            </div>
+          </div>
+          <span class="folio">21</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Albion Day to Day</span><span class="bk">Custom, sport and blackweed</span></div>
+            <h2>Blackweed and the Saltwater Cup</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Blackweed is brewed, chewed and smoked, and does the work of tea, tobacco and a mild drink all at once. Most households keep some. Most arguments are conducted over it.</p>
+                  <p class="spot">The Saltwater Cup</p>
+                  <p>Albion's rough running-and-handling game. Stubby captains a Saltman side: seventh son of a seventh son, father of six boys, and entirely content with the name.</p>
+                  <p>Sport, minor titles, gestures, craft, coinage, presents and food are part of the island, not decoration on it.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section>
+                  <b>Spot drawings wanted</b>
+                  A blackweed pouch, a ring-money hoard, a Saltwater Cup ball.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">22</span>
+        </div>
+      </section>
+
+      <!-- ============ V. THE ARMY (reserved) ============ -->
+      <section class="leaf" data-tab="The Army">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Chapter V &middot; The Army</span><span class="bk">Reserved</span></div>
+            <h2>The Muster Roll</h2>
+            <div class="art pending" style="flex:1">
+              <b>Reserved</b>
+              <span>Profiles and points: awaiting design approval</span>
+              <code>no approved rules source supplied</code>
+            </div>
+            <div class="body2">
+              <p>This chapter is held open. No unit profile, points value, equipment list or special rule appears in this book until an approved rules source exists for it.</p>
+            </div>
+          </div>
+          <span class="folio">23</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">The Army</span><span class="bk">Miniatures</span></div>
+            <h2>The Muster</h2>
+            <div class="frames">
+              <div class="minibox"><span class="n">I</span>Blue Host unit lineup</div>
+              <div class="minibox"><span class="n">II</span>Red Host unit lineup</div>
+              <div class="minibox"><span class="n">III</span>Green Host unit lineup</div>
+              <div class="minibox"><span class="n">IV</span>Grey Host unit lineup</div>
+            </div>
+            <p class="inkcap">Miniature plates to come. Chunky and readable, Bronze Age and Britonnic, about one part in five deliberately odd and played straight.</p>
+          </div>
+          <span class="folio">24</span>
+        </div>
+      </section>
+
+      <!-- ============ COLOPHON ============ -->
+      <section class="leaf" data-tab="Colophon">
+        <div class="page left">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
             <div class="runhead"><span class="ch">Colophon</span><span class="bk">About this book</span></div>
             <h2>About this Book</h2>
             <div class="plate-half">
               <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:235%;background-position:50% 30%"></div>
-              <p class="inkcap"><b>Plate IV</b>The stone rows above King's Dale at dusk.</p>
+              <p class="inkcap"><b>Plate IV</b>Detail from the cover painting.</p>
             </div>
             <div class="body2">
               <p>This is an unofficial fan project. It is not a Games Workshop product and has no connection to, or endorsement from, Games Workshop Limited.</p>
-              <p>Warhammer, Albion, Truthsayers, Dark Emissaries, Fenbeasts and all associated names, marks and imagery are trademarks of Games Workshop Limited. They are used here without permission and without challenge to their status. Nothing here is for sale.</p>
-              <p>The cover painting and the plates taken from it are AI-generated. The army, its four hosts, its characters and its rules are invented for this book.</p>
-              <div class="inset">
-                <b>Next printing</b>
-                Paint recipes, battle honours and the rest of the hosts.
-              </div>
+              <p>Warhammer and all associated names, marks and imagery are trademarks of Games Workshop Limited, acknowledged here without permission and without challenge to their status. Nothing here is for sale.</p>
+              <p>The cover painting and the details taken from it are AI-generated.</p>
             </div>
           </div>
-          <span class="folio">12</span>
+          <span class="folio">25</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Colophon</span><span class="bk">Canon and sources</span></div>
+            <h2>On the Canon</h2>
+            <div class="editorial">
+              <div class="column">
+                <div class="body2">
+                  <p>Everything in this book traces to the creator's Albion canon bible. Where the lore is recorded but unsettled, the page says so in the margin instead of guessing.</p>
+                  <p class="spot">Removed from an earlier draft</p>
+                  <p>An earlier version of this book carried invented characters, places, histories, unit profiles and army rules written as page filler. None of it was canon and all of it has gone.</p>
+                </div>
+              </div>
+              <aside class="margin">
+                <section class="pending-note">
+                  <b>Still to come</b>
+                  The map and its labels. Hag names and spellings. The druid trio. Giants and monsters. Unit profiles, points and rules.
+                </section>
+              </aside>
+            </div>
+          </div>
+          <span class="folio">26</span>
         </div>
       </section>
 
@@ -762,30 +1035,41 @@ em{font-style:italic}
   if (window.ResizeObserver) new ResizeObserver(fit).observe(viewport);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 
-  /* --- fore-edge tabs + contents --- */
+  /* --- chapter tabs + contents ---
+     A tab marks a chapter, not a leaf: only leaves carrying data-tab get one, and the
+     spreads after it belong to that chapter until the next tab. The thumb index stays
+     short however many spreads the book grows to. */
+  var chapters = [];
   leaves.forEach(function(leaf, i){
-    if (i === 0) return;
+    if (i === 0 || !leaf.hasAttribute('data-tab')) return;
+    chapters.push({ index: i, name: leaf.getAttribute('data-tab') });
+  });
+
+  var tabButtons = chapters.map(function(ch){
     var b = document.createElement('button');
     b.type = 'button';
-    b.textContent = leaf.getAttribute('data-tab');
-    b.addEventListener('click', function(){ go(i); });
+    b.textContent = ch.name;
+    b.addEventListener('click', function(){ go(ch.index); });
     tabsEl.appendChild(b);
 
-    if (i > 1 && tocEl){
-      var folio = leaf.querySelector('.folio');
+    if (tocEl && ch.index > 1){
+      var folio = leaves[ch.index].querySelector('.folio');
       var t = document.createElement('button');
       t.type = 'button';
-      t.innerHTML = '<span>' + leaf.getAttribute('data-tab') + '</span><span class="dots"></span>' +
+      t.innerHTML = '<span>' + ch.name + '</span><span class="dots"></span>' +
                     '<span class="pn">' + (folio ? folio.textContent : '') + '</span>';
-      t.addEventListener('click', function(){ go(i); });
+      t.addEventListener('click', function(){ go(ch.index); });
       tocEl.appendChild(t);
     }
+    return b;
   });
-  var tabButtons = Array.prototype.slice.call(tabsEl.children);
 
+  /* the open chapter is the last one that starts at or before the current leaf */
   function markTabs(){
-    tabButtons.forEach(function(b, i){
-      b.setAttribute('aria-current', (i + 1) === current ? 'true' : 'false');
+    var active = -1;
+    chapters.forEach(function(ch, n){ if (ch.index <= current) active = n; });
+    tabButtons.forEach(function(b, n){
+      b.setAttribute('aria-current', n === active ? 'true' : 'false');
     });
   }
 
@@ -855,26 +1139,36 @@ em{font-style:italic}
   });
 
   /* --- wikipedia-style cross-references woven through the prose --- */
+  /* Every term here is a name from the canon bible, pointing at the spread that
+     carries it. A term may name a chapter tab or a spread's data-ref. */
   var XREF = [
-    ['Gwyth Antlerborn','Characters'], ['Maddoc Greystone','Characters'],
-    ['Hag of Nine Teeth','Characters'], ['Truthsayer','Characters'],
-    ['Blue Host','Four Hosts'], ['Red Host','Four Hosts'],
-    ['Green Host','Four Hosts'], ['Grey Host','Four Hosts'],
-    ['Carn Dhu','Four Hosts'], ['Drowned Oak','Four Hosts'],
-    ['Antler Throne','Four Hosts'], ['Bronze Barrow','Four Hosts'],
-    ['Fenbeast','Monsters'], ['Mangler','Monsters'], ['Mist-wolves','Monsters'],
-    ['Dark Master','The Isle'], ['Emissaries','The Isle'],
-    ["King's Dale",'The Isle'], ['Weeping Fen','The Isle'], ['Mistlands','The Isle'],
-    ['Elk Riders','Army List'], ['Barrow Guard','Army List'], ['Stone-bearer','Army List']
+    ['Alfran Longbritches','blue'], ['Longshanks','blue'], ['Elfred Sidesaddle','blue'],
+    ['The Beast','blue'], ['Tam Loggins','blue'], ['Shaggy','blue'], ['Waiting Guard','blue'],
+    ['Maddoc the Flame','red'], ['Shrikers','red'], ['she-lions','red'], ['ember druids','red'],
+    ['Robin Fair','green'], ['Big John','green'], ['Forest and Fenn','green'],
+    ['Dykejumpers','green'], ['Jenny Willows','green'], ['Knot Wife','green'],
+    ['Old Shannok','grey'], ['Wild Hunt','grey'], ['kelpies','grey'], ['black hounds','grey'],
+    ['Ancients','ancients'], ['Sarfareth','ancients'], ['Snakespeaker','ancients'],
+    ['Trickster','ancients'],
+    ['pylons','pylons'], ['Beastmen','pylons'],
+    ['Argant','The Island'], ['Old Ones','The Island'], ['Fimir','The Fimir'],
+    ['Skallies','The Fimir'], ['brood mothers','The Fimir'],
+    ['High Church','church'], ['round shields','church'],
+    ['Araby','Albion'], ['ring-money','Albion'], ['Blackweed','Albion'],
+    ['Saltwater Cup','Albion'], ['Stubby','Albion']
   ];
   var tabIndex = {};
-  leaves.forEach(function(l, i){ tabIndex[l.getAttribute('data-tab')] = i; });
+  leaves.forEach(function(l, i){
+    var tab = l.getAttribute('data-tab'), ref = l.getAttribute('data-ref');
+    if (tab) tabIndex[tab] = i;
+    if (ref) tabIndex[ref] = i;
+  });
 
   leaves.forEach(function(leaf, li){
     var used = {};
-    var paras = leaf.querySelectorAll('.inner p, .sidebar p, .host-row p');
+    var paras = leaf.querySelectorAll('.body2 p, .host-row p, .margin section');
     Array.prototype.forEach.call(paras, function(el){
-      if (el.classList.contains('caption') || el.classList.contains('chapter')) return;
+      if (el.classList.contains('caption') || el.classList.contains('spot')) return;
       XREF.forEach(function(pair){
         var term = pair[0], target = tabIndex[pair[1]];
         if (target === undefined || target === li || used[term]) return;
@@ -889,7 +1183,7 @@ em{font-style:italic}
           b.type = 'button';
           b.className = 'xref';
           b.textContent = term;
-          b.title = 'Turn to ' + pair[1];
+          b.title = 'Turn to this';
           b.setAttribute('data-go', String(target));
           tail.parentNode.insertBefore(b, tail);
           used[term] = true;

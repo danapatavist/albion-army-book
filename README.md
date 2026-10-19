@@ -8,15 +8,25 @@ spreads you turn like a real book.
 
 ## What's in it
 
-- The Isle — a map of Albion, and the history the stones remember
-- The Four Hosts — Blue, Red, Green and Grey, seated at the Antler Throne, the Bronze Barrow, the Drowned Oak and Carn Dhu
-- Characters — Gwyth Antlerborn, Maddoc Greystone, the Hag of Nine Teeth
-- Monsters of Albion, with profiles
-- The army list, points and army special rules
-- A page of empty frames waiting for miniature photographs
+Fifteen leaves: a cover and fourteen double-page spreads, in five chapters.
 
-Navigate by the fore-edge tabs, the contents page, the red cross-references in the
-prose, the page edges, or the arrow keys.
+- **The Island** — the Old Ones and their pylons, Argant, the Ancients and Sarfareth,
+  church and custom
+- **The Four Hosts** — Blue under Alfran Longbritches, Red under Maddoc the Flame,
+  Green under Robin Fair, and Grey, which has no leader
+- **The Fimir** — broods, brood mothers, Skallies and flint
+- **Albion Day to Day** — Araby, ring-money, blackweed and the Saltwater Cup
+- **The Army** — reserved; no profiles or points until an approved rules source exists
+
+Navigate by the chapter tabs on the fore-edge, the contents page, the red
+cross-references in the prose, the page edges, or the arrow keys.
+
+## Canon
+
+`ALBION_CANON_BIBLE.md` is the only source for lore in this book, and
+`EDITORIAL_SPEC.md` governs the layout. Nothing on a page may go beyond them.
+Where the bible records something unsettled, the page carries a dashed margin note
+marked *awaiting the creator* rather than a guess.
 
 ## Build
 

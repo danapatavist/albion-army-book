@@ -157,6 +157,65 @@ em{font-style:italic}
 .inkcap{font-family:var(--body);font-style:italic;font-size:16px;color:var(--ink-soft);text-align:center;flex:none}
 .inkcap b{font-style:normal;font-family:var(--display);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);display:block;margin-bottom:2px}
 
+/* ---------- reusable page layouts ----------
+   Every text page sets two columns, so a double-page spread reads four across.
+   Five art layouts sit on top of that grid: full page, double spread, half page,
+   column inset, and ink drawing. Art that has not been delivered renders as a
+   marked holding box naming the file the manifest expects. */
+
+.art{
+  position:relative;border:1px solid rgba(60,42,18,.8);
+  outline:1px solid rgba(60,42,18,.3);outline-offset:4px;
+  background-repeat:no-repeat;background-position:center;background-size:cover;
+  background-color:rgba(173,146,92,.18);
+}
+.art::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(20,12,4,.16),transparent 28%,rgba(20,12,4,.26))}
+
+/* holding box for art the manifest lists as planned */
+.art.pending{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:7px;border-style:dashed;text-align:center;padding:20px}
+.art.pending::after{display:none}
+.art.pending b{font-family:var(--display);font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ox)}
+.art.pending span{font-family:var(--body);font-style:italic;font-size:15.5px;color:var(--ink-soft)}
+.art.pending code{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--ink-soft);opacity:.85}
+
+/* 1 — full-page painting: art takes the page, caption beneath */
+.plate-full{display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
+.plate-full .art{flex:1;min-height:0}
+
+/* 2 — double-spread artwork: one picture, each page showing its half */
+.plate-spread{display:flex;flex-direction:column;gap:11px;flex:1;min-height:0}
+.plate-spread .art{flex:1;min-height:0;background-size:1800px auto}
+.page.left .plate-spread .art{background-position:left center;border-right:none;outline:none}
+.page.right .plate-spread .art{background-position:right center;border-left:none;outline:none}
+
+.plate-spread.band{flex:0 0 31%}
+
+/* 3 — half-page illustration above the columns */
+.plate-half{display:flex;flex-direction:column;gap:10px;flex:0 0 40%;min-height:0}
+.plate-half .art{flex:1;min-height:0}
+.plate-half.below{order:2}
+
+/* 4 — column inset: a ruled aside that sits inside one column of running text */
+.inset{
+  break-inside:avoid;border-top:1.5px solid var(--gold);border-bottom:1px solid rgba(90,68,30,.45);
+  padding:10px 0 11px;margin:2px 0 13px;font-size:16.5px;line-height:1.38;
+  color:var(--ink-soft);font-style:italic;
+}
+.inset b{display:block;font-style:normal;font-family:var(--display);font-weight:600;
+  font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:4px}
+
+/* 5 — black-and-white ink drawing: printed flat into the paper, no frame */
+.plate-ink{display:flex;flex-direction:column;gap:9px;min-height:0}
+.plate-ink .art{
+  border:none;outline:none;background-color:transparent;
+  filter:grayscale(1) contrast(1.4) brightness(1.06);mix-blend-mode:multiply;
+}
+.plate-ink .art::after{display:none}
+.plate-ink .art.pending{border:1px dashed rgba(60,42,18,.55);filter:none;mix-blend-mode:normal}
+
 /* ---------- blocks ---------- */
 .statline{width:100%;border-collapse:collapse;font-size:18px;font-variant-numeric:tabular-nums}
 .statline caption{
@@ -179,6 +238,10 @@ em{font-style:italic}
 .kv span:last-child{text-align:left}
 
 .hosts{display:flex;flex-direction:column;gap:16px}
+.hosts.two{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;align-content:start}
+.hosts.two .host-row{grid-template-columns:44px 1fr;gap:12px}
+.hosts.two .host-row svg{width:44px;height:44px}
+.hosts.two .host-row p{font-size:17px;line-height:1.38}
 .host-row{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:start}
 .host-row svg{width:62px;height:62px;color:var(--ox)}
 .host-row h3{font-size:20px}
@@ -429,21 +492,13 @@ em{font-style:italic}
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">The Army</p>
+            <div class="runhead"><span class="ch">Chapter II &middot; The Four Hosts</span><span class="bk">Warhammer Armies: Albion</span></div>
             <h2>The Four Hosts</h2>
-            <div class="rule"></div>
-            <div class="plate host"></div>
-            <p class="caption">The hosts gathered at King's Dale before the march</p>
-          </div>
-          <span class="folio">3</span>
-        </div>
-        <div class="page right">
-          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
-          <div class="inner">
-            <p class="chapter">Who marches</p>
-            <h2>Four Banners, One Isle</h2>
-            <div class="rule"></div>
-            <div class="hosts">
+            <!-- layout 2: double-spread artwork, left half -->
+            <div class="plate-spread band">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
+            </div>
+            <div class="hosts two">
               <div class="host-row">
                 <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 56V30M31 30c-4-8-12-10-14-20-6 2-10-2-11-8M31 30c4-8 12-10 14-20 6 2 10-2 11-8M17 10 10 4M45 10l7-6"/></svg>
                 <div><h3>The Blue Host</h3><p>Seated at the Antler Throne. Hunters of the high moor who ride great elk and run their quarry onto the cliffs. The chieftain on the box lid is theirs. <em>Run them to the edge.</em></p></div>
@@ -452,6 +507,20 @@ em{font-style:italic}
                 <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 46c0-16 11-26 25-26s25 10 25 26zM31 46V20M18 46V31M44 46V31M4 52h54"/></svg>
                 <div><h3>The Red Host</h3><p>Seated at the Bronze Barrow. Barrow-wardens in ancestral bronze, dug out of the mounds and worn by grandsons. The slowest host and the last to move. <em>We hold what is buried.</em></p></div>
               </div>
+            </div>
+          </div>
+          <span class="folio">3</span>
+        </div>
+        <div class="page right">
+          <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
+          <div class="inner">
+            <div class="runhead"><span class="ch">Who marches</span><span class="bk">Four banners, one isle</span></div>
+            <h2>Four Banners, One Isle</h2>
+            <!-- layout 2: double-spread artwork, right half -->
+            <div class="plate-spread band">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
+            </div>
+            <div class="hosts two">
               <div class="host-row">
                 <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 54V22M31 22c-8-2-14-8-14-16 8 0 14 5 14 12M31 22c8-2 14-8 14-16-8 0-14 5-14 12M10 44c8 4 14 4 21 2M52 44c-8 4-14 4-21 2"/></svg>
                 <div><h3>The Green Host</h3><p>Seated at the Drowned Oak. Fenmen of the sunken forest who fight waist-deep and let the water do half of it. Their dead are weighted, and sometimes come back up. <em>Give them to the water.</em></p></div>
@@ -471,25 +540,32 @@ em{font-style:italic}
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Named Characters</p>
-            <h2>Gwyth Antlerborn</h2>
-            <div class="rule"></div>
-            <div class="plate chief"></div>
-            <p class="caption">Gwyth of the Blue Host, woad to the waist</p>
-            <p>He took the antlered helm off a chieftain he killed at sixteen and has worn it since, which the old men of his host say is why the elk still answer him. He carries his grandfather's shield, green with patina, and will not have it cleaned.</p>
+            <div class="runhead"><span class="ch">Chapter III &middot; Named Characters</span><span class="bk">Gwyth Antlerborn</span></div>
+            <!-- layout 1: full-page painting -->
+            <div class="plate-full">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:300%;background-position:7% 46%"></div>
+              <p class="inkcap"><b>Plate II</b>Gwyth of the Blue Host, woad to the waist, with his grandfather's shield.</p>
+            </div>
           </div>
           <span class="folio">5</span>
         </div>
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Named Characters</p>
-            <h2>Maddoc Greystone<br><span style="font-size:26px;color:var(--ink-soft)">&amp; the Hag of Nine Teeth</span></h2>
-            <div class="rule"></div>
-            <div class="plate emissary" style="flex:0 0 300px"></div>
-            <p class="caption">The Hag on the far bank, with her skull-staff</p>
-            <p><strong>Maddoc Greystone</strong>, Truthsayer of the Grey Host, reads the cuts on the stones and will tell you exactly what they say, which is rarely what anyone wants. He has outlived four chieftains.</p>
-            <p><strong>The Hag of Nine Teeth</strong> is a Dark Emissary who came into the Weeping Fen and never left. She knows the host's names. She uses them.</p>
+            <div class="runhead"><span class="ch">Named Characters</span><span class="bk">Myth, Barrows and Bronze</span></div>
+            <h2>Named of the Host</h2>
+            <div class="body2">
+              <p class="spot">Gwyth Antlerborn</p>
+              <p>He took the antlered helm off a chieftain he killed at sixteen and has worn it since, which the old men of his host say is why the elk still answer him. He carries his grandfather's shield, green with patina, and will not have it cleaned.</p>
+              <p class="spot">Maddoc Greystone</p>
+              <p>Truthsayer of the Grey Host, he reads the cuts on the stones and will tell you exactly what they say, which is rarely what anyone wants. He has outlived four chieftains.</p>
+              <div class="inset">
+                <b>A Truthsayer's fee</b>
+                No host pays a Truthsayer in coin. They are given a roof, a share of the pot, and the last word.
+              </div>
+              <p class="spot">The Hag of Nine Teeth</p>
+              <p>A Dark Emissary who came into the Weeping Fen and never left. She knows the host's names. She uses them.</p>
+            </div>
             <table class="statline">
               <caption>Characters</caption>
               <thead><tr><th class="n">Name</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th></tr></thead>
@@ -509,24 +585,44 @@ em{font-style:italic}
         <div class="page left">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Bestiary</p>
+            <div class="runhead"><span class="ch">Chapter IV &middot; Bestiary</span><span class="bk">Things in the fen</span></div>
             <h2>Things in the Fen</h2>
-            <div class="rule"></div>
-            <div class="plate wolves" style="flex:0 0 330px"></div>
-            <p class="caption">Mist-wolves, blue-eyed, running ahead of the Hag</p>
-            <p>Nothing on Albion is only an animal. The bog keeps what it takes and gives some of it back changed, and a Truthsayer will tell you the difference between a wolf and a thing wearing one.</p>
+            <!-- layout 3: half-page illustration above the columns -->
+            <div class="plate-half">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:380%;background-position:99% 88%"></div>
+              <p class="inkcap"><b>Plate III</b>Mist-wolves, blue-eyed, running ahead of the Hag.</p>
+            </div>
+            <div class="body2">
+              <p>Nothing on Albion is only an animal. The bog keeps what it takes and gives some of it back changed, and a Truthsayer will tell you the difference between a wolf and a thing wearing one.</p>
+              <p class="spot">Fenbeast</p>
+              <p>Bog, root and stone pulled upright by a Truthsayer's word. It does not tire and it does not care. Cut it and you are cutting mud.</p>
+              <p class="spot">The Mangler of Caer Mire</p>
+              <p>A giant that went into the fen to drink and stayed. It is slower now and far worse tempered, and it remembers the taste of the Red Host's grandfathers.</p>
+            </div>
           </div>
           <span class="folio">7</span>
         </div>
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Bestiary</p>
+            <div class="runhead"><span class="ch">Bestiary</span><span class="bk">Monsters of Albion</span></div>
             <h2>Monsters of Albion</h2>
-            <div class="rule"></div>
-            <div class="sidebar"><h3>Fenbeast</h3><p>Bog, root and stone pulled upright by a Truthsayer's word. It does not tire and it does not care. Cut it and you are cutting mud.</p></div>
-            <div class="sidebar"><h3>The Mangler of Caer Mire</h3><p>A giant that went into the fen to drink and stayed. It is slower now and far worse tempered, and it remembers the taste of the Red Host's grandfathers.</p></div>
-            <div class="sidebar"><h3>Mist-wolves</h3><p>Grey, silent, and far too interested. They hunt by the names the Hag gives them.</p></div>
+            <!-- layout 5: black-and-white ink drawing, art not yet delivered -->
+            <div class="plate-ink" style="flex:0 0 27%">
+              <div class="art pending">
+                <b>Ink drawing &mdash; awaiting art</b>
+                <span>A barrow opened on the moor</span>
+                <code>assets/illustrations/ink-barrow.png</code>
+              </div>
+            </div>
+            <div class="body2">
+              <p class="spot">Mist-wolves</p>
+              <p>Grey, silent, and far too interested. They hunt by the names the Hag gives them.</p>
+              <div class="inset">
+                <b>Counting the dead</b>
+                A fenbeast that falls is not killed, only put down. The bog keeps the pieces and a Truthsayer can call them up again.
+              </div>
+            </div>
             <table class="statline">
               <caption>Monsters</caption>
               <thead><tr><th class="n">Creature</th><th>M</th><th>WS</th><th>BS</th><th>S</th><th>T</th><th>W</th><th>I</th><th>A</th><th>Ld</th></tr></thead>
@@ -620,15 +716,21 @@ em{font-style:italic}
         <div class="page right">
           <div class="frame"></div><div class="grain"></div><div class="foxing"></div>
           <div class="inner">
-            <p class="chapter">Colophon</p>
+            <div class="runhead"><span class="ch">Colophon</span><span class="bk">About this book</span></div>
             <h2>About this Book</h2>
-            <div class="rule"></div>
-            <div class="plate stones" style="flex:0 0 280px"></div>
-            <p class="caption">The stone rows above King's Dale at dusk</p>
-            <p>This is an unofficial fan project. It is not a Games Workshop product and has no connection to, or endorsement from, Games Workshop Limited.</p>
-            <p>Warhammer, Albion, Truthsayers, Dark Emissaries, Fenbeasts and all associated names, marks and imagery are trademarks of Games Workshop Limited. They are used here without permission and without challenge to their status. Nothing here is for sale.</p>
-            <p>The cover painting and the plates taken from it are AI-generated. The army, its four hosts, its characters and its rules are invented for this book.</p>
-            <div class="sidebar"><p><em>Paint recipes, battle honours and the rest of the hosts go in the next printing.</em></p></div>
+            <div class="plate-half">
+              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg');background-size:235%;background-position:50% 30%"></div>
+              <p class="inkcap"><b>Plate IV</b>The stone rows above King's Dale at dusk.</p>
+            </div>
+            <div class="body2">
+              <p>This is an unofficial fan project. It is not a Games Workshop product and has no connection to, or endorsement from, Games Workshop Limited.</p>
+              <p>Warhammer, Albion, Truthsayers, Dark Emissaries, Fenbeasts and all associated names, marks and imagery are trademarks of Games Workshop Limited. They are used here without permission and without challenge to their status. Nothing here is for sale.</p>
+              <p>The cover painting and the plates taken from it are AI-generated. The army, its four hosts, its characters and its rules are invented for this book.</p>
+              <div class="inset">
+                <b>Next printing</b>
+                Paint recipes, battle honours and the rest of the hosts.
+              </div>
+            </div>
           </div>
           <span class="folio">12</span>
         </div>

@@ -16,6 +16,9 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 - **Dykejumpers** (also labelled Fenn Dykers in concept art) — fast-moving polemen who flit, spin and vault with their poles. In proposed tabletop rules, bow attacks against them suffer a **−1 penalty** because they are hard to hit while moving. They have the fighting ability of ordinary men rather than elite combatants. A **second dagger** is a possible additional weapon, not yet settled. Precise rules wording and balance remain provisional.
 - **Low Arrows** — archers who **crouch behind little walls of willow or reeds** and fire from that low position, making the archers harder to hit. Exact tabletop rules remain unsettled.
 
+## War machines
+- **[Honey Dragon](../artefacts/honey-dragon.md)** — a catapult hurling a jar of honey and hornets, furnished with willow wings and a dragon-like beak/nose for direction. Albion folk call machines **dragons**.
+
 ## Local leadership
 
 Communities are headed by **Masters**: beefy, entirely non-magical working bronze smiths who make and sharpen their people's weapons. They use a short working hammer and chain; a small anvil is a possible miniature accessory. Smithing is the highest craft, above carpentry.

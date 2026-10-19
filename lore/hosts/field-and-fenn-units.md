@@ -19,7 +19,7 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 ## War machines
 - **[Honey Dragon](../artefacts/honey-dragon.md)** — a catapult hurling a jar of honey and hornets, furnished with willow wings and a dragon-like beak/nose for direction. Albion folk call machines **dragons**.
 
-In ordinary life, Field and Fenn **war machines are principally anti-giant defences**, used to ward off giants rather than wage war against other people.
+In ordinary life, Field and Fenn **war machines are principally anti-giant defences**, used to ward off giants rather than wage war against other people. Giants are generally a **nuisance** to rural communities, not primarily predators. They may tear down walls, buildings or other works that obstruct ancient **ley lines**. This is an inherited, largely uncomprehended maintenance instinct from their role tending Albion's old magical infrastructure.
 - **[Blinding Brass](../artefacts/blinding-brass.md)** — directs light to blind giants and send them away.
 
 ## Local leadership

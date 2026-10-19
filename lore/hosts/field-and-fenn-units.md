@@ -34,6 +34,10 @@ Witches and druids are distinct. Witches are generally cheaper choices in game t
 
 Robin Fair, John Acorn, Duck the Bard, Genny Willows, Diddy Mann and his woodwose, Old Shannock, Jack, his giantess and his vine-witch mother are connected to this society, **not** its collective rulers.
 
+## Not established as real
+
+**Bog Imps** are not confirmed creatures of Albion; the current preference is that they probably **do not exist**. Do not present them as an actual Field and Fenn unit or species.
+
 ## Unresolved
 
 Final collective name, exact swamp dragon size and battlefield role, and tabletop rules.

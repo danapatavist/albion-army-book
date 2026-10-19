@@ -49,18 +49,18 @@ body{margin:0;background:var(--table);color:var(--parch);font-family:var(--body)
 }
 
 /* ---------- book ---------- */
-.book{position:absolute;inset:0;perspective:2600px}
+.book{position:absolute;top:0;left:0;right:120px;bottom:0;perspective:2600px}
 .leaf{position:absolute;inset:0;display:none;perspective:2600px}
 .leaf.is-current{display:flex}
 
 .page{
-  position:absolute;top:0;width:960px;height:1080px;overflow:hidden;
+  position:absolute;top:0;width:900px;height:1080px;overflow:hidden;
   background:
     linear-gradient(175deg, var(--parch) 0%, var(--parch-2) 58%, var(--parch-deep) 100%);
   color:var(--ink);
 }
 .page.left{left:0}
-.page.right{left:960px}
+.page.right{left:900px}
 .sheet .side>.page{left:0}
 .page>.inner{position:relative;z-index:2;height:100%;padding:72px 78px;display:flex;flex-direction:column;gap:26px}
 .page.left>.inner{padding-right:88px}
@@ -203,6 +203,7 @@ em{font-style:italic}
 
 /* ---------- cover ---------- */
 .lid{all:unset;cursor:pointer;display:block;position:absolute;inset:0;overflow:hidden}
+.leaf.cover{right:-120px}   /* the lid breaks out across the full stage */
 .lid{background:#0a0704}
 .lid img{display:block;width:100%;height:100%;object-fit:contain}
 .lidhint{
@@ -219,12 +220,12 @@ em{font-style:italic}
 
 /* ---------- the sheet: one leaf of paper, recto on the front, verso on the back ---------- */
 .sheet{
-  position:absolute;top:0;left:960px;width:960px;height:1080px;
+  position:absolute;top:0;left:900px;width:900px;height:1080px;
   transform-style:preserve-3d;transform-origin:left center;
   display:none;z-index:30;pointer-events:none;
 }
 .sheet.back{left:0;transform-origin:right center}
-.sheet .side{position:absolute;top:0;left:0;width:960px;height:1080px;backface-visibility:hidden;overflow:hidden}
+.sheet .side{position:absolute;top:0;left:0;width:900px;height:1080px;backface-visibility:hidden;overflow:hidden}
 .sheet .side.verso{transform:rotateY(180deg)}
 .sheet .lift{
   position:absolute;inset:0;z-index:9;pointer-events:none;
@@ -232,18 +233,23 @@ em{font-style:italic}
 }
 .sheet.back .lift{background:linear-gradient(270deg,rgba(28,16,4,.42),rgba(28,16,4,.06) 35%,transparent 60%)}
 
-/* ---------- fore-edge tabs ---------- */
+/* ---------- index tabs: on the table beside the book, never over the page ---------- */
 .tabs{
-  position:absolute;right:-6px;top:132px;z-index:30;display:flex;flex-direction:column;gap:7px;
+  position:absolute;right:30px;top:50%;transform:translateY(-50%);z-index:30;
+  display:flex;flex-direction:column;gap:9px;
 }
 .tabs button{
-  all:unset;cursor:pointer;writing-mode:vertical-rl;text-orientation:mixed;
-  font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;
-  padding:18px 9px;background:linear-gradient(90deg,#6d2a1c,#48190f);color:#e8d9b4;
-  border:1px solid #2a1108;border-left:none;box-shadow:3px 3px 8px rgba(0,0,0,.45);
+  all:unset;box-sizing:border-box;cursor:pointer;
+  writing-mode:vertical-rl;text-orientation:mixed;
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:128px;
+  font-family:var(--display);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  background:linear-gradient(100deg,#7a3020,#4a1a10);color:#e8d9b4;
+  border:1px solid #2a1108;box-shadow:0 4px 12px rgba(0,0,0,.5);
+  transition:transform .14s ease;
 }
-.tabs button[aria-current="true"]{background:linear-gradient(90deg,#b08a2a,#7d5c13);color:#1d1409}
-.tabs button:hover,.tabs button:focus-visible{filter:brightness(1.22)}
+.tabs button[aria-current="true"]{background:linear-gradient(100deg,#bd952d,#7d5c13);color:#1d1409;border-color:#3a2a08}
+.tabs button:hover,.tabs button:focus-visible{transform:translateX(-5px);filter:brightness(1.15)}
 
 /* ---------- page arrows ---------- */
 .arrow{
@@ -628,16 +634,17 @@ em{font-style:italic}
         </div>
       </section>
 
-      <!-- turner + chrome -->
+      <!-- the turning sheet + page arrows live with the book -->
       <div class="sheet" id="sheet">
         <div class="side recto" id="recto"><div class="lift"></div></div>
         <div class="side verso" id="verso"><div class="lift"></div></div>
       </div>
       <button class="arrow prev" id="prev" aria-label="Previous page">&#8249;</button>
       <button class="arrow next" id="next" aria-label="Next page">&#8250;</button>
-      <div class="tabs" id="tabs"></div>
       <p class="hint" id="hint">Click the page edges &middot; the red names &middot; or use the arrow keys</p>
     </div>
+    <!-- the index tabs stand on the table, clear of the book -->
+    <div class="tabs" id="tabs"></div>
   </div>
   <p class="small">Built for a wide screen &mdash; turn your phone sideways, or open it on a desktop.</p>
 </div>
@@ -704,6 +711,7 @@ em{font-style:italic}
     current = i;
     markTabs();
     if (hint) hint.style.display = i === 0 ? 'none' : '';
+    tabsEl.style.display = i === 0 ? 'none' : '';   /* the index appears once the book is open */
   }
 
   /* One sheet of paper. Its recto is the page you are leaving; its verso is the page

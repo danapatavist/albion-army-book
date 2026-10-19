@@ -9,7 +9,7 @@ publication: requires-approval
 # Witches and Hags
 
 ## Established lore
-In Albion, **hag** is another name for a **witch**, not a distinct species or confirmed higher magical rank. Witches are distinct from the institutional **druids** and are generally cheaper tabletop magic choices.
+In Albion, **hag** is another name for a **witch**, not a distinct species or confirmed higher magical rank. **Bog Hags** are simply witches of the marshes, not a separate magical species or order. Witches are distinct from the institutional **druids** and are generally cheaper tabletop magic choices.
 
 An individual may also be an Ancient: **Jenny/Genny Willows**, also known as **Genny Green Teeth** and **Annie Lantern**, is one person and one of the Ancients.
 

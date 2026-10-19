@@ -9,7 +9,7 @@ publication: requires-approval
 # Druid, Novice and Sword
 
 ## Established lore
-Albion druids almost always travel in trios: a **Druid**, a **Novice**, and a **Sword**, the druid's armed guardian. A solitary druid is very rare.
+**College-trained druids** normally operate in appointed trios: a **Druid**, a **Novice**, and a **Sword**, the Druid's armed guardian. The members are appointed through the druidic colleges, rather than necessarily having grown up together. **Solo druids are rarer**, but do exist.
 
 The **Novice** has limited magical skill. He is principally an assistant who supports the Druid's casting, rather than a second independent wizard. He is traditionally gelded. A Novice can eventually advance to become a Druid in his own right. The **Sword** is responsible for protecting the Druid and may place himself in harm's way for him. A Sword is **sworn to his Druid for life**; this is a lifelong personal oath, not a routine assignment.
 

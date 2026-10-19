@@ -11,7 +11,7 @@ publication: requires-approval
 ## Established lore
 The **Honey Dragon** is a Field and Fenn **catapult**, not a living dragon. Its projectile is a **jar of honey and hornets**. A **willow framework shaped into wings**, together with a **nose or dragon-like beak for direction**, gives the contraption its dragon identity.
 
-Albion folk call **machines “dragons”**; the name does not imply an actual dragon or magic.
+Albion folk use **“dragon” for machines**, including **pipe organs**; the term is not restricted to weapons or living dragons. The name does not imply magic.
 
 ## Unresolved
 Precise construction and how the wing-and-beak directional elements work, the handling and release of the jar, range and game rules.

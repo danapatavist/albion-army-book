@@ -10,10 +10,10 @@ publication: requires-approval
 
 ## Established canon
 - **Diddy Mann is a tiny lizard wizard**, associated with the Field and Fenn.
-- He is accompanied by, or otherwise associated with, **his woodwose**.
+- His **woodwose is his mount**, but rather than sitting astride it, Diddy Mann rides **on its shoulder**.
 
 ## Unresolved
-The nature of his magic, exact size, the woodwose's name and their relationship remain to be detailed.
+The nature of his magic, exact size, the woodwose's name and further details of their partnership remain to be detailed.
 
 ## Related
 [Field and Fenn](../hosts/green-host.md).

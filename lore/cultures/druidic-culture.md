@@ -11,6 +11,10 @@ publication: requires-approval
 ## Overview
 Albion's druidry includes established colleges and rarer independent practitioners. Druids are distinct from **witches** and from the **Ancients**. Their practice is associated with magical knowledge, training and the stewardship of old pylon sites; the precise division of duties remains under development.
 
+## Compared with witches
+
+Druids have **higher standing and cost more to hire** than witches. Their knowledge and magic are **broader and less specialised**; ordinary practical needs, such as **wart removal**, are better taken to a witch. Their principal income from arbitration gives them a different role in community life.
+
 ## College tradition — established
 College-trained druids ordinarily work as an appointed **Druid, Novice and Sword** trio.
 

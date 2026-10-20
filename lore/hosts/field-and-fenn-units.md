@@ -20,7 +20,7 @@ Villages favour **raised meadows** amid the mixed waterways and low ground. Typi
 
 ## Core army composition
 
-The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (a common fighting tradition across Albion), **Low Arrows** (low-position archers using willow or reed screens), and **Dykers / Dykejumpers** (mobile polemen). These are its ordinary mainstay troops; the stranger creatures and war machines are supplementary rather than the army's backbone.
+The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (the same miniature box used by Blue and Red armies, differentiated through painting rather than separate sculpts), **Low Arrows** (low-position archers using willow or reed screens), and **Dykers / Dykejumpers** (mobile polemen). These are its ordinary mainstay troops; the stranger creatures and war machines are supplementary rather than the army's backbone.
 
 ## Known formations and creatures
 

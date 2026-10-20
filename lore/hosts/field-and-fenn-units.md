@@ -82,6 +82,9 @@ When households need to fight or respond to a threat, **Masters take charge or a
 
 When neighbouring communities face a greater threat, they may call on **a respected great figure such as Robin Fair**. A **civilisational threat** may bring the intervention of **an Ancient**, or **Diddy Mann may appear**. For any serious war, **finding a druid willing to support the campaign is important**. This is a scale of response rather than a rigid hierarchy or guaranteed chain of command.
 
+
+**Masters and druids are parallel figures of importance**, either of whom may lead an army. A druid has **higher social standing than a witch**, but is not automatically above a Master. It is **rare for a medium-sized Albion army to go to war without a druid**.
+
 ## Magic
 
 Witches and druids are distinct. Witches are generally cheaper choices in game terms. Druids normally appear as a trio: **Druid, Novice and Sword** (bodyguard). Solitary druids are very rare. No exact wound-allocation rule has been approved.

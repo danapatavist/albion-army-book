@@ -28,6 +28,10 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 
 **Low Arrows are standard Core troops.** **Shield Wall is a basic unit/formation available to every Albion host**, not a Blue specialism. Its shields are **fairly standard round shields of an Anglo-Saxon type**, common across Albion. Painted Warriors are a shared Albion troop type. **Swords are rare**; ordinary warriors primarily carry **farm implements or ritual instruments** used as weapons. Precise loadouts and Shield Wall rules remain unsettled. Dykers' formal roster category has not yet been confirmed.
 
+## Jack and his giantess
+
+**Jack and his giantess fight as a paired character choice**: they come together, rather than being recruited separately. **Jack's mother**, the bean-witch, is an **optional extra**, not automatically included. The exact army-list cost and rules are still undecided.
+
 ## Robin Fair's companions
 
 **Big John** always fights alongside **Robin Fair**. **The Bard** likewise always accompanies Robin's group, riding **on Big John's back** because the Bard's legs do not work. The Bard may be able to **swing his guitar for a small melee attack**, despite principally travelling on John's back; this is a tentative tabletop idea rather than a confirmed rule. Treat the three as linked companions rather than independent, freely deployed figures; their precise game mechanics remain to be determined.

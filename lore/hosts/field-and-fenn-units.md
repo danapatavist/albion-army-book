@@ -20,7 +20,7 @@ Field and Fenn communities have **mixed livelihoods**: farming, fishing, rabbiti
 
 ## Itinerant craftspeople
 
-Travel between communities is driven less by a distinct class of traders than by **craftspeople following commissions and going wherever the work is**. There is **no strong guild system** regulating these trades: a craftsman's standing rests on **his word and proof of craft**—demonstrated workmanship and a reputation for keeping promises. The Big May is an important opportunity for artisans to find their next jobs; they then travel to the communities where those jobs are needed.
+Travel between communities is driven less by a distinct class of traders than by **craftspeople following commissions and going wherever the work is**. There is **no strong guild system** regulating these trades: a craftsman's standing rests on **his word and proof of craft**—demonstrated workmanship and a reputation for keeping promises. A craftsman who breaks his word or produces shoddy work may be **driven out of the community**. The Big May is an important opportunity for artisans to find their next jobs; they then travel to the communities where those jobs are needed.
 
 ## Community boundaries and rivalry
 

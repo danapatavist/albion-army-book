@@ -28,7 +28,7 @@ Field and Fenn settlements are **distinct communities with recognised borders**.
 
 ## Settling disputes
 
-Rather than leaving disputes entirely to a village Master or informal group judgement, communities **usually call a druid to arbitrate**. Such paid dispute settlement is **a principal livelihood of druids**, indeed their main source of income. Precise rules and payments remain open.
+Rather than leaving disputes entirely to a village Master or informal group judgement, communities **usually call a druid to arbitrate**. Such paid dispute settlement is **a principal livelihood of druids**, indeed their main source of income. Albion is a **respect-based society**, so the authority of a druid's decision rests chiefly on the standing and respect accorded to them, rather than a central legal apparatus. Precise procedures and payments remain open.
 
 ## The May — visual reference
 

@@ -16,7 +16,7 @@ The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, cros
 
 ## Settlements and giant avoidance
 
-Villages favour **raised meadows** amid the mixed waterways and low ground. Typical dwellings are **low turf-built homes**, akin to Icelandic turf houses, or **thatched A-frame buildings**. Both keep a low, landscape-blending profile: from a giant's elevated, top-down view, settlements are deliberately **unobtrusive**, avoiding the attention of passing giants.
+Villages favour **raised meadows** amid the mixed waterways and low ground. Typical dwellings are **low turf-built homes**, akin to Icelandic turf houses, or **thatched A-frame buildings**. Both keep a low, landscape-blending profile: from a giant's elevated, top-down view, settlements are deliberately **unobtrusive**, avoiding the attention of passing giants. Roads and plankways are generally **four to five feet wide**. More grandiose architecture also exists, but is **usually built on pylons**.
 
 ## Known formations and creatures
 

@@ -38,6 +38,10 @@ Robin Fair, John Acorn, Duck the Bard, Genny Willows, Diddy Mann and his woodwos
 
 **Bog Imps** are not confirmed creatures of Albion; the current preference is that they probably **do not exist**. Do not present them as an actual Field and Fenn unit or species.
 
+## Folklore, not units
+
+**Will-o'-the-wisps** are simply mysterious lights and the stories told about them, **not confirmed magical beings or creatures**. They are not a Field and Fenn troop type.
+
 ## Unresolved
 
 Final collective name, exact swamp dragon size and battlefield role, and tabletop rules.

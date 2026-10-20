@@ -21,7 +21,7 @@ Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advoc
 - Lean build, with a moustache, tartan trousers and high boots.
 - His visual design draws on a modern, self-consciously polished image against Albion's older Bronze Age world; avoid generic medieval plate armour.
 - He rides **Shaggy**, a Loch Ness-like creature that can carry his throne.
-- He possesses **the horn that can summon the Waiting Guard**, ancient warriors drowned and preserved in Albion's bogs. The Guard await the return of an ancient figure; the exact identity is not settled in this entry.
+- He possesses **the horn that can summon the Waiting Guard**, ancient warriors drowned and preserved in Albion's bogs. The Guard are a sleeping or waiting army awaiting **Argant**, Albion's founding king, rather than Alfran.
 - He is the elder brother of **Elfred 'Sidesaddle'**.
 - The **Beast** is a figure at Alfran's Blue Court, with a particularly protective relationship towards Elfred.
 - He is influenced by ideas from abroad, including Araby's sophistication around money; the exact extent of each influence needs further editorial definition.

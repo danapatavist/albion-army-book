@@ -29,7 +29,7 @@ Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advoc
 
 ## Enclosure and rural transformation
 
-Alfran is transforming parts of the **Field and Fenn into kingdoms and lordships**, with **fences and walls dividing formerly shared meadows**. This benefits the new lords far more than the ordinary people whose established access and relationships are disrupted. His modernising project is therefore a major source of conflict with traditional rural communities, without necessarily making him a straightforward villain.
+Alfran is transforming parts of the **Field and Fenn into kingdoms and lordships**, with **fences and walls dividing formerly shared meadows**. **The new lords are Alfran's supporters**, appointed to govern. Under this system, traditional **Masters become Guilders**, shifting their position from independent smith-leaders toward an organised craft role. This benefits the new lords far more than the ordinary people whose established access and relationships are disrupted. His modernising project is therefore a major source of conflict with traditional rural communities, without necessarily making him a straightforward villain.
 
 ## Connections
 

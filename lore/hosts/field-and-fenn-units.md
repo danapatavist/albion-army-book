@@ -22,7 +22,7 @@ Villages favour **raised meadows** amid the mixed waterways and low ground. Typi
 
 The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (the same miniature box used by Blue and Red armies, differentiated through painting rather than separate sculpts), **Low Arrows** (low-position archers using willow or reed screens), and **Dykers / Dykejumpers** (mobile polemen). These are its ordinary mainstay troops; the stranger creatures and war machines are supplementary rather than the army's backbone.
 
-**Low Arrows are standard Core troops.** Painted Warrior equipment remains under discussion: pole and dagger as standard, with sword-and-shield as a possible alternative rather than a settled rule. Dykers' formal roster category has not yet been confirmed.
+**Low Arrows are standard Core troops.** Painted Warrior specialisation is principally **whether they adopt Shield Wall formation**, rather than a sword-versus-pole distinction. Painted Warriors are a shared Albion troop type; precise weapon options and Shield Wall's game effects remain provisional. Dykers' formal roster category has not yet been confirmed.
 
 ## Known formations and creatures
 

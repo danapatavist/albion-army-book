@@ -14,6 +14,8 @@ Albion is a **respect-based society** in which personal reputation and one's wor
 
 Other people may add their **signatures or witness marks** to a person's skin, so the body acts like a collection of **receipts** for dealings and relationships. These can take the form of **long Ogham-like marks** along the body. An experienced tradesperson, older person or unusually long-lived individual may accumulate **a line of such receipts running up the arm** from the hand: a visible record built over a lifetime.
 
+Albion's household organisation is often **large extended-family homesteads**, with multiple generations and branches living as one household, loosely comparable to traditional Chinese extended-family households. A person's community and lineage identity is therefore closely bound to a large domestic group, not just a nuclear family. The exact household hierarchy and inheritance customs are not yet established.
+
 The exact designs, conventions, meanings, and rules governing who may add a mark have not yet been established.
 
 ## Visual direction

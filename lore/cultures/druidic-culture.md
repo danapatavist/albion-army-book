@@ -31,6 +31,10 @@ A separate, earlier *proposal* for five Grey cave colleges used the labels **Tid
 ## Magical practices and references
 Established imagery across Albion includes fire and embers, rain and bowls of water, stone-moving, suspended stones and constructs, animal-associated seers, and pylon stewardship. These are **not confirmed as five formal college specialisations**.
 
+## Dispute settlement and livelihood
+
+A major everyday function of druids is **arbitrating disputes**, particularly between people or communities. Calling in a druid to settle a dispute is customary in Field and Fenn, and **fees for arbitration are a druid's main source of income**. The exact legal procedure and forms of payment are not yet specified.
+
 ## Relationships
 - **Witches** practise a distinct tradition and are generally cheaper tabletop magic choices. Their social organisation should not be assumed to mirror colleges.
 - **Ancients** are surviving humanoids left by the Old Ones to maintain pylons. They are not ordinary druids.

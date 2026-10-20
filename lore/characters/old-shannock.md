@@ -19,7 +19,7 @@ publication: requires-approval
 The supplied concept sheet depicts Old Shannock enthroned amid suspended carved megaliths with armed guardians on floating stone platforms. Five miniature concepts are labelled **The Balance**, **The Keeper**, **The Listener**, **The Warden**, and **The Judgement**. These labels await confirmation as formal names or ranks.
 
 ## Unresolved
-Whether the warriors are themselves spellcasters; the final names and organisation of the retinue; tabletop rules.
+The warrior-monks **may be minor or low-level spellcasters in their own right**, alongside their protective combat role; this remains a tentative direction, not fixed canon. Final names and organisation of the retinue; tabletop rules.
 
 ## Related
 [The Ancients](../cultures/ancients.md), [Pylons](../magic/pylons.md), [Field and Fenn](../hosts/green-host.md).

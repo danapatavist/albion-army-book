@@ -18,6 +18,10 @@ The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, cros
 
 Field and Fenn communities have **mixed livelihoods**: farming, fishing, rabbiting, poaching, baking and varied artisan crafts. They are not solely marsh fishers or farmers.
 
+## Community boundaries and rivalry
+
+Field and Fenn settlements are **distinct communities with recognised borders**. Neighbours have **disputes**, sometimes fight **wars**, and compete in **ball games**. The communities should not be presented as a unified peaceful polity; the precise customs, rules and causes of their rivalries remain open.
+
 ## Settlements and giant avoidance
 
 Villages favour **raised meadows** amid the mixed waterways and low ground. Typical dwellings are **low turf-built homes**, akin to Icelandic turf houses, or **thatched A-frame buildings**. Both keep a low, landscape-blending profile: from a giant's elevated, top-down view, settlements are deliberately **unobtrusive**, avoiding the attention of passing giants. Roads and plankways are generally **four to five feet wide**. More grandiose architecture also exists, but is **usually built on pylons**. These buildings can serve **any purpose**—they are not restricted to religion, halls or residences. The Fenners hold **many different beliefs**, many of them centred on **water holes**, sacred both for the water itself and for what may lie beneath. Ancient Albion **drowned warriors**, and in the preserving bogs some remain as the **Waiting Guard**, **awaiting the return of Argant**, Albion's founding king, like a sleeping army. **Alfran possesses the horn that can call them**, although he is not the king they await.

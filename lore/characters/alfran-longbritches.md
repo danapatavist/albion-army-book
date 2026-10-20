@@ -35,6 +35,10 @@ Alfran and Elfred's mother comes from the **petty earldoms of the North**. She i
 
 Druids **do resist Alfran's looting of ancient barrows**, but his wealth allows him to **pay off selected individuals**; this does not imply general approval from the druidic establishment. His magical entourage includes **one Great Druid** and **the Three**, a group of **three special Knotwitches**. The Great Druid is a **mad, eccentric old philosopher in the spirit of Diogenes**, the Greek philosopher associated with living in a large jar; the precise Albion version of his dwelling, personality and magic remains to be defined. The Three are a **maiden, mother and crone** who weave Alfran's deeds into **Bayeux Tapestry-like narrative textiles**. Their names, relationship to ordinary Knotwives and precise roles remain to be established.
 
+## Old Berrick of the Barrel — provisional character development
+
+**Old Berrick of the Barrel** is a *working name* for Alfran's Great Druid. A brilliant, filthy, eccentric old philosopher with a Diogenes-like disregard for comfort and courtly rank, he lives near or sometimes inside a great clay jar by choice. He mocks Alfran's ambition and vanity, while Alfran values his magical skill and tolerates his insolence. Their mutual respect is uneasy: each sees the other as a necessary nuisance. A possible line: *“You may command the kingdom. You cannot command the rain.”* **All details in this paragraph are provisional inventions pending creator approval.**
+
 ## Barrow plunder and imperial wealth
 
 Alfran **loots Albion's ancient burial barrows to finance his expanding empire**. He has **wagons of richly worked, Anglo-Saxon/Sutton Hoo-style gold** taken from the graves of the old kings and other buried dead. This treasure is a practical source of wealth for his campaigns, newly created earldoms and projects. His removal of the entire Sword in the Stone belongs to this broader habit of appropriating Albion's buried past.

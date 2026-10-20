@@ -38,6 +38,10 @@ The private Green archive includes `green culture/May.png`, a concept plate capt
 
 Villages favour **raised meadows** amid the mixed waterways and low ground. Typical dwellings are **low turf-built homes**, akin to Icelandic turf houses, or **thatched A-frame buildings**. Both keep a low, landscape-blending profile: from a giant's elevated, top-down view, settlements are deliberately **unobtrusive**, avoiding the attention of passing giants. Roads and plankways are generally **four to five feet wide**. More grandiose architecture also exists, but is **usually built on pylons**. These buildings can serve **any purpose**—they are not restricted to religion, halls or residences. The Fenners hold **many different beliefs**, many of them centred on **water holes**, sacred both for the water itself and for what may lie beneath. Ancient Albion **drowned warriors**, and in the preserving bogs some remain as the **Waiting Guard**, **awaiting the return of Argant**, Albion's founding king, like a sleeping army. **Alfran possesses the horn that can call them**, although he is not the king they await.
 
+## Alfran's enclosure of the countryside
+
+**Alfran is turning Field and Fenn into kingdoms with lords**, enclosing meadows behind **fences and walls**. These changes chiefly benefit the lords, rather than the households who depend upon the land. This threatens older patterns of access and reciprocal community life, and creates friction between Alfran's reforms and the rural people.
+
 ## Shared Albion infantry principle
 
 Across **every Albion host**, the bulk of ordinary troops are **Painted Warriors**, using the **same miniature box** and distinguished chiefly by paint scheme. Their equipment may be chosen in combinations of **round shield, pike, hand weapon, sling, or javelin**; precise tabletop options are not finalised. Albion is notable for having **few distinct infantry types** rather than extensive differentiated infantry ranges (whether this also implies a low infantry model count is not yet established). Hosts gain much of their identity from specialist troops, creatures, magic, leaders and how the common warriors are painted.

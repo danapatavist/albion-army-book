@@ -30,7 +30,7 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 
 ## Jack and his giantess
 
-**Jack and his giantess fight as a paired character choice**: they come together, rather than being recruited separately. **Jack's mother**, the bean-witch, is an **optional extra**, not automatically included. The exact army-list cost and rules are still undecided.
+**Jack and his giantess fight as a paired character choice**: they come together, rather than being recruited separately, but **each has a separate miniature base**. **Jack's mother**, the bean-witch, is an **optional extra**, not automatically included, and uses **her own separate base**. No shared or combined base. The exact army-list cost and rules are still undecided.
 
 ## Robin Fair's companions
 

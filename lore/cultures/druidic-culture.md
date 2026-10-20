@@ -35,6 +35,11 @@ Established imagery across Albion includes fire and embers, rain and bowls of wa
 
 A major everyday function of druids is **arbitrating disputes**, particularly between people or communities. Calling in a druid to settle a dispute is customary in Field and Fenn, and **fees for arbitration are a druid's main source of income**. Albion is a **respect-based society**: a druid's judgement carries weight through acknowledged standing and respect, rather than primarily through formal legal authority. The exact procedures and forms of payment are not yet specified.
 
+
+## Social standing and wartime command
+
+**Druids have higher status than witches**. Druids and **Masters (smith-leaders)** are **parallel important authorities**, rather than one simply outranking the other; **either may command an army**. A medium-sized Albion army **rarely takes the field without a druid**, even if its commander is a Master.
+
 ## Relationships
 - **Witches** practise a distinct tradition and are generally cheaper tabletop magic choices. Their social organisation should not be assumed to mirror colleges.
 - **Ancients** are surviving humanoids left by the Old Ones to maintain pylons. They are not ordinary druids.

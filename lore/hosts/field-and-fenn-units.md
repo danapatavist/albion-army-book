@@ -30,7 +30,7 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 
 ## Robin Fair's masked woodsmen
 
-**Robin Fair's woodsmen** are a **distinctive-model elite unit**, rather than simply standard Painted Warriors in a different paint scheme. They wear **masks** and evoke outlaw **men-at-arms or highwaymen**. They can be fielded as a regular elite unit and **Robin Fair can join them**; they are not exclusively his compulsory bodyguard. Their exact weapons, special rules and final unit name remain open.
+**Robin Fair's woodsmen** are a **distinctive-model elite unit**, rather than simply standard Painted Warriors in a different paint scheme. They wear **a mixture of animal masks** (not all fox faces like Robin's) and evoke outlaw **men-at-arms or highwaymen**. They can be fielded as a regular elite unit and **Robin Fair can join them**; they are not exclusively his compulsory bodyguard. Their exact weapons, special rules and final unit name remain open.
 
 ## Known formations and creatures
 

@@ -29,7 +29,7 @@ Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advoc
 
 ## Mother — the northern Empress
 
-Alfran and Elfred's mother comes from the **petty earldoms of the North**. She is styled **Empress** and claims a coat of arms comprising **seventeen flags**, reflecting her northern background among numerous minor earldoms. The precise identities of those flags and her formal claims remain open.
+Alfran and Elfred's mother comes from the **petty earldoms of the North**. She is the **third daughter of a Duke**, and had no meaningful expectation of inheriting a lordship in her own right. Nevertheless, she is styled **Empress** and claims a coat of arms comprising **seventeen flags**. The flags express an extravagant claim to northern dynastic grandeur, not seventeen confirmed possessions. Three private miniature concept images depict her lavishly enthroned amid many banners on a vast wheeled carriage, with fur, crown, attendants and caged bird; these are visual references, not yet one final approved sculpt.
 
 ## Enclosure and rural transformation
 

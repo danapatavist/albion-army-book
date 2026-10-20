@@ -13,7 +13,7 @@ publication: requires-approval
 - An ancient blind wood wizard, with pale white eyes and long nails, associated with Albion's old powers and the Field and Fenn.
 - Sits upon a moving throne of suspended stones, linked by vines and roots.
 - **Probably leads Field and Fenn armies into battle himself**; this is the current working direction, rather than firmly settled detail.
-- Is accompanied by a small retinue of **druid warriors** or warrior-monks who guard him and his throne. **Those warriors are not themselves called Ancients by virtue of serving him.**
+- Is accompanied by **druid warriors / warrior-monks**, a **separate fieldable unit** that can serve as his **personal guard**. They may also be able to **protect other spellcasters**; that wider bodyguard role is provisional. **The warriors are not Ancients themselves.**
 
 ## Creator-supplied visual reference
 The supplied concept sheet depicts Old Shannock enthroned amid suspended carved megaliths with armed guardians on floating stone platforms. Five miniature concepts are labelled **The Balance**, **The Keeper**, **The Listener**, **The Warden**, and **The Judgement**. These labels await confirmation as formal names or ranks.

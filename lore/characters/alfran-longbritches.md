@@ -33,7 +33,7 @@ Alfran and Elfred's mother comes from the **petty earldoms of the North**. She i
 
 ## Magical supporters and opposition
 
-Druids **do resist Alfran's looting of ancient barrows**, but his wealth allows him to **pay off selected individuals**; this does not imply general approval from the druidic establishment. His magical entourage includes **one Great Druid** and **the Three**, a group of **three special Knotwitches**. Their names, relationship to ordinary Knotwives and precise roles remain to be established.
+Druids **do resist Alfran's looting of ancient barrows**, but his wealth allows him to **pay off selected individuals**; this does not imply general approval from the druidic establishment. His magical entourage includes **one Great Druid** and **the Three**, a group of **three special Knotwitches**. The Great Druid is a **mad, eccentric old philosopher in the spirit of Diogenes**, the Greek philosopher associated with living in a large jar; the precise Albion version of his dwelling, personality and magic remains to be defined. The Three are a **maiden, mother and crone** who weave Alfran's deeds into **Bayeux Tapestry-like narrative textiles**. Their names, relationship to ordinary Knotwives and precise roles remain to be established.
 
 ## Barrow plunder and imperial wealth
 

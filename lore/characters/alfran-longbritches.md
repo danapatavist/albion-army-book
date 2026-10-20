@@ -37,7 +37,7 @@ Druids **do resist Alfran's looting of ancient barrows**, but his wealth allows 
 
 ## Old Berrick of the Barrel — provisional character development
 
-**Old Berrick of the Barrel** is a *working name* for Alfran's Great Druid. A brilliant, filthy, eccentric old philosopher with a Diogenes-like disregard for comfort and courtly rank, he lives near or sometimes inside a great clay jar by choice. He mocks Alfran's ambition and vanity, while Alfran values his magical skill and tolerates his insolence. Their mutual respect is uneasy: each sees the other as a necessary nuisance. A possible line: *“You may command the kingdom. You cannot command the rain.”* **All details in this paragraph are provisional inventions pending creator approval.**
+**Old Berrick of the Barrel** is a *working name* for Alfran's Great Druid. A filthy, eccentric old philosopher with a Diogenes-like disregard for comfort and courtly rank, he lives near or sometimes inside a great clay jar by choice. **His philosophy goes no further than where his next meal is coming from**: practical hunger matters more to him than elaborate theories or lofty political ideals. He mocks Alfran's ambition and vanity, while Alfran values his magical skill and tolerates his insolence. Their mutual respect is uneasy: each sees the other as a necessary nuisance. A possible line: *“You may command the kingdom. You cannot command the rain.”* **All details in this paragraph are provisional inventions pending creator approval.**
 
 ## Barrow plunder and imperial wealth
 

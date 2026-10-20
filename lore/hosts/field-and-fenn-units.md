@@ -20,7 +20,7 @@ Field and Fenn communities have **mixed livelihoods**: farming, fishing, rabbiti
 
 ## Community boundaries and rivalry
 
-Field and Fenn settlements are **distinct communities with recognised borders**. Neighbours have **disputes**, sometimes fight **wars**, and compete in **ball games** that can turn violent. They also hold other **competitions**. **The Big May** is a huge festival held at their **main mega-market**, drawing communities together for celebrations and contests. The communities should not be presented as a unified peaceful polity; the precise customs, rules and causes of their rivalries remain open.
+Field and Fenn settlements are **distinct communities with recognised borders**. Neighbours have **disputes**, sometimes fight **wars**, and compete in **ball games** that can turn violent. They also hold other **competitions**. **The Big May** is a huge festival held at their **main mega-market**, drawing communities together for celebrations and contests. Above all it is a **trade fair**: artisans seek their next commissions, musicians perform, and families negotiate arrangements, potentially including **marriage exchanges in which a daughter is effectively sold to a family with a son**. Whether it has any religious significance is **not established**. The communities should not be presented as a unified peaceful polity; the precise customs, rules and causes of their rivalries remain open.
 
 ## Settlements and giant avoidance
 

@@ -27,6 +27,10 @@ Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advoc
 - He is influenced by ideas from abroad, including Araby's sophistication around money; the exact extent of each influence needs further editorial definition.
 - His modernising instinct extends to standardising road junctions and roundabouts, which have folkloric significance in Albion.
 
+## Enclosure and rural transformation
+
+Alfran is transforming parts of the **Field and Fenn into kingdoms and lordships**, with **fences and walls dividing formerly shared meadows**. This benefits the new lords far more than the ordinary people whose established access and relationships are disrupted. His modernising project is therefore a major source of conflict with traditional rural communities, without necessarily making him a straightforward villain.
+
 ## Connections
 
 - **Blue Host:** Alfran's political and military sphere.

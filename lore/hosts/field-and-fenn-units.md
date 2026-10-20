@@ -40,7 +40,7 @@ Villages favour **raised meadows** amid the mixed waterways and low ground. Typi
 
 ## Alfran's enclosure of the countryside
 
-**Alfran is turning Field and Fenn into kingdoms with lords**, enclosing meadows behind **fences and walls**. These changes chiefly benefit the lords, rather than the households who depend upon the land. This threatens older patterns of access and reciprocal community life, and creates friction between Alfran's reforms and the rural people.
+**Alfran is turning Field and Fenn into kingdoms with lords**, enclosing meadows behind **fences and walls**. **The lords are Alfran's appointed supporters**, while the old smith-**Masters become Guilders** under the new order. These changes chiefly benefit the lords, rather than the households who depend upon the land. This threatens older patterns of access and reciprocal community life, and creates friction between Alfran's reforms and the rural people.
 
 ## Shared Albion infantry principle
 

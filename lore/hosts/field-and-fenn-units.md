@@ -14,6 +14,10 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 
 The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. People carry **sturdy, lightweight, shield-like one-person coracles**, constructed from **woven willow covered in hide**, so they can quickly take to the water when the route demands it. These are practical everyday travel equipment, not necessarily dedicated war boats.
 
+## Settlements and giant avoidance
+
+Villages favour **raised meadows** amid the mixed waterways and low ground. Typical dwellings are **low turf-built homes**, akin to Icelandic turf houses, or **thatched A-frame buildings**. Both keep a low, landscape-blending profile: from a giant's elevated, top-down view, settlements are deliberately **unobtrusive**, avoiding the attention of passing giants.
+
 ## Known formations and creatures
 
 - **Swamp Dragons** — simply **very large crocodiles** of the Field and Fenn swamps. Despite the name, they are not established as supernatural or fire-breathing dragons. They are **wild, not domesticated**; Dykemen steer them toward the enemy by prodding them with their poles. They do not truly control the animals. **The Dykemen stay alongside the crocodiles during battle**, continuing to prod and steer them. Their exact size and tabletop rules remain open.

@@ -27,6 +27,10 @@ Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advoc
 - He is influenced by ideas from abroad, including Araby's sophistication around money; the exact extent of each influence needs further editorial definition.
 - His modernising instinct extends to standardising road junctions and roundabouts, which have folkloric significance in Albion.
 
+## Mother — the northern Empress
+
+Alfran and Elfred's mother comes from the **petty earldoms of the North**. She is styled **Empress** and claims a coat of arms comprising **seventeen flags**, reflecting her northern background among numerous minor earldoms. The precise identities of those flags and her formal claims remain open.
+
 ## Enclosure and rural transformation
 
 Alfran is transforming parts of the **Field and Fenn into kingdoms and lordships**, with **fences and walls dividing formerly shared meadows**. **The new lords are Alfran's supporters**, appointed to govern. **The change from Masters to Guilders is a consequence of the new order, not a conversion Alfran deliberately campaigns to encourage.** Under this system, traditional **Masters become Guilders**, shifting their position from independent smith-leaders toward **paid professionals employed directly by those who can afford them**, rather than serving communities through need and family ties. This benefits the new lords far more than the ordinary people whose established access and relationships are disrupted. His modernising project is therefore a major source of conflict with traditional rural communities, without necessarily making him a straightforward villain.

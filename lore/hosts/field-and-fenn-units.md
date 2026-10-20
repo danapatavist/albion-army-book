@@ -18,6 +18,10 @@ The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, cros
 
 Field and Fenn communities have **mixed livelihoods**: farming, fishing, rabbiting, poaching, baking and varied artisan crafts. They are not solely marsh fishers or farmers.
 
+## Itinerant craftspeople
+
+Travel between communities is driven less by a distinct class of traders than by **craftspeople following commissions and going wherever the work is**. The Big May is an important opportunity for artisans to find their next jobs; they then travel to the communities where those jobs are needed.
+
 ## Community boundaries and rivalry
 
 Field and Fenn settlements are **distinct communities with recognised borders**. Neighbours have **disputes**, sometimes fight **wars**, and compete in **ball games** that can turn violent. They also hold other **competitions**. The Big May includes **sporting events and lotteries** as well as its trading, music and social arrangements. **The Big May** is a huge festival held at their **main mega-market**, drawing communities together for celebrations and contests. Above all it is a **trade fair**: artisans seek their next commissions, musicians perform, and families negotiate arrangements, potentially including **marriage exchanges in which a daughter is effectively sold to a family with a son**. Whether it has any religious significance is **not established**. The communities should not be presented as a unified peaceful polity; the precise customs, rules and causes of their rivalries remain open.

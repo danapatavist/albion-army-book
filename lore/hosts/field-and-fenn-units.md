@@ -10,6 +10,10 @@ publication: requires-approval
 
 The **Field and Fenn** are unincorporated field, woodland, marsh and swamp communities rather than a centrally commanded faction. “Green Host” is a provisional army-book classification, not their established political identity.
 
+## Landscape and travel
+
+The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. People carry **light, shield-like one-person boats** so that they can quickly take to the water when the route demands it. These are practical everyday travel equipment, not necessarily dedicated war boats.
+
 ## Known formations and creatures
 
 - **Swamp Dragons** — simply **very large crocodiles** of the Field and Fenn swamps. Despite the name, they are not established as supernatural or fire-breathing dragons. They are **wild, not domesticated**; Dykemen steer them toward the enemy by prodding them with their poles. They do not truly control the animals. **The Dykemen stay alongside the crocodiles during battle**, continuing to prod and steer them. Their exact size and tabletop rules remain open.

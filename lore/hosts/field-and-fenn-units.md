@@ -76,6 +76,10 @@ In ordinary life, Field and Fenn **war machines are principally anti-giant defen
 
 Communities are headed by **Masters**: beefy, entirely non-magical working bronze smiths who make and sharpen their people's weapons. They use a short working hammer and chain; a small anvil is a possible miniature accessory. Smithing is the highest craft, above carpentry. **Masters are generic, unnamed generals** who command Field and Fenn forces, not unique named special characters. **Masters can rally the extended-family households, and the households can call upon their smith in return**: this is a reciprocal relationship of service and obligation, rather than one-way feudal command. **This arrangement especially applies where there are no towns:** a single household cannot feed or support a full-time Master smith, so several scattered homesteads collectively sustain one smith, who serves them in return. It should not automatically be treated as the political structure of every settlement in Albion. Albion armies should offer ordinary customisable leaders and spellcasters alongside legendary named figures. Their exact points cost, character tier, leadership and combat rules are not yet decided.
 
+## Rallying in war
+
+When households need to fight or respond to a threat, **Masters take charge or are called upon by the households**. This follows the same reciprocal relationship that joins smiths and homesteads in peacetime; no formal election of a supreme commander is established.
+
 ## Magic
 
 Witches and druids are distinct. Witches are generally cheaper choices in game terms. Druids normally appear as a trio: **Druid, Novice and Sword** (bodyguard). Solitary druids are very rare. No exact wound-allocation rule has been approved.

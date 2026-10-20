@@ -15,3 +15,7 @@ Albion is a **respect-based society** in which personal reputation and one's wor
 Other people may add their **signatures or witness marks** to a person's skin, so the body acts like a collection of **receipts** for dealings and relationships. These can take the form of **long Ogham-like marks** along the body. An experienced tradesperson, older person or unusually long-lived individual may accumulate **a line of such receipts running up the arm** from the hand: a visible record built over a lifetime.
 
 The exact designs, conventions, meanings, and rules governing who may add a mark have not yet been established.
+
+## Visual direction
+
+Albion's bodily heraldry takes **Japanese mon** (clear, compact emblem design) and **Māori tā moko** (the idea of tattoos recording identity and social history) as broad reference points, while developing its **own original marks** rather than copying culturally specific sacred designs. The characteristic Albion combination is a crest tattoo on the back of the hand and accumulated signatures or receipt-marks extending up the arm.

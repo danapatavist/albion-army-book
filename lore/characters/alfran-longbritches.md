@@ -33,7 +33,7 @@ Alfran is transforming parts of the **Field and Fenn into kingdoms and lordships
 
 ## Rapid creation of Earls
 
-Alfran is in **growth mode**, creating **Earls wherever he can** as he extends his influence. Titles and territories are granted rapidly to supporters, expanding his system of lordship. This is active, opportunistic political expansion rather than a slow, settled hereditary order. The competence and exact responsibilities of individual new Earls vary or remain to be established.
+Alfran is in **growth mode**, creating **Earls wherever he can** as he extends his influence. Titles and territories are granted rapidly to supporters, expanding his system of lordship. **The new Earls are expected to raise troops for Alfran**, alongside their wider territorial and lordly obligations. This is active, opportunistic political expansion rather than a slow, settled hereditary order. The competence and exact responsibilities of individual new Earls vary or remain to be established.
 
 ## Connections
 

@@ -15,7 +15,7 @@ An individual may also be an Ancient: **Jenny/Genny Willows**, also known as **G
 
 ## Everyday role and reputation
 
-Witches are generally **cheaper to hire than druids** and often **more useful for a specific practical need**, such as **removing a wart**. Their magic tends to be particular rather than broad. They can also be **mischievous and difficult to deal with**. These qualities do not make their craft simply inferior to druidry.
+Witches are generally **cheaper to hire than druids** and often **more useful for a specific practical need**, such as **removing a wart**. Their magic tends to be particular rather than broad. They can also be **mischievous and difficult to deal with**. A witch is generally **paid if her magic works**—or may secure payment regardless through **how frightened the client is of her**. The balance between results and intimidation varies by witch. These qualities do not make their craft simply inferior to druidry.
 
 ## Witchcraft and its vectors
 Witches are **intuitive magic users**. Some seem born with a gift, while others develop or learn it; both occur. Their spells generally work through a **physical vector or focus**, such as a dolly, a knotted rope, eggs, or another ordinary object made significant by the witch's practice. These objects vary with the individual witch, rather than forming one standardised college discipline. **Jack's mother is a bean witch**; the exact use of beans in her practice is not yet established.

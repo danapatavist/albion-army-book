@@ -33,7 +33,7 @@ Established imagery across Albion includes fire and embers, rain and bowls of wa
 
 ## Dispute settlement and livelihood
 
-A major everyday function of druids is **arbitrating disputes**, particularly between people or communities. Calling in a druid to settle a dispute is customary in Field and Fenn, and **fees for arbitration are a druid's main source of income**. The exact legal procedure and forms of payment are not yet specified.
+A major everyday function of druids is **arbitrating disputes**, particularly between people or communities. Calling in a druid to settle a dispute is customary in Field and Fenn, and **fees for arbitration are a druid's main source of income**. Albion is a **respect-based society**: a druid's judgement carries weight through acknowledged standing and respect, rather than primarily through formal legal authority. The exact procedures and forms of payment are not yet specified.
 
 ## Relationships
 - **Witches** practise a distinct tradition and are generally cheaper tabletop magic choices. Their social organisation should not be assumed to mirror colleges.

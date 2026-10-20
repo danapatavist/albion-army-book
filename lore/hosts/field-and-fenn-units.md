@@ -54,7 +54,7 @@ In ordinary life, Field and Fenn **war machines are principally anti-giant defen
 
 ## Local leadership
 
-Communities are headed by **Masters**: beefy, entirely non-magical working bronze smiths who make and sharpen their people's weapons. They use a short working hammer and chain; a small anvil is a possible miniature accessory. Smithing is the highest craft, above carpentry.
+Communities are headed by **Masters**: beefy, entirely non-magical working bronze smiths who make and sharpen their people's weapons. They use a short working hammer and chain; a small anvil is a possible miniature accessory. Smithing is the highest craft, above carpentry. **Masters act as generals**, commanding Field and Fenn forces. Their exact points cost, character tier, leadership and combat rules are not yet decided.
 
 ## Magic
 

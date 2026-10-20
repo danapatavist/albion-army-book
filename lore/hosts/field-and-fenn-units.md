@@ -28,6 +28,10 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 
 **Low Arrows are standard Core troops.** **Shield Wall is a basic unit/formation available to every Albion host**, not a Blue specialism. Its shields are **fairly standard round shields of an Anglo-Saxon type**, common across Albion. Painted Warriors are a shared Albion troop type. **Swords are rare**; ordinary warriors primarily carry **farm implements or ritual instruments** used as weapons. Precise loadouts and Shield Wall rules remain unsettled. Dykers' formal roster category has not yet been confirmed.
 
+## Robin Fair's companions
+
+**Big John** always fights alongside **Robin Fair**. **The Bard** likewise always accompanies Robin's group, riding **on Big John's back** because the Bard's legs do not work. Treat the three as linked companions rather than independent, freely deployed figures; their precise game mechanics remain to be determined.
+
 ## Robin Fair's masked woodsmen
 
 **Robin Fair's woodsmen** are a **distinctive-model elite unit**, rather than simply standard Painted Warriors in a different paint scheme. They wear **a mixture of animal masks** (not all fox faces like Robin's) and evoke outlaw **men-at-arms or highwaymen**. They can be fielded as a regular elite unit and **Robin Fair can join them**; they are not exclusively his compulsory bodyguard. Their exact weapons, special rules and final unit name remain open.

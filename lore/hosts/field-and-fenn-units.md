@@ -12,7 +12,7 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 
 ## Landscape and travel
 
-The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. People carry **sturdy, lightweight, shield-like one-person coracles**, constructed from **woven willow covered in hide**, so they can quickly take to the water when the route demands it. These are practical everyday travel equipment, not necessarily dedicated war boats.
+The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. Particularly among the **river folk**, people carry **sturdy, lightweight, shield-like one-person coracles**, constructed from **woven willow covered in hide**, so they can quickly take to the water when the route demands it. **These portable willow boats are distinct from the standard round fighting shields**. These are practical everyday travel equipment, not necessarily dedicated war boats.
 
 ## Settlements and giant avoidance
 
@@ -22,7 +22,7 @@ Villages favour **raised meadows** amid the mixed waterways and low ground. Typi
 
 The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (the same miniature box used by Blue and Red armies, differentiated through painting rather than separate sculpts), **Low Arrows** (low-position archers using willow or reed screens), and **Dykers / Dykejumpers** (mobile polemen). These are its ordinary mainstay troops; the stranger creatures and war machines are supplementary rather than the army's backbone.
 
-**Low Arrows are standard Core troops.** **Shield Wall is a basic unit/formation available to every Albion host**, not a Blue specialism. Painted Warriors are a shared Albion troop type. **Swords are rare**; ordinary warriors primarily carry **farm implements or ritual instruments** used as weapons. Precise loadouts and Shield Wall rules remain unsettled. Dykers' formal roster category has not yet been confirmed.
+**Low Arrows are standard Core troops.** **Shield Wall is a basic unit/formation available to every Albion host**, not a Blue specialism. Its shields are **fairly standard round shields of an Anglo-Saxon type**, common across Albion. Painted Warriors are a shared Albion troop type. **Swords are rare**; ordinary warriors primarily carry **farm implements or ritual instruments** used as weapons. Precise loadouts and Shield Wall rules remain unsettled. Dykers' formal roster category has not yet been confirmed.
 
 ## Known formations and creatures
 

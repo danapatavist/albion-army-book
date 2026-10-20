@@ -12,7 +12,7 @@ The **Field and Fenn** are unincorporated field, woodland, marsh and swamp commu
 
 ## Landscape and travel
 
-The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. People carry **light, shield-like one-person boats** so that they can quickly take to the water when the route demands it. These are practical everyday travel equipment, not necessarily dedicated war boats.
+The **Field and Fenn** is a patchwork of **swamp, river, dyke and meadow**, crossed in places by **plank roads**. People carry **sturdy, lightweight, shield-like one-person coracles**, constructed from **woven willow covered in hide**, so they can quickly take to the water when the route demands it. These are practical everyday travel equipment, not necessarily dedicated war boats.
 
 ## Known formations and creatures
 

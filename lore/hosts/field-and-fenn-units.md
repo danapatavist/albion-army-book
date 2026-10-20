@@ -30,7 +30,7 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 
 ## Robin Fair's companions
 
-**Big John** always fights alongside **Robin Fair**. **The Bard** likewise always accompanies Robin's group, riding **on Big John's back** because the Bard's legs do not work. Treat the three as linked companions rather than independent, freely deployed figures; their precise game mechanics remain to be determined.
+**Big John** always fights alongside **Robin Fair**. **The Bard** likewise always accompanies Robin's group, riding **on Big John's back** because the Bard's legs do not work. The Bard may be able to **swing his guitar for a small melee attack**, despite principally travelling on John's back; this is a tentative tabletop idea rather than a confirmed rule. Treat the three as linked companions rather than independent, freely deployed figures; their precise game mechanics remain to be determined.
 
 ## Robin Fair's masked woodsmen
 

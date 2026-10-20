@@ -17,6 +17,8 @@ aliases:
 
 She is associated with the Field and Fenn, travelling in a smoky, wisp-haunted boat. One of her arms is unusually long and serves as an oar.
 
+**Battlefield role:** primarily a **spellcaster**, with **minimal physical fighting ability**. Her precise spell repertoire and tabletop rules remain undecided.
+
 ## Visual development
 Three Jenny Willows images in the private Green archive are distinct working interpretations, not three separate characters. None has been approved as a definitive published illustration.
 

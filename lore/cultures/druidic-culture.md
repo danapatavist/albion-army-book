@@ -38,7 +38,7 @@ A major everyday function of druids is **arbitrating disputes**, particularly be
 
 ## Social standing and wartime command
 
-**Druids have higher status than witches**. Druids and **Masters (smith-leaders)** are **parallel important authorities**, rather than one simply outranking the other; **either may command an army**. A medium-sized Albion army **rarely takes the field without a druid**, even if its commander is a Master.
+**Druids have higher status than witches**. **Druids technically outrank Masters (smith-leaders)** in formal status, although both are influential and **either may command an army**. The cultural contrast is often that **druids are learned, scholarly 'nerds' and Masters are physically formidable, practical 'jocks'**; formal precedence does not always translate into who leads people in a fight. A medium-sized Albion army **rarely takes the field without a druid**, even if its commander is a Master.
 
 ## Relationships
 - **Witches** practise a distinct tradition and are generally cheaper tabletop magic choices. Their social organisation should not be assumed to mirror colleges.

@@ -12,6 +12,10 @@ aliases:
 
 # Alfran Longbritches
 
+## Faction name
+
+**The Blaewen Ridings** is the chosen name for Alfran's Blue-aligned lands and host, replacing the provisional label **Blue Host** in new descriptive writing. The name evokes the territories and divisions of his growing earldom-based realm. Older Blue Host references remain useful as a working cross-reference.
+
 ## Summary
 
 Alfran Longbritches is a prominent leader of Albion's **Blue Host** and an advocate of reform and modernisation. His ambitions and foreign influences put him in tension with Albion's older customs and institutions, but he is not intended to be a simple villain.

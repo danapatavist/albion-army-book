@@ -30,9 +30,9 @@ Field and Fenn settlements are **distinct communities with recognised borders**.
 
 Rather than leaving disputes entirely to a village Master or informal group judgement, communities **usually call a druid to arbitrate**. Such paid dispute settlement is **a principal livelihood of druids**, indeed their main source of income. Albion is a **respect-based society**, so the authority of a druid's decision rests chiefly on the standing and respect accorded to them, rather than a central legal apparatus. Precise procedures and payments remain open.
 
-## The May — visual reference
+## The May — harvest gathering
 
-The private Green archive includes `green culture/May.png`, a concept plate captioned **“A May — The temporary city at harvest.”** It portrays a vast seasonal market settlement on waterways: boat moorings, raft-linked market channels, causeways, timber and reed tent inns, grassy pyramid mounds with chalk markings, and great broken pylon or gate ruins. These are visual design references, not automatic confirmation of every label or historical claim on the image. **The Big May is the harvest gathering depicted here**: despite the spring-sounding name, this is a great harvest-time festival and temporary market city. Another archive image, `green culture/Fennmen Bloodbowl.png`, depicts a fantastical, rough ball game, supporting the established sporting culture; specific pictured players and team roles are not automatically canon.
+**The Big May** is a great harvest-time gathering and temporary market city, despite its spring-sounding name. It attracts boat traffic, artisans, competitions, trading, and festivities. Field and Fenn communities also enjoy rough ball games; their exact customs vary.
 
 ## Settlements and giant avoidance
 
@@ -67,7 +67,7 @@ The **bulk of a Green / Field and Fenn army** consists of **painted warriors** (
 ## Known formations and creatures
 
 - **Swamp Dragons** — simply **very large crocodiles** of the Field and Fenn swamps. Despite the name, they are not established as supernatural or fire-breathing dragons. They are **wild, not domesticated**; Dykemen steer them toward the enemy by prodding them with their poles. They do not truly control the animals. **The Dykemen stay alongside the crocodiles during battle**, continuing to prod and steer them. Their exact size and tabletop rules remain open.
-- **Dykejumpers** (also labelled Fenn Dykers in concept art) — fast-moving polemen who flit, spin and vault with their poles. In proposed tabletop rules, bow attacks against them suffer a **−1 penalty** because they are hard to hit while moving. They have the fighting ability of ordinary men rather than elite combatants. A **second dagger** is a possible additional weapon, not yet settled. Precise rules wording and balance remain provisional.
+- **Dykejumpers** (also called Fenn Dykers) — fast-moving polemen who flit, spin and vault with their poles. In proposed tabletop rules, bow attacks against them suffer a **−1 penalty** because they are hard to hit while moving. They have the fighting ability of ordinary men rather than elite combatants. A **second dagger** is a possible additional weapon, not yet settled. Precise rules wording and balance remain provisional.
 - **Low Arrows** — archers who **crouch behind little walls of willow or reeds** and fire from that low position, making the archers harder to hit. Exact tabletop rules remain unsettled.
 
 ## War machines

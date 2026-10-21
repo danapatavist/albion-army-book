@@ -27,3 +27,6 @@ The creator liked the latest Horn Shrine concept artwork, particularly the hollo
 
 ## See also
 [Alfran Longbritches](../characters/alfran-longbritches.md), [Blaewen Ridings](../hosts/blue-host.md).
+
+## Nature of the summoned host
+The Waiting Guard are a kind of **waterlogged, bog-preserved zombie**. Their ancient association with Argant does not mean they can now recognise a king or choose whom to obey: the horn summons them and they fight. Their ancient history is tragic, but they are not conscious or articulate in battle.

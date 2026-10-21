@@ -5,43 +5,83 @@
       "id": "the-isle",
       "title": "The Isle of Albion",
       "tab": "The Isle",
-      "articles": ["albion", "ancients", "argant", "pylons"]
+      "articles": [
+        "albion",
+        "ancients",
+        "argant",
+        "pylons"
+      ]
     },
     {
       "id": "four-hosts",
       "title": "The Four Hosts",
       "tab": "Four Hosts",
-      "articles": ["four-hosts", "blue-host", "red-host", "green-host", "grey-host"]
+      "articles": [
+        "four-hosts",
+        "blue-host",
+        "red-host",
+        "green-host",
+        "grey-host",
+        "host-orchestras"
+      ]
     },
     {
       "id": "blaewen-ridings",
       "title": "The Blaewen Ridings",
       "tab": "Blaewen",
-      "articles": ["alfran-longbritches", "jack-field-fenn", "field-and-fenn-units"]
+      "articles": [
+        "alfran-longbritches",
+        "jack-field-fenn",
+        "field-and-fenn-units",
+        "court-of-antlers",
+        "ram-chariots"
+      ]
     },
     {
       "id": "druids-and-witches",
       "title": "Druids, Witches and Magic",
       "tab": "Druids",
-      "articles": ["druidic-culture", "druid-trio", "albion-magic", "witches-and-hags", "knotwife", "faith"]
+      "articles": [
+        "druidic-culture",
+        "druid-trio",
+        "albion-magic",
+        "witches-and-hags",
+        "knotwife",
+        "faith"
+      ]
     },
     {
       "id": "the-folk",
       "title": "The Folk of Albion",
       "tab": "The Folk",
-      "articles": ["diddy-mann", "jenny-willows", "old-nag", "old-shannock", "albion-personal-crests"]
+      "articles": [
+        "diddy-mann",
+        "jenny-willows",
+        "old-nag",
+        "old-shannock",
+        "albion-personal-crests"
+      ]
     },
     {
       "id": "beasts",
       "title": "Beasts of the Isle",
       "tab": "Beasts",
-      "articles": ["albion-giants", "woodwoses", "fimir"]
+      "articles": [
+        "albion-giants",
+        "woodwoses",
+        "fimir",
+        "ocnesse"
+      ]
     },
     {
       "id": "treasures",
       "title": "Treasures and Trophies",
       "tab": "Treasures",
-      "articles": ["blinding-brass", "honey-dragon", "stinger-eel-flog"]
+      "articles": [
+        "blinding-brass",
+        "honey-dragon",
+        "stinger-eel-flog"
+      ]
     }
   ]
 }

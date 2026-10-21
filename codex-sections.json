@@ -1,0 +1,89 @@
+{
+  "_comment": "The publication allowlist. A section of a lore entry is set in the book ONLY if its heading is named here. Anything not named — a new heading, a renamed one, a whole new entry — is withheld until someone admits it deliberately. Deleting this file publishes nothing.",
+  "_matching": "Headings are matched on lowercase text with surrounding punctuation ignored, so 'See also' and 'See also:' are the same heading. '(opening)' is the prose before an entry's first heading.",
+  "allow": [
+    "(opening)",
+    "Established lore",
+    "Established canon",
+    "Established connections",
+    "Overview",
+    "Summary",
+    "Relationships",
+    "Connections",
+    "Unresolved",
+    "Unresolved or to verify",
+    "Developing or unresolved",
+    "See also",
+    "Related",
+    "Related entries",
+    "Related figures"
+  ],
+  "_allowIn": "Headings particular to one entry. They are admitted for that entry only, so the same words in a different entry are still withheld.",
+  "allowIn": {
+    "alfran-longbritches": [
+      "Heroic style",
+      "Faction name",
+      "Established character and visual details",
+      "Mother — the northern Empress",
+      "Magical supporters and opposition",
+      "Old Berrick of the Barrel — provisional character development",
+      "Barrow plunder and imperial wealth",
+      "The Sword in the Stone",
+      "Enclosure and rural transformation",
+      "Rapid creation of Earls",
+      "Associated military themes"
+    ],
+    "court-of-antlers": [],
+    "druidic-culture": [
+      "Compared with witches",
+      "College tradition — established",
+      "Solitary druids — established",
+      "Magical practices and references",
+      "Dispute settlement and livelihood",
+      "Social standing and wartime command"
+    ],
+    "field-and-fenn-units": [
+      "Landscape and travel",
+      "Livelihoods",
+      "Itinerant craftspeople",
+      "Community boundaries and rivalry",
+      "Settling disputes",
+      "Settlements and giant avoidance",
+      "Alfran's enclosure of the countryside",
+      "Shared Albion infantry principle",
+      "Core army composition",
+      "Jack and his giantess",
+      "Robin Fair's companions",
+      "Robin Fair's masked woodsmen",
+      "Known formations and creatures",
+      "War machines",
+      "Local leadership",
+      "Rallying in war",
+      "Magic",
+      "Not established as real",
+      "Folklore, not units"
+    ],
+    "four-hosts": [
+      "Blue",
+      "Red",
+      "Green",
+      "Grey"
+    ],
+    "ocnesse": [
+      "Developing miniature and army-book concept"
+    ],
+    "old-nag": [
+      "Acolytes and attendants"
+    ],
+    "witches-and-hags": [
+      "Everyday role and reputation",
+      "Witchcraft and its vectors"
+    ],
+    "woodwoses": [
+      "Nature and ancient duty"
+    ]
+  },
+  "_withheld": "For the record, the headings deliberately NOT admitted anywhere: Art direction; Visual direction; Visual development; Visual references supplied by creator; Creator-supplied visual reference; Design shown in concept art; The May — visual reference; Working design direction; Names and earlier concepts; The five colleges — material to reconcile; Developing tabletop magic concept — not canon rules; Developing gameplay ideas — NOT settled rules; Rules; Proposed categories; Website layout contract.",
+  "_denyIn": "Narrows the allowlist for one entry: how a single entry's 'Established lore' is held back when it carries something private, without stripping that heading from the twenty other entries using it. '*' withholds the whole entry. It can only take away, never give.",
+  "denyIn": {}
+}

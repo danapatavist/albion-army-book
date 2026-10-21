@@ -94,6 +94,56 @@ and hang on the page after.
   The chapter map decides what order articles appear in; it does not decide how a
   page looks.
 
+## Publication safety
+
+Two gates stand between the library and the published book, and they are independent.
+
+**The status gate.** Only an entry marked `status: approved` is written into
+`codex.json` at all. A draft is not hidden at runtime; it is never in the file, so no
+bug in the site can reveal one. `codex.draft.json` holds everything, is gitignored,
+and nothing deployable reads it.
+
+**The allowlist.** Within an approved entry, a section is set in the book only if its
+heading is named in `codex-sections.json`. This is an allowlist and not a list of
+headings to strip, because a list of things to strip publishes by default: the next
+heading nobody thought of goes straight into print. Here the default is the other
+way. A new heading, a renamed one, a typo, a whole new entry — all withheld until
+someone admits them deliberately. Delete `codex-sections.json` and the build
+publishes nothing.
+
+```json
+{
+  "allow": ["(opening)", "Established lore", "Unresolved", "See also"],
+  "allowIn": {
+    "four-hosts": ["Blue", "Red", "Green", "Grey"]
+  }
+}
+```
+
+`allow` is admitted in every entry; `allowIn` admits a heading for one named entry
+only, for the many headings that belong to a single article. `(opening)` is the
+prose before an entry's first heading. Matching ignores case and surrounding
+punctuation, so `See also` and `See also:` are one heading.
+
+`denyIn` narrows the list for one entry, and is the answer when a single entry's
+`Established lore` carries something private: holding it back there must not strip
+that heading from the twenty other entries that use it. `"*"` withholds a whole
+entry. It can only take away, never give, so the default stays deny.
+
+Withholding a section does not renumber the blocks around it. Block ids are handles
+for editorial overrides, and an override must not quietly move to a different
+paragraph because something above it was withheld.
+
+**The scan.** A pointer to private material can sit inside a sentence in a section
+the allowlist admits, where no heading can catch it. So the text that survives the
+allowlist is scanned for references to concept art, private archives, source
+filenames and approval notes. In a draft build these are reported. In a publishable
+build the build fails and writes nothing: the choice is to reword the entry or to
+withhold its section, never to ship it.
+
+Every build prints what it withheld — section by section, entry by entry — so
+nothing goes missing silently.
+
 ## Chapters
 
 `codex-chapters.json` lists chapters and the article ids each one runs, in order.

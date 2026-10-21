@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-21T09:17:08Z",
+  "generated": "2026-10-21T09:42:00Z",
   "mode": "approved-only",
   "publishable": true,
   "counts": {
     "included": 0,
-    "withheld": 29,
-    "in_library": 29
+    "withheld": 33,
+    "in_library": 33
   },
   "withheld": [
     {
@@ -42,6 +42,10 @@
     },
     {
       "id": "blue-host",
+      "status": "draft"
+    },
+    {
+      "id": "court-of-antlers",
       "status": "draft"
     },
     {
@@ -85,6 +89,10 @@
       "status": "draft"
     },
     {
+      "id": "host-orchestras",
+      "status": "draft"
+    },
+    {
       "id": "jack-field-fenn",
       "status": "draft"
     },
@@ -97,6 +105,10 @@
       "status": "draft"
     },
     {
+      "id": "ocnesse",
+      "status": "draft"
+    },
+    {
       "id": "old-nag",
       "status": "draft"
     },
@@ -106,6 +118,10 @@
     },
     {
       "id": "pylons",
+      "status": "draft"
+    },
+    {
+      "id": "ram-chariots",
       "status": "draft"
     },
     {
@@ -125,6 +141,8 @@
       "status": "draft"
     }
   ],
+  "withheld_sections": {},
+  "withheld_entirely": [],
   "unresolved_links": [],
   "aliases": {},
   "articles": {}

@@ -39,6 +39,39 @@ SKIP = {"README.md", "CONTRIBUTING.md", "TEMPLATE.md"}
 
 PUBLISHABLE_STATUS = "approved"
 
+# ---------------------------------------------------------------------------
+# Publication safety: an allowlist, not a blacklist.
+#
+# A lore entry is a working document. It holds the fiction, and alongside it the
+# notes that made the fiction: art direction, pointers to the creator's private
+# reference images, unsettled rules, working names. Only the fiction is published.
+#
+# Deciding that by naming what to strip would be a blacklist, and a blacklist is
+# wrong for this job: the next heading nobody thought of is published by default.
+# So the rule is inverted. A section is set in the book only if its heading is named
+# in codex-sections.json. Anything else - a new heading, a renamed one, a typo, a
+# whole new entry - is withheld until someone admits it deliberately. A missing
+# allowlist publishes nothing at all.
+#
+# The allowlist governs whole sections. A private reference can also sit inside an
+# otherwise publishable sentence, which no heading can catch, so the text that
+# survives the allowlist is scanned as well, and a publishable build that still
+# carries one fails rather than shipping it.
+# ---------------------------------------------------------------------------
+SECTIONS_FILE = ROOT / "codex-sections.json"
+OPENING = "(opening)"        # the prose before an entry's first heading
+
+PRIVATE_IN_PRINT = [
+    (re.compile(r"\bprivate\b[^.]{0,60}?\b(archive|artwork|art|collection|concept|"
+                r"images?|folder|reference)\b", re.I), "a pointer to private material"),
+    (re.compile(r"\bconcept (art|artwork|images?|sculpts?|miniature)\b", re.I),
+     "a reference to concept art"),
+    (re.compile(r"\b(miniature|visual|art) (reference|direction|development)\b", re.I),
+     "a production note"),
+    (re.compile(r"`[^`]*\.(png|jpe?g|webp|gif|psd|zip|docx?)`", re.I), "a source file path"),
+    (re.compile(r"\bnot yet (one )?final approved\b", re.I), "an approval note"),
+]
+
 PLACES = {"spread", "full", "half", "column", "ink", "boxout", "marginal", "omit"}
 BREAKS = {"page", "spread"}
 # one directive is a line of key=value pairs; quoted values may contain spaces
@@ -118,6 +151,92 @@ def directives(all_block_ids, problems):
     for article_id, items in by_article.items():
         items.sort(key=lambda d: all_block_ids.index(d["at"]))
     return by_article
+
+
+def heading_key(text):
+    """Headings are compared loosely, so punctuation or case cannot smuggle one past."""
+    return re.sub(r"\s+", " ", text.strip().lower()).strip(".:;,—- ")
+
+
+def allowlist(problems):
+    """Read codex-sections.json: the sections that may be set in the book.
+
+    Returns (allowed everywhere, allowed in one named article, withheld from one
+    named article). An unreadable or absent file is not a reason to fall back to
+    publishing everything, so it returns an empty allowlist, and an empty allowlist
+    publishes nothing.
+
+    `denyIn` narrows the allowlist for a single entry: it is how one entry's
+    "Established lore" is held back when it carries something private, without
+    stripping that heading from the twenty other entries that use it. It can only
+    take away, never give, so the default stays deny.
+    """
+    if not SECTIONS_FILE.exists():
+        problems.append("codex-sections.json is missing. Nothing can be published "
+                        "without it: the publication allowlist is the gate.")
+        return set(), {}, {}
+    try:
+        data = json.loads(SECTIONS_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        problems.append(f"codex-sections.json is not valid JSON: {exc}")
+        return set(), {}, {}
+
+    def keys(headings):
+        return {heading_key(h) for h in headings}
+
+    everywhere = keys(data.get("allow", []))
+    per_article = {a: keys(h) for a, h in (data.get("allowIn") or {}).items()}
+    denied = {a: keys(h) for a, h in (data.get("denyIn") or {}).items()}
+    for article, headings in denied.items():
+        if "*" in headings:                      # the whole entry, whatever it holds
+            denied[article] = everywhere | per_article.get(article, set())
+    return everywhere, per_article, denied
+
+
+def admit(article_id, blocks, everywhere, per_article, denied):
+    """Split an entry into sections at its H2s and keep only the admitted ones.
+
+    Block ids are not renumbered. They are handles for editorial overrides, and an
+    override must not quietly move to a different paragraph because a section above
+    it was withheld.
+    """
+    permitted = (everywhere | per_article.get(article_id, set())) - denied.get(article_id, set())
+    kept, withheld = [], []
+    in_opening, ok = True, heading_key(OPENING) in permitted
+    for block in blocks:
+        if block["type"] == "heading" and block.get("level") == 2:
+            in_opening = False
+            ok = heading_key(block["text"]) in permitted
+            if not ok:
+                withheld.append(block["text"])
+        elif in_opening and not ok and OPENING not in withheld:
+            withheld.append(OPENING)
+        if ok:
+            kept.append(block)
+    return kept, withheld
+
+
+def block_text(block):
+    """Everything a block would print, as one string, for scanning."""
+    if block.get("text"):
+        return block["text"]
+    if block.get("spans") is not None:
+        return "".join(s.get("text", "") for s in block["spans"])
+    return " ".join("".join(s.get("text", "") for s in item)
+                    for item in block.get("items", []))
+
+
+def private_references(blocks):
+    """Private or production material surviving inside an otherwise public section."""
+    found = []
+    for block in blocks:
+        text = block_text(block)
+        for pattern, why in PRIVATE_IN_PRINT:
+            hit = pattern.search(text)
+            if hit:
+                found.append((block["id"], why, hit.group(0).strip()))
+                break
+    return found
 
 
 def spans(text, resolve, bold=False, italic=False):
@@ -228,6 +347,9 @@ def main(argv):
         return resolve
 
     articles, aliases, skipped, problems = {}, {}, [], []
+    everywhere, per_article, denied = allowlist(problems)
+    withheld_sections, emptied, private_hits = {}, [], []
+
     for article_id, entry in parsed.items():
         fm = entry["fm"]
         status = fm.get("status", "")
@@ -241,7 +363,16 @@ def main(argv):
             article_aliases = [article_aliases]
 
         parsed_blocks = blocks(entry["body"], make_resolver(entry["path"]), article_id)
-        block_ids = [b["id"] for b in parsed_blocks]
+        parsed_blocks, withheld = admit(article_id, parsed_blocks,
+                                        everywhere, per_article, denied)
+        if withheld:
+            withheld_sections[article_id] = withheld
+        private_hits += [(article_id,) + hit for hit in private_references(parsed_blocks)]
+        if not parsed_blocks:
+            # every section was withheld; an entry with nothing to set is not a page
+            emptied.append(article_id)
+            continue
+
         articles[article_id] = {
             "id": article_id,
             "title": fm.get("title", article_id),
@@ -258,21 +389,31 @@ def main(argv):
             if name:
                 aliases[name] = article_id
 
+    # Overrides are checked against the whole library, unfiltered: an override may
+    # legitimately name a block the allowlist withholds today and admits tomorrow,
+    # and it must not be reported as anchoring at nothing.
     library_block_ids = []
     for article_id, entry in parsed.items():
-        if article_id in articles:
-            library_block_ids += [b["id"] for b in articles[article_id]["blocks"]]
-        else:
-            library_block_ids += [b["id"] for b in blocks(entry["body"], lambda _t: None, article_id)]
+        library_block_ids += [b["id"] for b in blocks(entry["body"], lambda _t: None, article_id)]
 
     for article_id, items in directives(library_block_ids, problems).items():
         if article_id in articles:
-            articles[article_id]["layout"] = items
+            kept_ids = {b["id"] for b in articles[article_id]["blocks"]}
+            articles[article_id]["layout"] = [d for d in items if d["at"] in kept_ids]
 
     if problems:
-        print("layout overrides have problems; not writing:", file=sys.stderr)
+        print("the build cannot go ahead:", file=sys.stderr)
         for p in problems:
             print(f"  - {p}", file=sys.stderr)
+        return 1
+
+    # A private reference can hide inside a section the allowlist admits, so the text
+    # that survived is scanned too. In a publishable build that is a hard stop.
+    if private_hits and not include_drafts:
+        print("private or production material in publishable text; not writing:", file=sys.stderr)
+        for article_id, block_id, why, snippet in private_hits:
+            print(f"  - {block_id}: {why} — {snippet!r}", file=sys.stderr)
+        print("\nEdit the entry, or withhold its section in codex-sections.json.", file=sys.stderr)
         return 1
 
     codex = {
@@ -281,6 +422,8 @@ def main(argv):
         "publishable": not include_drafts,
         "counts": {"included": len(articles), "withheld": len(skipped), "in_library": len(parsed)},
         "withheld": sorted(skipped, key=lambda s: s["id"]),
+        "withheld_sections": {k: withheld_sections[k] for k in sorted(withheld_sections)},
+        "withheld_entirely": sorted(emptied),
         "unresolved_links": unresolved,
         "aliases": dict(sorted(aliases.items())),
         "articles": dict(sorted(articles.items())),
@@ -303,6 +446,22 @@ def main(argv):
         print(f"  {len(unresolved)} unresolved cross-reference(s):")
         for u in unresolved:
             print(f"    {u['from']} -> {u['link']}")
+
+    held = sum(len(v) for v in withheld_sections.values())
+    if held:
+        print(f"\n  {held} section(s) withheld by the publication allowlist, "
+              f"across {len(withheld_sections)} entr(y/ies):")
+        for article_id in sorted(withheld_sections):
+            for name in withheld_sections[article_id]:
+                print(f"    {article_id}: {name}")
+    if emptied:
+        print(f"\n  {len(emptied)} entr(y/ies) had no admitted section and are not set "
+              f"at all: {', '.join(emptied)}")
+    if private_hits:
+        print(f"\n  {len(private_hits)} private or production reference(s) inside admitted "
+              f"text. These would stop a publishable build:")
+        for article_id, block_id, why, snippet in private_hits:
+            print(f"    {block_id}: {why} — {snippet!r}")
     if include_drafts:
         print("\n  Draft preview. Not committable, and nothing reads it but you.")
     elif not articles:

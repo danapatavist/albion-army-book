@@ -32,7 +32,6 @@
       "art": "ink-wild-hunt.png",
       "caption": "The Wild Hunt's boat-chariot"
     },
-
     {
       "_note": "The Blaewen Ridings: the first chapter art-directed end to end.",
       "at": "alfran-longbritches:1",
@@ -62,11 +61,6 @@
       "label": "Awaiting the creator"
     },
     {
-      "at": "alfran-longbritches:29",
-      "place": "omit",
-      "_why": "Art direction is a note to the illustrator, not a passage of the book."
-    },
-    {
       "at": "jack-field-fenn:3",
       "place": "marginal",
       "label": "Awaiting the creator"
@@ -77,11 +71,6 @@
       "place": "ink",
       "art": "ink-fenn-dykes.png",
       "caption": "Dykes and raised meadows"
-    },
-    {
-      "at": "field-and-fenn-units:12",
-      "place": "omit",
-      "_why": "Points at a private source image; it belongs in the library, not in print."
     },
     {
       "at": "field-and-fenn-units:31",
@@ -97,6 +86,46 @@
       "at": "field-and-fenn-units:49",
       "place": "marginal",
       "label": "Awaiting the creator"
+    },
+    {
+      "_note": "The four entries added 21 Oct: Oc'nesse, the Court of Antlers, ram chariots, the orchestras.",
+      "at": "ocnesse:1",
+      "break": "page",
+      "place": "full",
+      "art": "page-ocnesse-bull.webp",
+      "caption": "An old bull Oc'nesse under the Blaewen throne"
+    },
+    {
+      "at": "ocnesse:5",
+      "place": "marginal",
+      "label": "Awaiting the creator"
+    },
+    {
+      "at": "court-of-antlers:1",
+      "place": "half",
+      "art": "half-h-court-of-antlers.webp",
+      "caption": "Elfred Sidesaddle and the Court of Antlers"
+    },
+    {
+      "at": "court-of-antlers:3",
+      "place": "marginal",
+      "label": "Developing"
+    },
+    {
+      "at": "ram-chariots:1",
+      "place": "ink",
+      "art": "ink-ram-chariot.png",
+      "caption": "A ram-drawn chariot of the Blaewen Ridings"
+    },
+    {
+      "at": "ram-chariots:3",
+      "place": "marginal",
+      "label": "Awaiting the creator"
+    },
+    {
+      "at": "host-orchestras:1",
+      "place": "boxout",
+      "label": "The Orchestras of the Hosts"
     }
   ]
 }

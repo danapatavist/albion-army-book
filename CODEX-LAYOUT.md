@@ -50,17 +50,24 @@ the placement is made at the top of the new page.
   it. Use for a chapter opener or a set piece.
 - **`full`** — the artwork takes a whole page. The facing page keeps its two columns.
 - **`half`** — the artwork spans both columns of its page and text continues beneath.
-  With `foot=true` it is the standard treatment for an illustrated troop entry:
-  the lore in the top of the page, the plate across the bottom, run out to the
-  inner frame rule. No border and no mount — it is a war engraving, not a framed
-  thumbnail — with a narrow parchment gutter, wider on the spine side, and a small
-  caption under it. The plate takes 47% of the page — the bottom half, near enough —
-  which is the largest share that still lets a troop entry of ordinary length close
-  on its own page. 48% pushes its last block overleaf. The page's foot padding is
-  reclaimed to pay for it, so the plate bottoms on the inner frame rule rather than
-  on the text margin. A longer entry will still spill: check it when you art-direct
-  one, and measure rather than guess — run the page and see which folio the last
-  block lands under.
+  With `foot=true` it is the standard treatment for an illustrated troop entry: the
+  lore in the top of the page, the plate bled off the bottom. Edgeless — it is trimmed
+  off the left, right and foot of the paper, with no border, no mount and no margin,
+  because it is a war engraving and not a framed thumbnail.
+
+  A bled plate costs the page two things, and the stylesheet pays for both rather
+  than letting the picture overrun them. The frame rule stops above the plate: the
+  rule is the page's edge as a reader sees it, and a trimmed edge carries no rule.
+  The folio moves up into a footer band between the text and the plate. The caption
+  rides on the engraving itself, light on a soft scrim, since there is no paper left
+  beneath it to stand on.
+
+  The plate is drawn 425px deep across the full 900px of the page. That is the
+  largest band that still lets a troop entry of ordinary length close on its own
+  page. A longer entry will push its last block overleaf — check it when you
+  art-direct one, and measure rather than guess: run the page and see which folio
+  the last block lands under.
+
 - **`column`** — the artwork sits in one column at that point and the text flows past.
 - **`ink`** — as `column`, but printed flat into the paper: no frame, monochrome,
   multiplied into the parchment.

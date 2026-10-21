@@ -185,28 +185,45 @@ em{font-style:italic}
 .plate-half .art{flex:1;min-height:0}
 .plate-half.below{order:2}
 /* The standard treatment for an illustrated troop entry: the lore in the top half of
-   the page, the plate across the bottom, run out almost to the paper's edge. It is a
-   war engraving, not a framed thumbnail, so it has no border and no mount - only a
-   narrow parchment gutter, wider on the spine side than the outer edge. The side
-   margins are taken back out of the page's own padding. The foot is left alone: the
-   caption and the folio keep their air, and nothing overruns the page.
+   the page, the plate across the bottom, trimmed off all three edges of the paper.
+   Edgeless, as a bled plate is in print - no border, no mount, no margin at all.
 
-   The plate is sized to the picture, not to a guess: the box takes the artwork's own
-   aspect, so nothing is cropped and the engraving is as large as the page allows. At
-   780px across, a 16:9 plate is 439px deep - the bottom half of the page, which is
-   what the treatment is for. The surrounding furniture is squeezed to pay for it: the
-   page's foot padding is reclaimed down to the inner frame rule, and the gap above
-   the plate is tightened. The folio and the frame keep their air; nothing overruns
-   the page. */
-.codex-cols ~ .plate-half.below{flex:0 0 47%;gap:7px;margin-bottom:-25px}
+   A bled plate costs the page two things, and both have to be paid rather than
+   overrun. The frame is the page's edge as a reader sees it, so it stops above the
+   picture instead of being drawn across it: a trimmed edge carries no rule. The
+   folio moves up onto the parchment, above the plate, where it can still be read.
+   The caption sits on the engraving itself, light on a soft scrim, because there is
+   no paper left beneath it to stand on.
+
+   The plate's visible band is 46% of the page. The flex basis is that less the foot
+   padding the negative margin reclaims, since the wrap is measured inside the
+   content box but drawn outside it. */
+.codex-cols ~ .plate-half.below{
+  position:relative;flex:0 0 425px;gap:0;
+  margin-top:46px;                         /* the footer band, where the folio sits */
+  margin-bottom:-72px;                     /* down to the trimmed foot of the page */
+}
 .page>.inner:has(.plate-half.below){gap:16px}
-.page.left  .codex-cols ~ .plate-half.below{margin-left:-22px;margin-right:-24px}
-.page.right .codex-cols ~ .plate-half.below{margin-left:-24px;margin-right:-22px}
+.page.left  .codex-cols ~ .plate-half.below{margin-left:-78px;margin-right:-88px}
+.page.right .codex-cols ~ .plate-half.below{margin-left:-88px;margin-right:-78px}
 .codex-cols ~ .plate-half.below .art{
   flex:1;min-height:0;border:none;outline:none;background-color:transparent;
 }
-.codex-cols ~ .plate-half.below .inkcap{font-size:13.5px}
-.codex-cols ~ .plate-half.below .inkcap b{display:inline;font-size:10px;letter-spacing:.18em;margin:0 .55em 0 0}
+/* the rule stops above a bled plate, and the folio sits on parchment above it */
+.page:has(.codex-cols ~ .plate-half.below) .frame{bottom:443px}
+.page:has(.codex-cols ~ .plate-half.below) .frame::before{bottom:7px}
+.page:has(.codex-cols ~ .plate-half.below) .folio{bottom:455px}
+/* the caption rides on the engraving: nothing beneath it to sit on any more */
+.codex-cols ~ .plate-half.below .inkcap{
+  position:absolute;left:0;right:0;bottom:0;margin:0;z-index:2;
+  padding:26px 90px 12px;text-align:center;
+  font-size:13.5px;color:#f0e7d0;text-shadow:0 1px 3px rgba(0,0,0,.85);
+  background:linear-gradient(180deg,rgba(18,14,8,0),rgba(18,14,8,.62));
+}
+.codex-cols ~ .plate-half.below .inkcap b{
+  display:inline;font-size:10px;letter-spacing:.18em;margin:0 .55em 0 0;
+  color:#e3c37a;
+}
 
 /* 4 — column inset: a ruled aside that sits inside one column of running text */
 .inset{

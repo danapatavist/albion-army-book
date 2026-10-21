@@ -58,11 +58,11 @@ the placement is made at the top of the new page.
   A bled plate costs the page two things, and the stylesheet pays for both rather
   than letting the picture overrun them. The frame rule stops above the plate: the
   rule is the page's edge as a reader sees it, and a trimmed edge carries no rule.
-  The folio moves up into a footer band between the text and the plate. The caption
-  rides on the engraving itself, light on a soft scrim, since there is no paper left
-  beneath it to stand on.
+  The folio and the caption both ride on the engraving, light on a soft scrim, since
+  there is no paper left beneath them to stand on — which is also what lets the
+  picture have the whole foot of the page rather than a band of it.
 
-  The plate is drawn 425px deep across the full 900px of the page. That is the
+  The plate is drawn 471px deep across the full 900px of the page. That is the
   largest band that still lets a troop entry of ordinary length close on its own
   page. A longer entry will push its last block overleaf — check it when you
   art-direct one, and measure rather than guess: run the page and see which folio

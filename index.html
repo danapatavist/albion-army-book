@@ -199,8 +199,7 @@ em{font-style:italic}
    padding the negative margin reclaims, since the wrap is measured inside the
    content box but drawn outside it. */
 .codex-cols ~ .plate-half.below{
-  position:relative;flex:0 0 425px;gap:0;
-  margin-top:46px;                         /* the footer band, where the folio sits */
+  position:relative;flex:0 0 471px;gap:0;
   margin-bottom:-72px;                     /* down to the trimmed foot of the page */
 }
 .page>.inner:has(.plate-half.below){gap:16px}
@@ -210,9 +209,12 @@ em{font-style:italic}
   flex:1;min-height:0;border:none;outline:none;background-color:transparent;
 }
 /* the rule stops above a bled plate, and the folio sits on parchment above it */
-.page:has(.codex-cols ~ .plate-half.below) .frame{bottom:443px}
+.page:has(.codex-cols ~ .plate-half.below) .frame{bottom:481px}
 .page:has(.codex-cols ~ .plate-half.below) .frame::before{bottom:7px}
-.page:has(.codex-cols ~ .plate-half.below) .folio{bottom:455px}
+/* the folio sits on the engraving itself, light, where the scrim carries it */
+.page:has(.codex-cols ~ .plate-half.below) .folio{
+  bottom:34px;z-index:5;color:#f0e7d0;text-shadow:0 1px 3px rgba(0,0,0,.9);
+}
 /* the caption rides on the engraving: nothing beneath it to sit on any more */
 .codex-cols ~ .plate-half.below .inkcap{
   position:absolute;left:0;right:0;bottom:0;margin:0;z-index:2;

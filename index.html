@@ -206,6 +206,9 @@ em{font-style:italic}
 }
 .plate-ink .art::after{display:none}
 .plate-ink .art.pending{border:1px dashed rgba(60,42,18,.55);filter:none;mix-blend-mode:normal}
+/* the alt text an art slot is waiting for, shown so a reviewer can check it */
+.art.pending .alt-note{display:block;max-width:76%;margin:10px auto 0;font-size:13.5px;
+  line-height:1.38;color:var(--ink-soft);opacity:.85}
 
 /* ---------- codex pages, generated from the lore library (?codex=1) ----------
    Explicit column boxes rather than CSS multi-column: the flow pass measures each
@@ -1343,16 +1346,34 @@ em{font-style:italic}
       place(blockNode(b));
     }
 
+    /* The plates are painted as backgrounds, because a double spread has to be one
+       picture cut across the gutter and an <img> cannot be. A background carries no
+       alternative text of its own, so the box is given the role and the description
+       instead: a reader that cannot see the plate is still told what is on it. Art
+       with nothing to say for itself is marked decorative rather than described
+       badly. */
+    function describe(node, d){
+      var alt = d.alt != null ? d.alt : (d.caption || '');
+      if (alt){
+        node.setAttribute('role', 'img');
+        node.setAttribute('aria-label', alt);
+      } else {
+        node.setAttribute('aria-hidden', 'true');
+      }
+    }
+
     function artNode(d, extraClass){
       var wrap = el('div', extraClass);
       var art  = el('div','art');
       if (d.art && !d.missing){
         art.style.backgroundImage = "url('" + ART + d.art + "')";
+        describe(art, d);
       } else {
         art.classList.add('pending');
         art.appendChild(el('b','', 'Awaiting art'));
         art.appendChild(el('span','', d.caption || ''));
         art.appendChild(el('code','', ART + (d.art || 'unnamed')));
+        if (d.alt) art.appendChild(el('em','alt-note', '“' + d.alt + '”'));
       }
       wrap.appendChild(art);
       if (d.caption && d.art && !d.missing){
@@ -1539,8 +1560,11 @@ em{font-style:italic}
                 var inner = el('div','inner');
                 var wrap = el('div','plate-spread whole');
                 var art = el('div','art');
-                if (d.art && !d.missing){ art.style.backgroundImage = "url('" + ART + d.art + "')"; }
-                else {
+                if (d.art && !d.missing){
+                  art.style.backgroundImage = "url('" + ART + d.art + "')";
+                  /* one picture in two halves: describe it once, or it is read twice */
+                  if (i === 0) describe(art, d); else art.setAttribute('aria-hidden', 'true');
+                } else {
                   art.classList.add('pending');
                   art.appendChild(el('b','', 'Double spread — awaiting art'));
                   if (i === 0){          /* one picture: caption it once, on the left half */

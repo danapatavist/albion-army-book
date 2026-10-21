@@ -437,6 +437,12 @@ def main(argv):
     missing_art = [d["art"] for d in all_overrides if d.get("missing")]
     print(f"  {codex['counts']['included']} article(s) in, {codex['counts']['withheld']} withheld, "
           f"{len(aliases)} alias(es), {len(all_overrides)} override(s)")
+    no_alt = [d["art"] for d in all_overrides if d.get("art") and not d.get("alt")]
+    if no_alt:
+        print(f"  {len(no_alt)} artwork slot(s) with no alt text. A plate nobody can see is a "
+              f"plate nobody can read:")
+        for name in no_alt:
+            print(f"    {name}")
     if missing_art:
         print(f"  {len(missing_art)} artwork file(s) not yet in lore/approved-artwork/, "
               f"each rendering as a holding box:")

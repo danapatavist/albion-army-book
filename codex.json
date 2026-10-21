@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T11:11:42Z",
+  "generated": "2026-10-21T11:42:34Z",
   "mode": "approved-only",
   "publishable": true,
   "counts": {
@@ -166,8 +166,9 @@
           "at": "plaid-men:1",
           "place": "half",
           "foot": true,
-          "art": "half-h-plaid-men.webp",
-          "caption": "Plaid Men in tartan trousers, short kilts and bronze helmets",
+          "art": "half-h-blaewen-plaid-men.webp",
+          "caption": "The Plaid Men advance beneath the banners of the Blaewen Ridings",
+          "alt": "Blaewen Plaid Men wearing full bronze helmets and moustaches, tartan trousers beneath short kilts, advancing with spears and round shields through a smoky battle.",
           "missing": true
         }
       ],

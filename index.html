@@ -184,10 +184,22 @@ em{font-style:italic}
 .plate-half{display:flex;flex-direction:column;gap:10px;flex:0 0 40%;min-height:0}
 .plate-half .art{flex:1;min-height:0}
 .plate-half.below{order:2}
-/* At the foot of a codex page the picture would otherwise sit on the folio. The
-   clearance is bought out of the plate rather than added below it, so the text above
-   keeps its measure and a short entry still closes on its own page. */
-.codex-cols ~ .plate-half.below{flex:0 0 36%;margin-bottom:16px}
+/* The standard treatment for an illustrated troop entry: the lore in the top half of
+   the page, the plate across the bottom, run out almost to the paper's edge. It is a
+   war engraving, not a framed thumbnail, so it has no border and no mount - only a
+   narrow parchment gutter, wider on the spine side than the outer edge. The side
+   margins are taken back out of the page's own padding. The foot is left alone: the
+   caption and the folio keep their air, and nothing overruns the page.
+
+   The clearance above the folio is bought out of the plate's height rather than added
+   below it, so the text above keeps its measure and a short entry still closes on its
+   own page. */
+.codex-cols ~ .plate-half.below{flex:0 0 40%;margin-bottom:16px}
+.page.left  .codex-cols ~ .plate-half.below{margin-left:-22px;margin-right:-24px}
+.page.right .codex-cols ~ .plate-half.below{margin-left:-24px;margin-right:-22px}
+.codex-cols ~ .plate-half.below .art{border:none;outline:none;background-color:transparent}
+.codex-cols ~ .plate-half.below .inkcap{font-size:14px}
+.codex-cols ~ .plate-half.below .inkcap b{font-size:10px;letter-spacing:.18em;margin-bottom:1px}
 
 /* 4 — column inset: a ruled aside that sits inside one column of running text */
 .inset{

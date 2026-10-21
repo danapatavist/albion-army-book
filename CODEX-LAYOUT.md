@@ -49,9 +49,14 @@ the placement is made at the top of the new page.
 - **`spread`** — the next two facing pages are one painting. Body text resumes after
   it. Use for a chapter opener or a set piece.
 - **`full`** — the artwork takes a whole page. The facing page keeps its two columns.
-- **`half`** — the artwork spans both columns of its page; text continues beneath,
-  or above it with `foot=true`, which is the shape for a short entry: half a page
-  of text and a picture under it.
+- **`half`** — the artwork spans both columns of its page and text continues beneath.
+  With `foot=true` it is the standard treatment for an illustrated troop entry:
+  the lore in the top of the page, the plate across the bottom, run out to the
+  inner frame rule. No border and no mount — it is a war engraving, not a framed
+  thumbnail — with a narrow parchment gutter, wider on the spine side, and a small
+  caption under it. The plate takes 40% of the page: the largest share that still
+  lets a troop entry of ordinary length close on its own page. A longer entry will
+  push its last block overleaf, which is worth checking when you art-direct one.
 - **`column`** — the artwork sits in one column at that point and the text flows past.
 - **`ink`** — as `column`, but printed flat into the paper: no frame, monochrome,
   multiplied into the parchment.

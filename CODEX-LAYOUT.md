@@ -54,9 +54,13 @@ the placement is made at the top of the new page.
   the lore in the top of the page, the plate across the bottom, run out to the
   inner frame rule. No border and no mount — it is a war engraving, not a framed
   thumbnail — with a narrow parchment gutter, wider on the spine side, and a small
-  caption under it. The plate takes 40% of the page: the largest share that still
-  lets a troop entry of ordinary length close on its own page. A longer entry will
-  push its last block overleaf, which is worth checking when you art-direct one.
+  caption under it. The plate takes 47% of the page — the bottom half, near enough —
+  which is the largest share that still lets a troop entry of ordinary length close
+  on its own page. 48% pushes its last block overleaf. The page's foot padding is
+  reclaimed to pay for it, so the plate bottoms on the inner frame rule rather than
+  on the text margin. A longer entry will still spill: check it when you art-direct
+  one, and measure rather than guess — run the page and see which folio the last
+  block lands under.
 - **`column`** — the artwork sits in one column at that point and the text flows past.
 - **`ink`** — as `column`, but printed flat into the paper: no frame, monochrome,
   multiplied into the parchment.

@@ -191,15 +191,22 @@ em{font-style:italic}
    margins are taken back out of the page's own padding. The foot is left alone: the
    caption and the folio keep their air, and nothing overruns the page.
 
-   The clearance above the folio is bought out of the plate's height rather than added
-   below it, so the text above keeps its measure and a short entry still closes on its
-   own page. */
-.codex-cols ~ .plate-half.below{flex:0 0 40%;margin-bottom:16px}
+   The plate is sized to the picture, not to a guess: the box takes the artwork's own
+   aspect, so nothing is cropped and the engraving is as large as the page allows. At
+   780px across, a 16:9 plate is 439px deep - the bottom half of the page, which is
+   what the treatment is for. The surrounding furniture is squeezed to pay for it: the
+   page's foot padding is reclaimed down to the inner frame rule, and the gap above
+   the plate is tightened. The folio and the frame keep their air; nothing overruns
+   the page. */
+.codex-cols ~ .plate-half.below{flex:0 0 47%;gap:7px;margin-bottom:-25px}
+.page>.inner:has(.plate-half.below){gap:16px}
 .page.left  .codex-cols ~ .plate-half.below{margin-left:-22px;margin-right:-24px}
 .page.right .codex-cols ~ .plate-half.below{margin-left:-24px;margin-right:-22px}
-.codex-cols ~ .plate-half.below .art{border:none;outline:none;background-color:transparent}
-.codex-cols ~ .plate-half.below .inkcap{font-size:14px}
-.codex-cols ~ .plate-half.below .inkcap b{font-size:10px;letter-spacing:.18em;margin-bottom:1px}
+.codex-cols ~ .plate-half.below .art{
+  flex:1;min-height:0;border:none;outline:none;background-color:transparent;
+}
+.codex-cols ~ .plate-half.below .inkcap{font-size:13.5px}
+.codex-cols ~ .plate-half.below .inkcap b{display:inline;font-size:10px;letter-spacing:.18em;margin:0 .55em 0 0}
 
 /* 4 — column inset: a ruled aside that sits inside one column of running text */
 .inset{

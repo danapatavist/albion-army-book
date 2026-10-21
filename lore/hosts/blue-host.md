@@ -22,3 +22,13 @@ Do not assume every Blue unit is under Alfran's direct personal command. Exact p
 
 ## See also
 [Alfran](../characters/alfran-longbritches.md), [Four Hosts](four-hosts.md).
+
+## Military character
+
+Albion is chiefly an **infantry** setting rather than a conventional horse-cavalry army. The Blaewen Ridings field the same foundational Painted Warriors as the other hosts, alongside the **Plaid Men**, paid professional infantry wearing full bronze helmets, moustaches and tartan trousers beneath short kilts. Alfran's emerging feudal system grants earldoms to supporters who are obliged to raise and maintain soldiers; it transforms older community obligations and land use.
+
+Distinctive forces and military figures associated with the Ridings include **two-crew ram chariots**, noble **Oc'nesse** mounts (including Alfran's old bull **Shaggy**), the Empress's personal **Seventeen Standards — Winter Household Regiment**, **Elfred's Court of Antlers**, the **Three** tapestry-weaving Knotwives, the **Beast and his white tiger**, the allied giant **Tam Loggins**, and the **Waiting Guard** summoned by the Horn of Argant. These do not all have assigned tabletop unit categories; several are characters, bodyguards or magical attendants.
+
+The **Waiting Guard** are **bog-preserved zombies**, not self-aware soldiers: once the horn is sounded they arise and fight, without recognising or judging Alfran. Their older association with Argant is part of their history, not an active conversation or conscious allegiance. A Blaewen hero sounds the monumental horn, supported by its separate bearer.
+
+The Empress's **Seventeen Standards** are **one genuinely formidable elite household regiment**, not seventeen independent companies. They carry an extraordinary profusion of flags, pennants and heraldic devices in an **Anglo-Celtic/northern** visual language of beasts, spirals, geometric emblems, patchwork colours, furs, bronze helmets and round shields — **not Bretonnian medieval knightly heraldry**. The spectacle is excessive, but the soldiers are capable.

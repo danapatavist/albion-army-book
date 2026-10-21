@@ -36,6 +36,7 @@ anchor to. Any key beginning with `_` is a comment and is ignored.
 | `place` | `spread` `full` `half` `column` `ink` `boxout` `marginal` `omit` | what happens at that block |
 | `art` | a filename | the artwork, from `lore/approved-artwork/`. Omit it and the slot renders as a marked holding box naming what is wanted. |
 | `caption` | text | printed under the art |
+| `foot` | `true` | on a `half`, hangs the picture under the text instead of over it |
 | `label` | text | the heading on a boxout or a margin note. Defaults to the passage's own heading. |
 | `open` | `false` | a margin note set as settled rather than as an open question |
 | `break` | `page` `spread` | start the next page, or the next spread, before this block |
@@ -48,7 +49,9 @@ the placement is made at the top of the new page.
 - **`spread`** — the next two facing pages are one painting. Body text resumes after
   it. Use for a chapter opener or a set piece.
 - **`full`** — the artwork takes a whole page. The facing page keeps its two columns.
-- **`half`** — the artwork spans both columns of its page; text continues beneath.
+- **`half`** — the artwork spans both columns of its page; text continues beneath,
+  or above it with `foot=true`, which is the shape for a short entry: half a page
+  of text and a picture under it.
 - **`column`** — the artwork sits in one column at that point and the text flows past.
 - **`ink`** — as `column`, but printed flat into the paper: no frame, monochrome,
   multiplied into the parchment.

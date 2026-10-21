@@ -129,10 +129,11 @@
     },
     {
       "at": "plaid-men:1",
-      "break": "page",
       "place": "half",
+      "foot": true,
       "art": "half-h-blaewen-plaid-men.webp",
-      "caption": "The Plaid Men advance beneath the banners of the Blaewen Ridings"
+      "caption": "The Plaid Men advance beneath the banners of the Blaewen Ridings",
+      "alt": "Blaewen Plaid Men wearing full bronze helmets and moustaches, tartan trousers beneath short kilts, advancing with spears and round shields through a smoky battle."
     }
   ]
 }

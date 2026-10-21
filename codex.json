@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T11:08:19Z",
+  "generated": "2026-10-21T11:11:42Z",
   "mode": "approved-only",
   "publishable": true,
   "counts": {
@@ -161,7 +161,16 @@
       "publication": "approved",
       "aliases": [],
       "source": "lore/units/plaid-men.md",
-      "layout": [],
+      "layout": [
+        {
+          "at": "plaid-men:1",
+          "place": "half",
+          "foot": true,
+          "art": "half-h-plaid-men.webp",
+          "caption": "Plaid Men in tartan trousers, short kilts and bronze helmets",
+          "missing": true
+        }
+      ],
       "blocks": [
         {
           "type": "heading",

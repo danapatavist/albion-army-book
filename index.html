@@ -184,6 +184,10 @@ em{font-style:italic}
 .plate-half{display:flex;flex-direction:column;gap:10px;flex:0 0 40%;min-height:0}
 .plate-half .art{flex:1;min-height:0}
 .plate-half.below{order:2}
+/* At the foot of a codex page the picture would otherwise sit on the folio. The
+   clearance is bought out of the plate rather than added below it, so the text above
+   keeps its measure and a short entry still closes on its own page. */
+.codex-cols ~ .plate-half.below{flex:0 0 36%;margin-bottom:16px}
 
 /* 4 — column inset: a ruled aside that sits inside one column of running text */
 .inset{
@@ -1572,8 +1576,12 @@ em{font-style:italic}
           } else if (d.place === 'half'){
             forceNewPage = false;
             newPage();
-            var half = artNode(d, 'plate-half');
-            cur.inner.insertBefore(half, cur.cols);
+            /* foot=true hangs the picture under the text instead of over it. Either
+               way it takes its space before a word flows, so the columns are measured
+               against what is actually left of the page. */
+            var half = artNode(d, 'plate-half' + (d.foot ? ' below' : ''));
+            if (d.foot) cur.inner.appendChild(half);
+            else cur.inner.insertBefore(half, cur.cols);
           } else if (d.place === 'column' || d.place === 'ink'){
             place(artNode(d, 'colart' + (d.place === 'ink' ? ' ink' : '')));
           } else if (d.place === 'boxout'){

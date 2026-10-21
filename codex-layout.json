@@ -126,6 +126,13 @@
       "at": "host-orchestras:1",
       "place": "boxout",
       "label": "The Orchestras of the Hosts"
+    },
+    {
+      "at": "plaid-men:1",
+      "break": "page",
+      "place": "half",
+      "art": "half-h-blaewen-plaid-men.webp",
+      "caption": "The Plaid Men advance beneath the banners of the Blaewen Ridings"
     }
   ]
 }

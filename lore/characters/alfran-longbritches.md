@@ -8,9 +8,14 @@ publication: requires-approval
 aliases:
   - Alfran Longshanks
   - Shortsword
+  - Lord Excalibar of the Blaewen Ridings
 ---
 
 # Alfran Longbritches
+
+## Heroic style
+
+**Lord Excalibar of the Blaewen Ridings** is Alfran's grand heroic style, associated with his possession of the Sword in the Stone, which he could not draw and therefore carried away with the stone itself. His ordinary name remains **Alfran Longbritches**.
 
 ## Faction name
 

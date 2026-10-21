@@ -86,3 +86,9 @@ Blue Host imagery includes painted warriors, javelins, war dogs, the Waiting Gua
 ## Art direction
 
 Bronze Age Albion silhouette, tartan trousers, high boots, moustache, lean figure, no medieval plate. Emphasise the contrast between reforming confidence and a stubbornly archaic world. For the 6th-edition codex, commission both a painted portrait and a rough black-and-white ink sketch.
+
+## The military consequences of the new earldoms
+Alfran is effectively **introducing feudalism** to Albion. Newly appointed Earls are granted territory and status in return for raising and maintaining men under his authority. This sits uneasily beside older kinship and communal obligations. His paid **Plaid Men**, equipped more uniformly than ordinary Painted Warriors, reflect this transformation, without making Albion a conventional cavalry culture.
+
+## The horn and its dead
+Alfran's recovered **Horn of Argant** is a monumental relic supported by a dedicated bearer while a hero blows it. Its call raises the **Waiting Guard**, who are simply ancient bog-preserved zombies; they have no present consciousness, king-recognition or loyalty dilemma. Their connection to Argant belongs to their ancient origin, not to their current behaviour.

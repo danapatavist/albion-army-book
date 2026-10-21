@@ -1,15 +1,27 @@
 {
-  "generated": "2026-10-19T20:51:28Z",
+  "generated": "2026-10-21T09:17:08Z",
   "mode": "approved-only",
   "publishable": true,
   "counts": {
     "included": 0,
-    "withheld": 17,
-    "in_library": 17
+    "withheld": 29,
+    "in_library": 29
   },
   "withheld": [
     {
       "id": "albion",
+      "status": "draft"
+    },
+    {
+      "id": "albion-giants",
+      "status": "draft"
+    },
+    {
+      "id": "albion-magic",
+      "status": "draft"
+    },
+    {
+      "id": "albion-personal-crests",
       "status": "draft"
     },
     {
@@ -25,11 +37,23 @@
       "status": "draft"
     },
     {
+      "id": "blinding-brass",
+      "status": "draft"
+    },
+    {
       "id": "blue-host",
       "status": "draft"
     },
     {
       "id": "diddy-mann",
+      "status": "draft"
+    },
+    {
+      "id": "druid-trio",
+      "status": "draft"
+    },
+    {
+      "id": "druidic-culture",
       "status": "draft"
     },
     {
@@ -57,7 +81,23 @@
       "status": "draft"
     },
     {
+      "id": "honey-dragon",
+      "status": "draft"
+    },
+    {
       "id": "jack-field-fenn",
+      "status": "draft"
+    },
+    {
+      "id": "jenny-willows",
+      "status": "draft"
+    },
+    {
+      "id": "knotwife",
+      "status": "draft"
+    },
+    {
+      "id": "old-nag",
       "status": "draft"
     },
     {
@@ -70,6 +110,14 @@
     },
     {
       "id": "red-host",
+      "status": "draft"
+    },
+    {
+      "id": "stinger-eel-flog",
+      "status": "draft"
+    },
+    {
+      "id": "witches-and-hags",
       "status": "draft"
     },
     {

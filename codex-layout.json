@@ -1,5 +1,5 @@
 {
-  "_comment": "Art direction for the codex. Anchored to block ids from codex.json. Lore entries stay free of layout; see CODEX-LAYOUT.md.",
+  "_comment": "Art direction for the codex. Anchored to block ids from codex.json. Lore entries stay free of layout; see CODEX-LAYOUT.md for the vocabulary.",
   "overrides": [
     {
       "at": "four-hosts:1",
@@ -31,6 +31,72 @@
       "place": "ink",
       "art": "ink-wild-hunt.png",
       "caption": "The Wild Hunt's boat-chariot"
+    },
+
+    {
+      "_note": "The Blaewen Ridings: the first chapter art-directed end to end.",
+      "at": "alfran-longbritches:1",
+      "place": "spread",
+      "art": "spread-blaewen-court.webp",
+      "caption": "The court of the Blaewen Ridings"
+    },
+    {
+      "at": "alfran-longbritches:9",
+      "place": "boxout",
+      "label": "The Northern Empress"
+    },
+    {
+      "at": "alfran-longbritches:13",
+      "place": "marginal",
+      "label": "Provisional"
+    },
+    {
+      "at": "alfran-longbritches:17",
+      "place": "half",
+      "art": "half-h-sword-in-the-stone.webp",
+      "caption": "The stone brought in whole on a wagon, the sword still in it"
+    },
+    {
+      "at": "alfran-longbritches:27",
+      "place": "marginal",
+      "label": "Awaiting the creator"
+    },
+    {
+      "at": "alfran-longbritches:29",
+      "place": "omit",
+      "_why": "Art direction is a note to the illustrator, not a passage of the book."
+    },
+    {
+      "at": "jack-field-fenn:3",
+      "place": "marginal",
+      "label": "Awaiting the creator"
+    },
+    {
+      "at": "field-and-fenn-units:1",
+      "break": "page",
+      "place": "ink",
+      "art": "ink-fenn-dykes.png",
+      "caption": "Dykes and raised meadows"
+    },
+    {
+      "at": "field-and-fenn-units:12",
+      "place": "omit",
+      "_why": "Points at a private source image; it belongs in the library, not in print."
+    },
+    {
+      "at": "field-and-fenn-units:31",
+      "place": "boxout",
+      "label": "War Machines of the Fenn"
+    },
+    {
+      "at": "field-and-fenn-units:45",
+      "place": "marginal",
+      "label": "Not established"
+    },
+    {
+      "at": "field-and-fenn-units:49",
+      "place": "marginal",
+      "label": "Awaiting the creator"
     }
   ]
 }

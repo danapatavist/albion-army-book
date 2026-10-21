@@ -39,7 +39,7 @@ SKIP = {"README.md", "CONTRIBUTING.md", "TEMPLATE.md"}
 
 PUBLISHABLE_STATUS = "approved"
 
-PLACES = {"spread", "full", "half", "column", "ink"}
+PLACES = {"spread", "full", "half", "column", "ink", "boxout", "marginal", "omit"}
 BREAKS = {"page", "spread"}
 # one directive is a line of key=value pairs; quoted values may contain spaces
 
@@ -120,24 +120,36 @@ def directives(all_block_ids, problems):
     return by_article
 
 
-def spans(text, resolve):
-    """Split a line into plain text, strong, emphasis and cross-reference spans."""
+def spans(text, resolve, bold=False, italic=False):
+    """Split a line into text, cross-reference, bold and italic spans.
+
+    Inline markup nests: **[Honey Dragon](../artefacts/honey-dragon.md)** is a bold
+    cross-reference, not a literal pair of brackets. So emphasis is not a span kind of
+    its own; it is a flag carried by the spans inside it, and the parser recurses.
+    """
+    def mark(span):
+        if bold:
+            span["b"] = True
+        if italic:
+            span["i"] = True
+        return span
+
     out, pos = [], 0
     for m in INLINE.finditer(text):
         if m.start() > pos:
-            out.append({"text": text[pos:m.start()]})
+            out.append(mark({"text": text[pos:m.start()]}))
         label, target, strong, em = m.groups()
         if label is not None:
             ref = resolve(target)
-            out.append({"ref": ref, "text": label} if ref else {"text": label})
+            out.append(mark({"ref": ref, "text": label} if ref else {"text": label}))
         elif strong is not None:
-            out.append({"strong": strong})
+            out += spans(strong, resolve, True, italic)
         else:
-            out.append({"em": em})
+            out += spans(em, resolve, bold, True)
         pos = m.end()
     if pos < len(text):
-        out.append({"text": text[pos:]})
-    return [s for s in out if s.get("text") != "" or "strong" in s or "em" in s or "ref" in s]
+        out.append(mark({"text": text[pos:]}))
+    return [s for s in out if s.get("text") != "" or "ref" in s]
 
 
 def blocks(body, resolve, article_id):

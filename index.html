@@ -219,11 +219,58 @@ em{font-style:italic}
 .codex-col .colart.ink .art.pending{border:1px dashed rgba(60,42,18,.55);background-color:rgba(173,146,92,.12)}
 .leaf.measuring{display:flex !important;visibility:hidden}
 .codex-badge{
-  position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:6;
+  position:absolute;left:50%;top:13px;transform:translateX(-50%);z-index:6;
   font-family:var(--display);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--ox);opacity:.75;
+  color:#d8b35e;opacity:.85;
 }
 .plate-spread.whole{flex:1}
+
+/* 6 — boxout: a framed panel of related text across the foot of the page, under both
+      columns. The two text columns above it are untouched; a boxout is furniture. */
+.codex-boxout{
+  flex:none;margin:16px 0 0;padding:15px 20px 16px;max-height:62%;overflow:hidden;
+  border:1.5px solid rgba(90,68,30,.5);outline:1px solid rgba(90,68,30,.2);outline-offset:3px;
+  background:linear-gradient(180deg,rgba(173,146,92,.22),rgba(140,112,60,.1));
+  box-shadow:inset 0 0 24px rgba(90,62,20,.14);
+}
+.codex-boxout h4{
+  margin:0 0 8px;font-family:var(--display);font-weight:600;font-size:14px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ox);text-align:center;
+}
+.codex-boxout .bx{columns:2;column-gap:30px;column-rule:1px solid rgba(90,68,30,.26)}
+.codex-boxout p{font-size:17.5px;line-height:1.42;text-align:justify;hyphens:auto;margin:0 0 9px;break-inside:avoid}
+.codex-boxout ul{margin:0 0 9px;padding-left:1.1em}
+.codex-boxout li{font-size:17px;line-height:1.38;margin-bottom:4px;break-inside:avoid}
+.codex-boxout>*:last-child{margin-bottom:0}
+/* in the column, where the reader meets it: one measure, not two */
+.codex-boxout.inline{margin:4px 0 14px;padding:13px 15px 14px}
+.codex-boxout.inline .bx{columns:auto}
+.codex-boxout.inline h4{font-size:13px}
+.codex-boxout.inline p,.codex-boxout.inline li{font-size:17px}
+/* a passage too deep for a panel takes the whole page, still set in two columns */
+.codex-boxout.whole{max-height:none;flex:1;min-height:0;margin:14px 0 0;display:flex;flex-direction:column}
+.codex-boxout.whole .bx{flex:1;min-height:0;column-fill:balance}
+
+/* 7 — marginalia: a note in the outer margin, as the hand-set spreads have. Still two
+      text columns of running prose; the rail is a margin, not a third column. */
+.codex-cols.with-margin{grid-template-columns:1fr 1fr 168px;align-items:stretch}
+.page.left .codex-cols.with-margin{grid-template-columns:168px 1fr 1fr}
+.page.left .codex-cols.with-margin>.codex-marg{order:-1}
+.codex-marg{
+  display:flex;flex-direction:column;gap:18px;height:100%;min-height:0;overflow:hidden;
+  font-size:15.5px;line-height:1.4;color:var(--ink-soft);font-style:italic;
+}
+.codex-marg section{border-top:1.5px solid var(--gold);padding-top:9px}
+.codex-marg b{
+  display:block;font-style:normal;font-family:var(--display);font-weight:600;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ox);margin-bottom:5px;
+}
+.codex-marg section.pending-note{border-top:1.5px dashed var(--ox)}
+.codex-marg section.pending-note b{color:var(--ox)}
+.codex-marg p{margin:0 0 8px;font-size:15.5px;line-height:1.4;text-align:left;hyphens:none}
+.codex-marg p:last-child{margin-bottom:0}
+.codex-marg ul{margin:0;padding-left:1em}
+.codex-marg li{font-size:15px;line-height:1.36;margin-bottom:4px}
 
 /* composition: tailpieces close a short page, folios number every leaf */
 .tailpiece{display:flex;justify-content:center;padding:26px 0 6px;color:var(--gold);opacity:.55}
@@ -294,9 +341,12 @@ em{font-style:italic}
 .sheet.back .lift{background:linear-gradient(270deg,rgba(28,16,4,.42),rgba(28,16,4,.06) 35%,transparent 60%)}
 
 /* ---------- index tabs: on the table beside the book, never over the page ---------- */
+/* The lane is 120px and a tab is 40px, so the index runs in up to two banks. wrap-reverse
+   sends the overflow inwards, towards the book, and the lane still never covers a page. */
 .tabs{
   position:absolute;right:30px;top:50%;transform:translateY(-50%);z-index:30;
-  display:flex;flex-direction:column;gap:9px;
+  display:flex;flex-direction:column;flex-wrap:wrap-reverse;gap:9px;
+  height:1044px;max-width:89px;align-content:flex-start;justify-content:center;
 }
 .tabs button{
   all:unset;box-sizing:border-box;cursor:pointer;
@@ -1078,6 +1128,7 @@ em{font-style:italic}
     var cur = null;         /* { leaf, pageIndex, inner, cols, colIndex } */
     var pendingTitle = null;   /* set when an article starts, printed when a page opens */
     var forceNewPage = false;  /* an article or a break= directive wants a fresh page */
+    var pendingMargin = [];    /* margin notes waiting for a page with room for a rail */
 
     function el(tag, cls, text){
       var n = document.createElement(tag);
@@ -1131,6 +1182,9 @@ em{font-style:italic}
           inner.insertBefore(h, cur.cols);
           pendingTitle = null;
         }
+        /* a margin rail narrows the text, so it has to be hung before anything flows.
+           Notes fill the rail in order and the rest wait for the next page. */
+        while (pendingMargin.length && hangMargin(pendingMargin[0])) pendingMargin.shift();
       }
       return inner;
     }
@@ -1154,17 +1208,133 @@ em{font-style:italic}
       return false;
     }
 
+    function fits(col){ return col.scrollHeight <= col.clientHeight; }
+
+    /* Move to the next column, carrying a heading left stranded at the foot of this
+       one. A heading belongs to what follows it, never to the paper above. */
+    function carryOn(col){
+      var orphan = col.lastElementChild;
+      if (orphan && orphan.tagName === 'H3') col.removeChild(orphan); else orphan = null;
+      nextColumn();
+      var next = column();
+      if (orphan) next.appendChild(orphan);
+      return next;
+    }
+
     /* Append, measure, and move on if it did not fit. */
     function place(node){
       if (forceNewPage){ forceNewPage = false; newPage(); }
       var col = column();
       col.appendChild(node);
-      if (col.scrollHeight <= col.clientHeight) return;
+      if (fits(col)) return;
       col.removeChild(node);
-      nextColumn();
-      col = column();
+      col = carryOn(col);
       col.appendChild(node);
-      /* a block taller than a whole column stays where it is rather than looping */
+      if (!fits(col)){
+        console.warn('codex: a block is taller than a column and has been cropped. ' +
+                     'Break it in the lore entry, or give it a page.');
+      }
+    }
+
+    /* A list longer than a column is continued in the next one, as a printed book
+       does it. Cropping a passage would lose canon, so it never happens here. */
+    function placeList(b){
+      var items = b.items || [], i = 0, stuck = -1, guard = 0;
+      while (i < items.length && guard++ < 400){
+        if (forceNewPage){ forceNewPage = false; newPage(); }
+        var col = column();
+        var ul = el('ul');
+        col.appendChild(ul);
+        var before = i;
+        while (i < items.length){
+          var li = el('li');
+          spans(li, items[i]);
+          ul.appendChild(li);
+          if (!fits(col)){ ul.removeChild(li); break; }
+          i++;
+        }
+        if (i >= items.length) return;     /* the whole list is set */
+        if (i > before){ nextColumn(); continue; }   /* continued overleaf */
+        if (stuck === i){                  /* one item fills a column on its own */
+          var big = el('li');
+          spans(big, items[i]);
+          ul.appendChild(big);
+          i++;
+          nextColumn();
+          console.warn('codex: a single list item overruns a column and has been cropped.');
+          continue;
+        }
+        stuck = i;
+        col.removeChild(ul);               /* not one item fitted; move the whole run */
+        carryOn(col);
+      }
+    }
+
+    /* Cut a run of spans into sentences so a long paragraph has somewhere to break.
+       Strong, emphasis and cross-reference spans are atomic and stay with the
+       sentence they sit in. A false break at an abbreviation costs nothing: it only
+       decides where a column may end. */
+    function sentences(list){
+      var out = [[]];
+      (list || []).forEach(function(s){
+        if (s.text == null){ out[out.length - 1].push(s); return; }
+        var t = s.text, buf = '';
+        for (var i = 0; i < t.length; i++){
+          buf += t.charAt(i);
+          if ('.!?'.indexOf(t.charAt(i)) < 0) continue;
+          var j = i + 1;
+          while (j < t.length && t.charAt(j) === ' '){ buf += t.charAt(j); j++; }
+          if (j === i + 1) continue;                 /* mid-sentence full stop */
+          out[out.length - 1].push({ text: buf });
+          out.push([]);
+          buf = '';
+          i = j - 1;
+        }
+        if (buf) out[out.length - 1].push({ text: buf });
+      });
+      return out.filter(function(g){ return g.length; });
+    }
+
+    /* A paragraph longer than a column is continued in the next one, sentence by
+       sentence, rather than being cropped. */
+    function placeParagraph(b){
+      var groups = sentences(b.spans);
+      if (groups.length < 2) return place(blockNode(b));
+      var i = 0, stuck = -1, guard = 0;
+      while (i < groups.length && guard++ < 400){
+        if (forceNewPage){ forceNewPage = false; newPage(); }
+        var col = column();
+        var p = el('p');
+        col.appendChild(p);
+        var before = i;
+        while (i < groups.length){
+          var mark = p.childNodes.length;
+          spans(p, groups[i]);
+          if (!fits(col)){
+            while (p.childNodes.length > mark) p.removeChild(p.lastChild);
+            break;
+          }
+          i++;
+        }
+        if (i >= groups.length) return;
+        if (i > before){ nextColumn(); continue; }
+        if (stuck === i){                            /* one sentence fills a column */
+          spans(p, groups[i]);
+          i++;
+          nextColumn();
+          console.warn('codex: a single sentence overruns a column and has been cropped.');
+          continue;
+        }
+        stuck = i;
+        col.removeChild(p);
+        carryOn(col);
+      }
+    }
+
+    function flow(b){
+      if (b.type === 'list') return placeList(b);
+      if (b.type === 'p') return placeParagraph(b);
+      place(blockNode(b));
     }
 
     function artNode(d, extraClass){
@@ -1188,16 +1358,22 @@ em{font-style:italic}
       return wrap;
     }
 
+    /* A span is text or a cross-reference, optionally bold, italic or both: emphasis
+       nests around a link rather than replacing it. */
     function spans(parent, list){
       (list || []).forEach(function(s){
+        var node;
         if (s.ref){
-          var b = el('button','xref', s.text);
-          b.type = 'button';
-          b.setAttribute('data-codex-ref', s.ref);
-          parent.appendChild(b);
-        } else if (s.strong){ parent.appendChild(el('strong','', s.strong)); }
-        else if (s.em){ parent.appendChild(el('em','', s.em)); }
-        else { parent.appendChild(document.createTextNode(s.text || '')); }
+          node = el('button','xref', s.text);
+          node.type = 'button';
+          node.title = 'Turn to this';
+          node.setAttribute('data-codex-ref', s.ref);
+        } else {
+          node = document.createTextNode(s.text || '');
+        }
+        if (s.b){ var strong = el('strong'); strong.appendChild(node); node = strong; }
+        if (s.i){ var em = el('em'); em.appendChild(node); node = em; }
+        parent.appendChild(node);
       });
     }
 
@@ -1211,6 +1387,110 @@ em{font-style:italic}
       var para = el('p');
       spans(para, b.spans);
       return para;
+    }
+
+    /* A boxout or a margin note is not one paragraph but a passage: the heading the
+       override names, and everything under it until the next heading of the same rank
+       or higher. Those blocks are set in the furniture and do not also flow. */
+    function headingRun(all, i){
+      var first = all[i];
+      if (first.type !== 'heading') return { blocks: [first], end: i };
+      var j = i + 1;
+      while (j < all.length && !(all[j].type === 'heading' && all[j].level <= first.level)) j++;
+      return { blocks: all.slice(i, j), end: j - 1 };
+    }
+
+    /* A framed panel across the foot of the page, beneath both columns. It takes its
+       space before the text flows, so it opens a page rather than squeezing one that
+       has already been set. */
+    /* A framed panel of related text. It is tried first where the reader meets it, as
+       a panel inside the column, because that wastes no paper and keeps the passage in
+       its place. Only a panel too deep for a column is promoted to a whole page - still
+       set in two columns, as the book's contract requires. */
+    function boxout(d, run){
+      var blocks = run.blocks.slice();
+      var head = blocks.length && blocks[0].type === 'heading' ? blocks.shift() : null;
+      function build(cls){
+        var box = el('div', 'codex-boxout' + (cls ? ' ' + cls : ''));
+        box.appendChild(el('h4','', d.label || (head ? head.text : 'Boxout')));
+        var body = el('div','bx');
+        blocks.forEach(function(x){ body.appendChild(blockNode(x)); });
+        box.appendChild(body);
+        return box;
+      }
+
+      if (forceNewPage){ forceNewPage = false; newPage(); }
+      var col = column(), box = build('inline');
+      col.appendChild(box);
+      if (fits(col)) return true;
+      col.removeChild(box);
+
+      col = carryOn(col);                       /* try a column of its own */
+      box = build('inline');
+      col.appendChild(box);
+      if (fits(col)) return true;
+      col.removeChild(box);
+
+      newPage();                                /* a page of its own, then */
+      reclaimMargin();
+      cur.inner.removeChild(cur.cols);
+      cur.cols = null;
+      box = build('whole');
+      cur.inner.appendChild(box);
+      if (box.scrollHeight <= box.clientHeight){
+        forceNewPage = true;
+        return true;
+      }
+      cur.inner.removeChild(box);
+      openColumns();
+      console.warn('codex: "' + (d.label || d.at) + '" is too long even for a full-page ' +
+                   'boxout; set as running text instead.');
+      return false;
+    }
+
+    /* Hang a note in the outer margin of the current page, opening the rail if this is
+       the first note on it. Dashed by default: these are the unresolved questions, and
+       a reader should be able to see at a glance that they are open. */
+    function hangMargin(note){
+      if (!cur || !cur.cols) newPage();
+      var rail = cur.cols.querySelector('.codex-marg');
+      if (!rail){
+        cur.cols.classList.add('with-margin');
+        rail = el('div','codex-marg');
+        rail.notes = [];            /* what is hanging here, should the page be taken */
+        cur.cols.appendChild(rail);
+      }
+      var sec = el('section', note.open === false ? '' : 'pending-note');
+      sec.appendChild(el('b','', note.label));
+      note.blocks.forEach(function(x){ sec.appendChild(blockNode(x)); });
+      rail.appendChild(sec);
+      if (rail.scrollHeight > rail.clientHeight){
+        rail.removeChild(sec);                /* no room; it waits for the next page */
+        if (!rail.children.length){
+          rail.parentNode.classList.remove('with-margin');
+          rail.parentNode.removeChild(rail);  /* and the page keeps its full measure */
+        }
+        return false;
+      }
+      rail.notes.push(note);
+      return true;
+    }
+
+    /* Hand back the notes on a page that is about to be given to something else, so
+       they hang on the next page instead of vanishing with it. */
+    function reclaimMargin(){
+      var rail = cur && cur.cols && cur.cols.querySelector('.codex-marg');
+      if (rail && rail.notes.length) pendingMargin = rail.notes.concat(pendingMargin);
+    }
+
+    function marginal(d, run){
+      var blocks = run.blocks.slice();
+      var head = blocks.length && blocks[0].type === 'heading' ? blocks.shift() : null;
+      pendingMargin.push({
+        label: d.label || (head ? head.text : 'Note'),
+        blocks: blocks,
+        open: d.open
+      });
     }
 
     /* --- run the chapter ---
@@ -1227,7 +1507,23 @@ em{font-style:italic}
       pendingTitle = { text: article.title, id: article.id };
       if (n > 0) forceNewPage = true;             /* each article opens its own page */
 
-      article.blocks.forEach(function(b){
+      /* Margin notes and omissions are settled before a word is set. A note is
+         declared for the article and hung on the first page with room for a rail, so
+         it sits beside the prose rather than a page behind it; an omitted passage is
+         lifted out of the flow entirely. Both are taken out of the running text here
+         so the flow pass never sees them. */
+      var consumed = {};
+      article.blocks.forEach(function(blk, i){
+        var dd = overrides[blk.id];
+        if (!dd || (dd.place !== 'marginal' && dd.place !== 'omit')) return;
+        var r = headingRun(article.blocks, i);
+        if (dd.place === 'marginal') marginal(dd, r);
+        r.blocks.forEach(function(x){ consumed[x.id] = true; });
+      });
+
+      for (var bi = 0; bi < article.blocks.length; bi++){
+        var b = article.blocks[bi];
+        if (consumed[b.id]) continue;
         var d = overrides[b.id];
         if (d){
           if (d.break === 'spread' || d.place === 'spread'){
@@ -1278,14 +1574,27 @@ em{font-style:italic}
             cur.inner.insertBefore(half, cur.cols);
           } else if (d.place === 'column' || d.place === 'ink'){
             place(artNode(d, 'colart' + (d.place === 'ink' ? ' ink' : '')));
+          } else if (d.place === 'boxout'){
+            /* a boxout belongs to a page, so unlike a margin note it is set in place */
+            var run = headingRun(article.blocks, bi);
+            if (boxout(d, run)){
+              bi = run.end;            /* set in the panel; it does not also flow */
+              continue;
+            }
           }
         }
-        place(blockNode(b));
-      });
+        flow(b);
+      }
       if (cur && cur.inner && cur.inner.parentNode){
         cur.inner.parentNode.setAttribute('data-article-end', article.id);
       }
     });
+
+    if (pendingMargin.length){
+      console.warn('codex: margin note(s) in "' + chapter.title + '" had no page left to hang on: ' +
+                   pendingMargin.map(function(n){ return n.label; }).join(', '));
+      pendingMargin.length = 0;
+    }
 
     made.forEach(function(leaf){
       /* a page that ended up with nothing on it still has to be a page */
@@ -1295,7 +1604,7 @@ em{font-style:italic}
     });
     composeCodexPages(made);
     made.forEach(function(leaf){ leaf.classList.remove('measuring'); });
-    if (made.length && made[0].hasAttribute) made[0].setAttribute('data-tab', 'Codex');
+    if (made.length) made[0].setAttribute('data-tab', chapter.tab || chapter.title);
     return made;
   }
 
@@ -1346,16 +1655,22 @@ em{font-style:italic}
         var left = c[0], right = c[1];
         var full = left.clientHeight || 1;
 
-        /* 1. balance a page the text did not fill */
+        /* 1. balance a page the text did not fill, in whichever direction helps.
+              Only the node at the boundary between the columns ever moves, so the
+              reading order is exactly what it was. */
         if (used(left) + used(right) < full * 1.7){
           var guard = 0;
-          while (left.children.length > 1 && guard++ < 40){
+          while (guard++ < 60){
             var gap = Math.abs(used(left) - used(right));
-            var node = left.lastElementChild;
-            right.insertBefore(node, right.firstChild);
-            if (used(right) > full || Math.abs(used(left) - used(right)) >= gap){
-              left.appendChild(node);         /* already as even as it gets */
-              break;
+            var down = used(left) > used(right);        /* left is the fuller one */
+            var from = down ? left : right;
+            var node = down ? from.lastElementChild : from.firstElementChild;
+            if (!node || from.children.length < 2) break;
+            if (down) right.insertBefore(node, right.firstChild); else left.appendChild(node);
+            if (used(left) > full || used(right) > full ||
+                Math.abs(used(left) - used(right)) >= gap){
+              if (down) from.appendChild(node); else from.insertBefore(node, from.firstChild);
+              break;                                    /* already as even as it gets */
             }
           }
         }
@@ -1425,7 +1740,14 @@ em{font-style:italic}
                      (file === 'codex.json' ? 'no entry is approved yet.' : 'build it first.'));
         return false;
       }
-      codexChapter(codex, chapters.chapters[0]);
+      /* every chapter in the map, in the order it is written there. A chapter whose
+         articles are all withheld builds nothing and is simply absent. */
+      var built = 0;
+      chapters.chapters.forEach(function(ch){
+        if (!(ch.articles || []).some(function(id){ return codex.articles[id]; })) return;
+        built += codexChapter(codex, ch).length;
+      });
+      if (!built) return false;
       leaves = Array.prototype.slice.call(book.querySelectorAll('.leaf'));
       return true;
     }).catch(function(err){ console.warn('codex: ' + err); return false; });
@@ -1606,9 +1928,21 @@ em{font-style:italic}
       }
     });
 
-    /* a bare #token in the link opens that chapter: #codex, #grey, #the-fimir */
+    renumberFolios();
+
+    /* a bare #token in the link opens that chapter: #blaewen, #grey, #the-fimir.
+       A number opens that page of the book: #47, or #p47. */
     var token = (window.location.hash || '').replace('#','').toLowerCase();
     var opening = 0;
+    var folio = token.replace(/^p/, '');
+    if (/^\d+$/.test(folio)){
+      leaves.forEach(function(l, n){
+        Array.prototype.forEach.call(l.querySelectorAll('.folio'), function(f){
+          if (f.textContent === folio) opening = n;
+        });
+      });
+      token = '';
+    }
     if (token){
       leaves.forEach(function(l, n){
         var keys = [l.getAttribute('data-tab'), l.getAttribute('data-ref')];
@@ -1620,7 +1954,6 @@ em{font-style:italic}
         });
       });
     }
-    renumberFolios();
     show(opening);
   }
 

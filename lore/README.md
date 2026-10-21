@@ -22,6 +22,7 @@ This is a structured library of fictional Albion lore. It is **not** a record of
 - `cultures/`
 - `magic/`
 - `artefacts/`
+- `units/`
 
 ## Website layout contract
 

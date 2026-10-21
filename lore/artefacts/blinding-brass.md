@@ -13,4 +13,4 @@ The **Blinding Brass** is made from **many pieces of brass, hammered together an
 In the everyday life of Field and Fenn communities, **war machines are primarily anti-giant machines**: practical defences against dangerous giants, rather than inventions made principally for human warfare.
 
 ## Unresolved
-The Green concept artwork shows a wheeled timber carriage bearing three hinged, decorated, polished brass panels, operated by a small crew. The panels are engraved with figures and animals. The exact optical mechanism and tabletop rules remain unspecified.
+The Blinding Brass is a wheeled timber carriage bearing three hinged, decorated, polished brass panels, operated by a small crew. The panels are engraved with figures and animals. The exact optical mechanism and tabletop rules remain unspecified.

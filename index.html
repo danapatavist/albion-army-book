@@ -1149,7 +1149,9 @@ em{font-style:italic}
         pages.push(pg);
       });
       leaf.codexPages = pages;
-      leaf.appendChild(el('p','codex-badge','Codex draft'));
+      /* the badge marks unapproved material, so it belongs only on a draft build.
+         An approved codex is the book, and the book does not caveat itself. */
+      if (codex.publishable === false) leaf.appendChild(el('p','codex-badge','Codex draft'));
       book.insertBefore(leaf, sheet);
       leaf.classList.add('measuring');
       made.push(leaf);

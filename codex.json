@@ -1,10 +1,10 @@
 {
-  "generated": "2026-10-21T10:14:06Z",
+  "generated": "2026-10-21T11:08:19Z",
   "mode": "approved-only",
   "publishable": true,
   "counts": {
-    "included": 0,
-    "withheld": 35,
+    "included": 1,
+    "withheld": 34,
     "in_library": 35
   },
   "withheld": [
@@ -117,10 +117,6 @@
       "status": "draft"
     },
     {
-      "id": "plaid-men",
-      "status": "draft"
-    },
-    {
       "id": "pylons",
       "status": "draft"
     },
@@ -152,6 +148,159 @@
   "withheld_sections": {},
   "withheld_entirely": [],
   "unresolved_links": [],
-  "aliases": {},
-  "articles": {}
+  "aliases": {
+    "Blaewen Plaid Men": "plaid-men"
+  },
+  "articles": {
+    "plaid-men": {
+      "id": "plaid-men",
+      "title": "Blaewen Plaid Men",
+      "kind": "unit",
+      "host": "blue",
+      "status": "approved",
+      "publication": "approved",
+      "aliases": [],
+      "source": "lore/units/plaid-men.md",
+      "layout": [],
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Established lore",
+          "id": "plaid-men:1"
+        },
+        {
+          "type": "p",
+          "spans": [
+            {
+              "text": "The "
+            },
+            {
+              "text": "Plaid Men",
+              "b": true
+            },
+            {
+              "text": " are the Blaewen Ridings' "
+            },
+            {
+              "text": "paid professional infantry",
+              "b": true
+            },
+            {
+              "text": ". They remain fundamentally the same kind of soldiers as Albion's ordinary Painted Warriors, but are better provided for under Alfran's organised military system."
+            }
+          ],
+          "id": "plaid-men:2"
+        },
+        {
+          "type": "p",
+          "spans": [
+            {
+              "text": "Their distinctive appearance includes "
+            },
+            {
+              "text": "tartan trousers worn beneath short kilts",
+              "b": true
+            },
+            {
+              "text": ", "
+            },
+            {
+              "text": "bronze helmets",
+              "b": true
+            },
+            {
+              "text": ", "
+            },
+            {
+              "text": "somewhat more armour",
+              "b": true
+            },
+            {
+              "text": ", "
+            },
+            {
+              "text": "moustaches",
+              "b": true
+            },
+            {
+              "text": ", and ordinary Albion "
+            },
+            {
+              "text": "round shields",
+              "b": true
+            },
+            {
+              "text": ". Their weapons remain within the familiar Albion military tradition; they are not medieval plate-armoured infantry."
+            }
+          ],
+          "id": "plaid-men:3"
+        },
+        {
+          "type": "p",
+          "spans": [
+            {
+              "text": "Their name deliberately suggests both "
+            },
+            {
+              "text": "plaid",
+              "b": true
+            },
+            {
+              "text": " cloth and "
+            },
+            {
+              "text": "paid",
+              "b": true
+            },
+            {
+              "text": " soldiers."
+            }
+          ],
+          "id": "plaid-men:4"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Unresolved",
+          "id": "plaid-men:5"
+        },
+        {
+          "type": "p",
+          "spans": [
+            {
+              "text": "Exact recruitment, whether moustaches are formally required, equipment variations, battlefield stats, command structure and troop costs are undecided."
+            }
+          ],
+          "id": "plaid-men:6"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "See also",
+          "id": "plaid-men:7"
+        },
+        {
+          "type": "p",
+          "spans": [
+            {
+              "ref": "blue-host",
+              "text": "Blaewen Ridings"
+            },
+            {
+              "text": ", "
+            },
+            {
+              "ref": "four-hosts",
+              "text": "Four Hosts"
+            },
+            {
+              "text": "."
+            }
+          ],
+          "id": "plaid-men:8"
+        }
+      ]
+    }
+  }
 }

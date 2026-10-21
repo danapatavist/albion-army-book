@@ -3,8 +3,10 @@ id: plaid-men
 title: "Blaewen Plaid Men"
 kind: unit
 host: blue
-status: draft
-publication: requires-approval
+status: approved
+publication: approved
+approved_by: Dan
+approved_on: 2026-10-21
 ---
 
 # Blaewen Plaid Men

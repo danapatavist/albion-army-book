@@ -424,6 +424,27 @@ em{font-style:italic}
 @media (max-width:760px){.small{display:block}}
 :focus-visible{outline:2px solid var(--gold-lit);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.sheet{display:none !important}}
+
+/* Four Hosts chapter opener: one self-contained plate, not a split cover image. */
+.leaf[data-tab="The Hosts"] .hosts-opening-plate{
+  height:440px;flex:none;width:100%;margin:8px 0 28px;
+  background-image:url('assets/cover/albion-cover-1920x1080.jpg');
+  background-size:210% auto;background-position:10% 56%;
+  background-repeat:no-repeat;border:1px solid rgba(88,62,27,.42);
+}
+.leaf[data-tab="The Hosts"] .hosts-opening-intro{
+  font:italic 23px/1.35 var(--body);color:var(--ink-soft);margin:6px 0 28px;
+}
+.leaf[data-tab="The Hosts"] .hosts-opening-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px 28px;
+  align-content:start;margin-top:14px;
+}
+.leaf[data-tab="The Hosts"] .hosts-opening-grid .host-row{
+  min-height:180px;align-items:start;padding:18px 10px 14px 0;
+  border-top:1px solid rgba(117,88,43,.5);
+}
+.leaf[data-tab="The Hosts"] .hosts-opening-grid .host-row h3{margin-top:0}
+.leaf[data-tab="The Hosts"] .hosts-opening-grid .host-row p{font-size:19px;line-height:1.45}
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -694,11 +715,9 @@ em{font-style:italic}
           <div class="inner">
             <div class="runhead"><span class="ch">Chapter II</span><span class="bk">The four hosts</span></div>
             <h2>The Four Hosts</h2>
-            <div class="plate-spread band">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
-            </div>
+            <div class="hosts-opening-plate" role="img" aria-label="Painted Albion warriors in blue woad, carrying round shields and spears across the ancient island."></div>
             <div class="body2">
-              <p class="dropcap">The hosts are overlapping cultural, political and magical factions. They are not four nations with four borders, and a man may stand inside more than one of them depending on who is asking and what day it is.</p>
+              <p class="dropcap">The hosts are overlapping cultural, political and magical factions. They are not four nations with four borders. An Albion warrior may stand among more than one host, according to allegiance, custom and circumstance.</p>
             </div>
           </div>
           <span class="folio">9</span>
@@ -708,10 +727,8 @@ em{font-style:italic}
           <div class="inner">
             <div class="runhead"><span class="ch">Chapter II</span><span class="bk">Blue, Red, Green, Grey</span></div>
             <h2>Blue, Red, Green, Grey</h2>
-            <div class="plate-spread band">
-              <div class="art" style="background-image:url('assets/cover/albion-cover-1920x1080.jpg')"></div>
-            </div>
-            <div class="hosts two">
+            <p class="hosts-opening-intro">Four overlapping hosts, four ways of fighting for Albion.</p>
+            <div class="hosts two hosts-opening-grid">
               <div class="host-row">
                 <svg viewBox="0 0 62 62" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M31 56V30M31 30c-4-8-12-10-14-20-6 2-10-2-11-8M31 30c4-8 12-10 14-20 6 2 10-2 11-8M17 10 10 4M45 10l7-6"/></svg>
                 <div><h3>Blue</h3><p>Alfran Longbritches. Reform, standardisation and foreign ideas, carried on a loch-beast with a throne saddle.</p></div>

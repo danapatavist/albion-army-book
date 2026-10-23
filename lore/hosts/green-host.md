@@ -18,3 +18,9 @@ The exact command structure and Robin Fair's formal authority are not settled.
 
 ## See also
 [Four Hosts](four-hosts.md).
+
+## Champion traditions and mist archery
+
+Green, like Blue, fields **Long Long Bow Champions** and **Woodchopper Champions**: elite sporting champions whose skill comes from contests and traditional work as much as warfare. Every Long Long Bow Champion has a personally trained bird to mark targets through Albion's mist; birds are difficult to kill. Their bows are individually made and not all enormous; Robin Fair himself is an extraordinary archer with an ordinary-sized bow. **Red and Grey do not normally field these two champion units.** Ordinary Albion missile troops remain a separate matter.
+
+See [Long Long Bow Champions](../units/long-long-bow-champions.md).

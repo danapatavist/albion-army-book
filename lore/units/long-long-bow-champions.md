@@ -9,6 +9,9 @@ publication: requires-approval
 
 # Long Long Bow Champions
 
+## Host availability
+**Long Long Bow Champions and Woodchopper Champions are shared elite traditions of the Blue and Green Hosts.** Red and Grey do not normally field these champion units. This restriction applies to the champion formations, not necessarily to ordinary archers or their common equipment.
+
 ## Established lore
 Albion's ordinary archers are a standard troop type, with **bow**, **sling and round shield**, or **javelin and round shield** as proposed equipment paths. Beyond these ordinary bowmen stand the **Long Long Bow Champions**, an elite rank of celebrated archers. This is a **two-tier** distinction, not three tiers: there is no separate intermediate "Bow Champion" troop type.
 
@@ -27,4 +30,4 @@ Albion bowmen may ignore mist- or fog-related penalties to shooting **when a fri
 **Woodchopper Champions** are another elite formation: dangerous axe-men whose prestige comes from chopping competitions and practical mastery, not necessarily from noble birth or military service. Sporting championships can confer genuine authority and celebrity in Albion.
 
 ## Unresolved
-Exact points, profiles, rule wording, host availability, bird survivability and limits remain open for playtesting.
+Exact points, profiles, rule wording, any exceptional cross-host recruitment, bird survivability and limits remain open for playtesting.

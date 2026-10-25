@@ -22,7 +22,7 @@ publication: requires-approval
 
 ## Background wall
 
-A tall fortified stone wall appears behind the Orcs in this illustration. **Its identity is not established in canon.** It may be read simply as an Orc-held stronghold or a fortress under assault; avoid naming the location without further agreement.
+The generated image incorrectly shows a huge medieval-style masonry castle. **Such castles do not exist in Albion.** Treat that wall as an artwork error, not setting canon. Future revision should replace it with appropriate indigenous Albion fortifications—Bronze/Iron Age hillfort earthworks, timber palisades, ditches, standing stones, or low ancient ruins—without changing the chariot, lions, Oiler, or battle action. The particular site remains unnamed.
 
 ## Source artwork
 
